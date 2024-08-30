@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html class=' ' id=''>
+<head>
+<meta charset='utf-8'>
+<title>Learn Enough to Be Dangerous</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<script src='//use.typekit.net/nbl5sqs.js'></script>
+<script>
+try{Typekit.load({ async: true });}catch(e){}
+</script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="9fXXCkVHtcLEuT6FkH12k8Y6ArzP4/CYkjNsLAijIFOiyYa+1OZFLPTAR+LY9WUjAgYlIBVPmK8BSkyuW+NywA==" />
+<meta content='Learn Enough to Be Dangerous is designed to unleash your technical genius by teaching you technical sophistication.' name='description'>
+<meta content='https://www.learnenough.com' property='og:url'>
+<meta content='Learn Enough to Be Dangerous' property='og:title'>
+<meta content='Learn Enough to Be Dangerous is designed to unleash your technical genius by teaching you technical sophistication.' property='og:description'>
+<meta content='Learnenough.com' property='og:site_name'>
+<meta content='http://softcover-static.s3.amazonaws.com/og_le.png' property='og:image'>
+<meta content='https://softcover-static.s3.amazonaws.com/og_le.png' property='og:image:secure_url'>
+<meta content='image/png' property='og:image:type'>
+<meta content='500' property='og:image:width'>
+<meta content='500' property='og:image:height'>
+<link href='/favicon-le.png' rel='icon'>
+<link href='/le/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed'>
+
+<link rel="stylesheet" media="screen" href="https://www.learnenough.com/assets/novo_le-d33e7afd19159aeabb1fdd24354c02f4283979a11fd8d7e3409d6c048ed9eaed.css" />
+<script>
+  window.Config = {
+    env: "production",
+    bucket: "softcover",
+    previewBucket: "softcover-cloud",
+    userId: false
+  }
+</script>
+<script async data-version='4' log-level='warn' src='https://www.paypalobjects.com/api/checkout.js' type='text/javascript'></script>
+<script src='https://js.braintreegateway.com/web/3.42.0/js/client.min.js' type='text/javascript'></script>
+<script src='https://js.braintreegateway.com/web/3.42.0/js/paypal-checkout.min.js' type='text/javascript'></script>
+<script src='//code.jquery.com/jquery-2.0.3.min.js' type='text/javascript'></script>
+<script src='//cdn.jsdelivr.net/formalize/0.1/js/jquery.formalize.min.js' type='text/javascript'></script>
+<script src='//cdn.jsdelivr.net/underscorejs/1.6.0/underscore-min.js' type='text/javascript'></script>
+<script async src='https://js.stripe.com/v3/' type='text/javascript'></script>
+<script src='https://www.google.com/jsapi' type='text/javascript'></script>
+<script src='https://kit.fontawesome.com/87949e96a1.js' type='text/javascript'></script>
+<script id="pap_x2s6df8d" src="https://learnenough.postaffiliatepro.com/scripts/trackjs.js" type="text/javascript"></script>
+<script type="text/javascript" id="pap_x2s6df8d" src="https://learnenough.postaffiliatepro.com/scripts/voa0j7"></script>
+<script src="https://www.learnenough.com/assets/application-f6489d7de152682dafc45ea684c90b1bd0fc873124d62d2513431d1c28525423.js"></script>
+
+<meta content='n4FYakgLVe1smRPU7gMdoXLgAUHVQDHevdSPlKGqLO4' name='google-site-verification'>
+<meta content='on' name='twitter:widgets:csp'>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WG4J29S');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRZX7BZ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Analytics Here -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46858978-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'UA-46858978-2', { 'optimize_id': 'GTM-M9B6M8R'});
+  gtag('config', 'AW-951733091');
+</script>
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/54eea5d20a23b37d87000040.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0023/6713.js" async="async"></script>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '120259081996654', {
+    em: '',
+  });
+
+  fbq('track', 'PageView');
+
+
+
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=120259081996654&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+</head>
+<body class='mobile'>
+<script>
+  if ($(window).width() >= 900) {
+    $('body').removeClass('mobile');
+  };
+</script>
+<div class='container topHeader'>
+
+<div class='le_sidemenu checkout_sidemenu'>
+<div class='checkout-close'>
+<a onClick="$(&#39;.le_sidemenu&#39;).removeClass(&#39;open&#39;);$(&#39;.le_sidemenu-bg&#39;).removeClass(&#39;open&#39;);" href="javascript://"><i class='fas fa-times'></i>
+</a></div>
+<div class='page-form'>
+<div id='j_cartForm'><div id='j_checkoutFormWr'>
+<form id="j_checkoutForm" action="/cart/complete" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="qW1ribMfsoSvJLcDTILKjMVLFaH9QMe+DuG0Q5ezcKShW2+MsHf0gbyArtm6j3Mxljdsq3d7cBfIyHMaHqumCw==" />
+<input type="hidden" name="pap_custom" value="" id="pap_tdx8v2s5a" />
+<h5 class='header-with-link'>
+Create Account
+<span>
+(or
+<a class="fancylink_stand-bg" href="/login?after=%2Flegal%23cart-checkout">log in</a>
+)
+</span>
+</h5>
+<div>
+<label for="cart_new_user_email">Email</label>
+<input type="email" name="cart[new_user_email]" id="cart_new_user_email" required="required" autocomplete="email" />
+</div>
+<div>
+<label for="cart_new_user_username">Public Username</label>
+<input type="text" name="cart[new_user_username]" id="cart_new_user_username" required="required" autocomplete="username" />
+</div>
+<div>
+<label for="cart_new_user_password">Password</label>
+<input type="password" name="cart[new_user_password]" id="cart_new_user_password" required="required" autocomplete="new-password" />
+</div>
+<div>
+<label for="cart_new_user_password_confirmation">Password Confirmation</label>
+<input type="password" name="cart[new_user_password_confirmation]" id="cart_new_user_password_confirmation" required="required" autocomplete="new-password" />
+</div>
+<div class='optin-wr'>
+<div class='optin-error_msg'>You have to make a choice. Choose...wisely.</div>
+<label class='fancyCheckLabel optin-check'>
+<input id='cart-opt-in' name='cart[new_user_opt_in]' type='radio' value='1'>
+receive announcement and update emails?
+<label></label>
+</label>
+<p class='optin-msg'>
+Get occasional notifications about things like product discounts, blog posts, and new or updated tutorials. Unsubscribe at any time.
+
+</p>
+<label class='fancyCheckLabel optout-check'>
+<input id='cart-opt-out' name='cart[new_user_opt_in]' type='radio' value='0'>
+No thanks.
+<label></label>
+</label>
+</div>
+<div class='checkout_gifting' id='gift-options'>
+<label class='fancyCheckLabel'>
+<input name='cart[is_gift]' onclick='toggleGiftForm($(event.target))' type='checkbox'>
+Is this a gift?
+<label></label>
+</label>
+<div class='checkout_gifting-form' id='gift-form'>
+<h5>Gift Delivery Options</h5>
+<div>
+<label class='fancyCheckLabel'>
+<input checked name='cart[gift][to_print]' onchange='togglePrint()' type='radio' value='0'>
+<label></label>
+Send Gift by Email
+<small>(We’ll email the recipient for you)</small>
+</label>
+</div>
+<div>
+<label class='fancyCheckLabel'>
+<input name='cart[gift][to_print]' onchange='togglePrint()' type='radio' value='1'>
+<label></label>
+Print Gift Yourself
+<small>(Give the gift in a card/envelope)</small>
+</label>
+</div>
+<div>
+<label for="cart_gift_from_name">From Name</label>
+<input type="text" name="cart[gift][from_name]" id="cart_gift_from_name" />
+</div>
+<div>
+<label for="cart_gift_name">Recipient Name</label>
+<input type="text" name="cart[gift][name]" id="cart_gift_name" />
+</div>
+<div id='gift_recipient_email'>
+<label for="cart_gift_email">Recipient Email</label>
+<input type="email" name="cart[gift][email]" id="cart_gift_email" />
+</div>
+<div>
+<label for="cart_gift_message">Personalized Gift Message (optional)</label>
+<textarea name="cart[gift][message]" id="cart_gift_message" rows="3" style="min-height:auto">
+</textarea>
+</div>
+<div id='gift_delivery_date'>
+<label for="cart_gift_to_deliver_at">Delivery Date (MM/DD/YYYY - Optional)</label>
+<input type="date" name="cart[gift][to_deliver_at]" id="cart_gift_to_deliver_at" placeholder="MM/DD/YYYY" />
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    window.toggleGiftForm = function(ch) {
+      return $('#gift-form').toggle(ch.is(':checked'));
+    };
+  
+    window.togglePrint = function() {
+      return $('#gift_recipient_email, #gift_delivery_date').toggle($('input[name="cart[gift][to_print]"]:checked').val() === '0');
+    };
+  
+    $(function() {
+      return toggleGiftForm($('#gift-options input[name="cart[is_gift]"]'));
+    });
+  
+  }).call(this);
+</script>
+<div class='cartNotFree' id='j_quickCheckout'>
+<h5>Quick Checkout</h5>
+<div id='payment-request-button'></div>
+<div class='paypal-wr'>
+<div id='paypal-button'></div>
+<div id='paypal-details' style='display:none'>
+<strong>Using PayPal Account:</strong>
+<br>
+<span id='paypal-name'></span>
+(
+<span id='paypal-email'></span>
+)
+<br>
+<a href='javascript://' id='cancel-paypal-btn' onclick='Purchase.cancelPaypal()'>Change</a>
+</div>
+</div>
+
+<h5>or Pay by Credit Card</h5>
+<div class='creditCardInput'>
+<div id='j_cc_form'>
+<div class='checkoutFull'>
+<label>Card Info</label>
+<div class='card-element' id='card-element'></div>
+<div id='card-errors'></div>
+</div>
+</div>
+</div>
+</div>
+<div class='le_cart-errors userErrors'></div>
+<div class='le_cart-errors purchaseErrors'></div>
+<div class='le_cart-errors checkoutOptinErrors'>
+<h5>Error processing your payment</h5>
+<ul>
+<li>You didn't choose whether or not to be added to the mailing list</li>
+</ul>
+</div>
+<h5>Confirm</h5>
+<div class='cart_lastconfirm'>
+<label>Total Today</label>
+<div id='j_cartTotal'>$0.00</div>
+<label>(7 day free trial - Payment will be charged after trial ends)</label>
+</div>
+<div class='cart'></div>
+<div class='submitWr'>
+<script async='' defer='defer' src='https://www.google.com/recaptcha/api.js'></script>
+<button class='g-recaptcha j_submitButton danger' data-callback='onSubmit' data-sitekey='6LeUMkckAAAAACfQJqE0y43Fa8pSrKJKBWT3_yKQ'>
+Complete Checkout
+</button>
+</div>
+<div class='payment-details'>
+<img class="payment-cards" src="https://www.learnenough.com/assets/payment-d6532f21f3d0117c7b88578c5666d2abf8598dc306db1198909969d73efb9de6.webp" />
+<p>
+Payments and credit card details are securely managed and protected by Learn Enough's payment processor, Stripe. More information on their site:
+<br>
+<a target="_blank" class="stripeLogo" href="https://www.stripe.com"><img src="https://www.learnenough.com/assets/stripe-697e04c779dd1f74593ce93803987137493cffc44c593b5a73399025cf64820a.webp" /></a>
+</p>
+</div>
+<script>
+  $(function(){
+    Cart.init({
+      availableBundles: [{"id":6,"name":"Learn Enough JavaScript to Be Dangerous","code":"learn_enough_javascript","price_in_dollars":29.0,"book_ids":[301]},{"id":1,"name":"Learn Enough Command Line to Be Dangerous","code":"learn_enough_command_line","price_in_dollars":19.0,"book_ids":[164]},{"id":7,"name":"Learn Enough Ruby to Be Dangerous","code":"learn_enough_ruby","price_in_dollars":29.0,"book_ids":[305]},{"id":2,"name":"Learn Enough Text Editor to Be Dangerous","code":"learn_enough_text_editor","price_in_dollars":19.0,"book_ids":[183]},{"id":3,"name":"Learn Enough Git to Be Dangerous","code":"learn_enough_git","price_in_dollars":19.0,"book_ids":[191]},{"id":15,"name":"Ruby on Rails Tutorial 6th Edition","code":"ruby_on_rails_tutorial_6th_edition","price_in_dollars":39.0,"book_ids":[319]},{"id":4,"name":"Learn Enough HTML to Be Dangerous","code":"learn_enough_html","price_in_dollars":19.0,"book_ids":[234]},{"id":5,"name":"Learn Enough CSS \u0026 Layout to Be Dangerous","code":"learn_enough_css","price_in_dollars":29.0,"book_ids":[268]},{"id":8,"name":"Ruby on Rails Tutorial (Rails 5)","code":"ruby_on_rails_tutorial_4th_edition","price_in_dollars":39.0,"book_ids":[216]},{"id":9,"name":"Learn Enough Action Cable to Be Dangerous","code":"learn_enough_action_cable","price_in_dollars":19.0,"book_ids":[322]},{"id":14,"name":"Application Development","code":"application_development","price_in_dollars":39.0,"book_ids":[439,305,438,319,216,322]},{"id":11,"name":"Developer Fundamentals","code":"developer_fundamentals","price_in_dollars":19.0,"book_ids":[164,183,191]},{"id":17,"name":"Learn Enough Python to Be Dangerous","code":"learn_enough_python","price_in_dollars":39.0,"book_ids":[439]},{"id":16,"name":"Ruby on Rails Tutorial 7th Edition","code":"ruby_on_rails_tutorial_7th_edition","price_in_dollars":39.0,"book_ids":[438]},{"id":13,"name":"Beginning Development","code":"beginning_development","price_in_dollars":19.0,"book_ids":[301,305]},{"id":12,"name":"Web Basics","code":"web_basics","price_in_dollars":29.0,"book_ids":[234,268,301]},{"id":10,"name":"All Access","code":"all_access","price_in_dollars":49.0,"book_ids":[164,183,191,234,268,439,301,305,216,319,438,322]},{"id":18,"name":"Annual All Access","code":"annual_all_access","price_in_dollars":468.0,"book_ids":[164,183,191,234,268,439,301,305,216,319,438,322]}],
+      stripeKey: "pk_live_Xn1p0BfxqKxkAxtEr03P7wmd",
+      useCardOnFile: false,
+      existingPaymentLabel: "",
+      existingPaymentText: "",
+      discount: false,
+      data: {"courseBundles":[],"bookOptions":[],"subscriptionDiscount":null,"is_gift":null,"totalToday":0.0},
+      braintreeToken: "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpGVXpJMU5pSXNJbXRwWkNJNklqSXdNVGd3TkRJMk1UWXRjSEp2WkhWamRHbHZiaUlzSW1semN5STZJbWgwZEhCek9pOHZZWEJwTG1KeVlXbHVkSEpsWldkaGRHVjNZWGt1WTI5dEluMC5leUpsZUhBaU9qRTNNalV4TURjNU5Ea3NJbXAwYVNJNklqaGlPVEJtWTJZMUxUWTJNekl0TkRnd1pTMDVaR0l5TFRSbE9XVTNPRFZrWVRFeVpTSXNJbk4xWWlJNklqTm1abVF6ZW1KM1luWm9ibU5rTW0waUxDSnBjM01pT2lKb2RIUndjem92TDJGd2FTNWljbUZwYm5SeVpXVm5ZWFJsZDJGNUxtTnZiU0lzSW0xbGNtTm9ZVzUwSWpwN0luQjFZbXhwWTE5cFpDSTZJak5tWm1RemVtSjNZblpvYm1Oa01tMGlMQ0oyWlhKcFpubGZZMkZ5WkY5aWVWOWtaV1poZFd4MElqcDBjblZsZlN3aWNtbG5hSFJ6SWpwYkltMWhibUZuWlY5MllYVnNkQ0pkTENKelkyOXdaU0k2V3lKQ2NtRnBiblJ5WldVNlZtRjFiSFFpWFN3aWIzQjBhVzl1Y3lJNmUzMTkuOHRDemlIQ0xJaGk1S2VoNUhQWWgyU1ZSRUdYZWw2akQxMURqbGJqa3pWSGFwQ29fWXdrc3Jla2NZa3RVX0ZjSFR3bk5Fc3RDLUF4RkR3dXZPc1RPNnciLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzLzNmZmQzemJ3YnZobmNkMm0vY2xpZW50X2FwaS92MS9jb25maWd1cmF0aW9uIiwiZ3JhcGhRTCI6eyJ1cmwiOiJodHRwczovL3BheW1lbnRzLmJyYWludHJlZS1hcGkuY29tL2dyYXBocWwiLCJkYXRlIjoiMjAxOC0wNS0wOCIsImZlYXR1cmVzIjpbInRva2VuaXplX2NyZWRpdF9jYXJkcyJdfSwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuYnJhaW50cmVlZ2F0ZXdheS5jb206NDQzL21lcmNoYW50cy8zZmZkM3pid2J2aG5jZDJtL2NsaWVudF9hcGkiLCJlbnZpcm9ubWVudCI6InByb2R1Y3Rpb24iLCJtZXJjaGFudElkIjoiM2ZmZDN6YndidmhuY2QybSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5jb20iLCJ2ZW5tbyI6Im9mZiIsImNoYWxsZW5nZXMiOltdLCJ0aHJlZURTZWN1cmVFbmFibGVkIjpmYWxzZSwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5icmFpbnRyZWVnYXRld2F5LmNvbS8zZmZkM3pid2J2aG5jZDJtIn0sInBheXBhbEVuYWJsZWQiOnRydWUsInBheXBhbCI6eyJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjpmYWxzZSwidW52ZXR0ZWRNZXJjaGFudCI6ZmFsc2UsImFsbG93SHR0cCI6ZmFsc2UsImRpc3BsYXlOYW1lIjoiTGVhcm4gRW5vdWdoIiwiY2xpZW50SWQiOiJBWUZCVWx2M0dQWkpRNXppb1JWa3J5WE4weXFvY3NFZXhUXzlvVHFRSUNvYWxudVJmUXYyNlRXdFpTSHhYUndiMTBSQnRjLW96bXBBS1VVVyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImVudmlyb25tZW50IjoibGl2ZSIsImJyYWludHJlZUNsaWVudElkIjoiQVJLcllSRGgzQUdYRHpXN3NPXzNiU2txLVUxQzdIR191V05DLXo1N0xqWVNETlVPU2FPdElhOXE2VnBXIiwibWVyY2hhbnRBY2NvdW50SWQiOiJMZWFybkVub3VnaF9pbnN0YW50IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn19",
+      loggedIn: false,
+      hasSubscription: false,
+      currentMonthlyCost: 0,
+      currentCourseBundleIds: [],
+      authenticity_token: "ROnqNfWaWj0CDsH43rXnvagAdLQHvpwbEBWMg1hqB1gT1buBZDuq0zJ3uJ+WPfQNbDxTKN0S9CyDbKwBCypVyw=="
+    })
+  })
+  function onSubmit(token) {
+    return Cart.submitForm(true)
+  }
+</script>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+<div class='le_sidemenu cart_sidemenu'>
+<div class='checkout-close'>
+<a onClick="$(&#39;.le_sidemenu&#39;).removeClass(&#39;open&#39;);$(&#39;.le_sidemenu-bg&#39;).removeClass(&#39;open&#39;);" href="javascript://"><i class='fas fa-times'></i>
+</a></div>
+<div class='page-form le_cart-full' id='j_cart-contain'>
+<h5>CART</h5>
+<div id='j_cart'><div class='j_leCart'>
+<div class='cart-items'>
+</div>
+<h5>Total</h5>
+<div>
+<table class='subscription-total'>
+<tr>
+<td>
+<label>Total Today</label>
+</td>
+<td id='j_totalCartToday'>$0.00</td>
+</tr>
+</table>
+<label>(7 day free trial - Payment will be charged after trial ends)</label>
+</div>
+</div>
+</div>
+<div class='landing-pricing_cta'>
+<a onClick="Cart.sidebarCheckout()" href="javascript://"><button class='attention' id='checkout-now-btn'>Checkout Now</button>
+</a></div>
+</div>
+<div class='page-form le_cart-empty open' id='j_cart-empty'>
+<img class="le_cart-empty_icon" src="https://www.learnenough.com/assets/learnenough/cart_empty-d05104a77de6d5b902a3be3569c6c7ba841d8bcc2530593da0f69dd3764cdb43.webp" />
+<h3>Your Cart is Empty</h3>
+<div class='le_cart-empty_cta'>
+<a href="https://www.learnenough.com/courses"><button class='btn-small attention'>
+See the Tutorials
+</button>
+</a></div>
+</div>
+</div>
+<div class='le_sidemenu-bg' onClick='$(&#39;.le_sidemenu&#39;).removeClass(&#39;open&#39;);$(&#39;.le_sidemenu-bg&#39;).removeClass(&#39;open&#39;);'></div>
+<div class='le_footermenu'>
+<div class='checkout-close'>
+<a onClick="$(&#39;.le_footermenu&#39;).removeClass(&#39;open&#39;)" href="javascript://"><i class='fas fa-times'></i>
+</a></div>
+<div class='le_footermenu_content le_footermenu_change'>
+<div class='le_footermenu_copy'>
+<div class='le_footermenu_cost-current'>
+<label>Current $ /mo</label>
+<div class='j_currentMonthlyCost'>
+$30
+</div>
+</div>
+<div class='le_footermenu_cost-new'>
+<label>
+New $ /
+<div class='j_newBillingInterval'>mo</div>
+</label>
+<div class='j_newMonthlyCost'>
+$300
+</div>
+</div>
+<div class='le_footermenu_cost-today j_costToday'>
+<label>Change</label>
+<div class='j_newTodayCost'>
+$300
+</div>
+</div>
+</div>
+<div class='le_footermenu_cta'>
+<a onClick="Cart.footerCheckout()" href="javascript://"><button class='small attention btn-small'>
+<span id='j_footerCheckoutBtn'>
+Checkout Now / Update Subscription
+</span>
+</button>
+</a><a onClick="Cart.cancel()" href="javascript://"><button class='small danger btn-small'>
+<span id='j_footerCheckoutBtn'>
+Cancel
+</span>
+</button>
+</a></div>
+</div>
+<div class='le_footermenu_content le_footermenu_confirm'>
+<div class='le_footermenu_copy'>
+<div class='le_footermenu_cost-new'>
+<label>
+Just to confirm, new $ /
+<div class='j_newBillingInterval'>mo</div>
+</label>
+<div class='j_newMonthlyCost'>$XY</div>
+</div>
+<div class='le_footermenu_cost-new j_costToday'>
+<label class='j_costTodayLabel'>Cost Today</label>
+<div class='j_newTodayCost'>$XY</div>
+</div>
+<div class='le_footermenu_cost j_existingPayment'>
+<label class='j_existingPaymentLabel'>On card ending</label>
+<div class='j_existingPaymentText'>1234</div>
+</div>
+</div>
+<div class='le_footermenu_cta'>
+<a onClick="Cart.footerConfirmChange()" href="javascript://"><button class='small menu_warning-btn btn-small'>
+<span id='j_footerConfirmChangeBtn'>
+Confirm Change
+</span>
+</button>
+</a><a onClick="Cart.cancel()" href="javascript://"><button class='small menu_warning-btn danger btn-small'>
+<span id='j_footerCheckoutBtn'>
+Cancel
+</span>
+</button>
+</a></div>
+</div>
+</div>
+
+<div class='site-header'>
+<div class='side-menu-toggle'>
+<a class="side-menu-close" href="javascript://"><i class='fas fa-times'></i>
+</a><a class="side-menu-open" href="javascript://"><i class='fas fa-bars'></i>
+</a></div>
+<nav class='nav'>
+<a class="logoLink artLogo" href="/"><div class='svg le-logo'><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 801 1041" style="enable-background:new 0 0 801 1041;" xml:space="preserve">
+<path d="M569.9,478.6l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H410.5l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.5,0.5h135.1l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-89.9h77l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-81H569.9z M544.2,412.6l17.3,17.3H436.2L419,412.6H544.2z M414,417.6l17.3,17.3v348.7L414,766.3V417.6z M544.2,729.5l17.3,17.3H488v-17.3H544.2z M539.2,566.6l17.3,17.3H488v-17.3H539.2z M484.5,471.6l-3.5,3.5v112.3l3.5,3.5h77v34.7h-77l-3.5,3.5v121.2l3.5,3.5h81.9v34.7H438.3V436.9h128.1v34.7H484.5z"/>
+<path d="M401.5,747.8l-24.3-24.3l-2.5-1h-55.7V433.4l-0.2-0.2l-0.8-2.3l-24.3-24.3l-2.5-1h-49.7l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.6,0.6H399l3.5-3.5v-41.7L401.5,747.8z M373.3,729.5l17.3,17.3h-71.5v-17.3H373.3z M307.1,429.9h-39.8l-17.3-17.3h39.8L307.1,429.9z M245.1,417.6l17.3,17.3v348.7l-17.3-17.3V417.6z M395.5,788.5H269.4V436.9h42.7v313.4l3.5,3.5h79.9V788.5z"/>
+<path d="M691.8,600.3c0-77.2-30-149.7-84.6-204.3c-47.3-47.3-108.2-76.2-173.9-83c0.4-22.2,0.6-35.3,0.6-35.7l-2.6-3.8c-1.8-0.6-3.5-2.2-5.1-4.2l5.1,0c1.8,0.1,22.1,0.8,33.2-11.2c5.5-6,8.5-14,8.5-23.4l0.1-13.3l-3.5-3.5l-16-0.1l-3.5,3.5l-0.1,13.3c0,3.3-0.7,5.5-2.4,7.3c-3.7,4-12.4,4.9-15.4,4.9l-11.9,0c1.4-13.4,3.7-39.7,3.9-72.2c0.1-34.4-5.7-68.9-6.6-73.7c4.9-5.8,7.6-13.5,7.6-21.6C425.2,62,413,47.9,398,47.8c0,0-0.1,0-0.1,0c-15,0-27.2,14-27.3,31.2c0,8.1,2.6,15.8,7.5,21.7c-0.9,4.8-7,39.3-7.2,73.6c-0.1,32.5,2,58.9,3.3,72.3l-11.1,0c-1.8-0.1-22.1-0.8-33.2,11.2c-5.5,6-8.5,14-8.5,23.4l-0.1,13.3l3.5,3.5l16.2,0.1l3.5-3.5l0.1-13.3c0-3.3,0.7-5.5,2.4-7.3c3.7-4,12.3-4.9,15.3-4.9l5.9,0c-1.6,1.9-3.4,3.5-5.2,4.1l-2.6,3.8c0,0.5,0.2,14.2,0.6,37.4c-61.2,8.9-117.8,37.1-162.3,81.6C144.1,450.6,114,523.1,114,600.3s30,149.7,84.6,204.3c49,49,112.4,78.2,180.7,83.7c6.4,96.9,11.7,103.7,14.1,106.6l3.3,2.6l2.9-2.6c2.4-2.9,7.8-9.7,14.3-105.9c73-2.7,141.3-32.4,193.2-84.4C661.8,750,691.8,677.5,691.8,600.3z M377.6,79.1c0.1-13.4,9.1-24.2,20.3-24.2c0,0,0,0,0.1,0c7.7,0,14.5,5.3,17.8,13l-10.6-4.3c1.1,1.6,2.1,3.4,2.8,5.5l9.4,3.8c0.5,2,0.7,4.2,0.7,6.4c0,0.2,0,0.5,0,0.7l-8.4-3.4c0.1,0.8,0.1,1.7,0.1,2.5c0,0.6,0,1.2-0.1,1.8l8,3.2c-0.4,2.1-1,4.2-1.8,6.1l-7.3-2.9c-0.4,1.3-0.9,2.6-1.4,3.7l6.8,2.8c-0.6,1-1.3,1.9-2,2.8c-0.7,0.8-1.5,1.6-2.3,2.3l-0.8-0.3l-5.3-2.2c-1.1,1.2-2.3,2.1-3.6,2.9l5.7,2.3c-2.5,1.2-5.1,1.9-7.9,1.9c-5.3,0-10.3-2.5-14.1-7C379.8,91.9,377.6,85.7,377.6,79.1z M377.9,174.4c0.1-28.2,4.4-57,6.3-68.1c4.1,2.7,8.7,4.2,13.5,4.2c0,0,0.1,0,0.1,0c4.8,0,9.4-1.4,13.5-4.1c0.2,1.3,0.5,2.9,0.7,4.7l-2.1-0.9l-2.9,3.1l5.7,2.3c0.3,2.2,0.6,4.6,1,7.3l-17.4-7.1c0.2,1.4,0.4,3,0.6,4.6l17.3,7c0.3,2.3,0.5,4.7,0.8,7.2l-17.2-7c0.2,1.5,0.3,3,0.5,4.5l17.2,7c0.2,2.3,0.4,4.7,0.6,7.1l-19.6-8c-1.7,0.1-3.7-0.4-3.7-0.4s0.8,1.7,1.9,4l21.7,8.8c0.2,2.3,0.3,4.7,0.4,7l-18.3-7.4c0.9,2.1,1.5,3.9,1.7,5l16.8,6.8c0.1,2.3,0.1,4.6,0.2,6.9l-16.6-6.7c0.1,1.5,0.1,2.9,0.1,4.4l16.5,6.7c0,0.4,0,0.8,0,1.2c0,1.9,0,3.8,0,5.7l-16.7-6.8c-1.1,1.7-5.8-0.2-5.8-0.2s0.4,1,0.9,2.5l21.6,8.7c0,2.3-0.1,4.6-0.2,6.8l-18.6-7.5c0.6,1.8,1.2,3.6,1.6,5l16.9,6.8c-0.1,2.3-0.2,4.6-0.3,6.8l-16.2-6.6c0,1.5-0.1,2.9-0.2,4.3l16.2,6.6c-0.1,2.3-0.2,4.5-0.4,6.7l-16.1-6.5c0,0.7-0.1,1.4-0.1,2.1c0,0.9-0.4,1.4-0.8,1.8l16.8,6.8c-0.1,2.3-0.3,4.5-0.5,6.7l-20-8.1c0.3,1.4,0.7,3.1,1.1,4.7l18.6,7.6c-0.2,2.3-0.4,4.6-0.6,6.6l-16.6-6.8c0.3,1.8,0.4,3.3,0.4,4.1c0,0.1,0,0.2,0,0.3l15.9,6.5c-0.2,2.5-0.5,4.7-0.7,6.6l-15.9-6.4c-0.1,1.5-0.3,2.9-0.4,4.2l8,3.2l-23.7-0.1C380,233.6,377.8,207,377.9,174.4z M362.3,262.1c-1.4,0-14,0.2-20.4,7.1c-2.8,3-4.2,7-4.2,12l0,9.8l-9.2,0l0-9.8c0-7.5,2.3-14,6.6-18.6l0,0c9.1-9.8,27.6-9,27.8-9l69.2,0.2c1.4,0,14.1-0.2,20.6-7.1c2.8-3,4.2-7,4.2-12l0-9.8l9,0l0,9.8c0,7.5-2.3,14-6.6,18.6c-9.1,9.8-27.6,9-27.8,9L362.3,262.1z M407.6,348.5l1.1,0.4h-1.1L407.6,348.5z M403.6,348.9h-5.3l-3.5-79.8l17.2,0.1L403.6,348.9z M408.1,344.3l0.7-6.6l15.9,6.4c0,1.6-0.1,3.1-0.1,4.7h-5.2L408.1,344.3z M409.2,333.6l0.7-6.6l15,6.1c0,2.2-0.1,4.5-0.1,6.8L409.2,333.6z M410.3,322.9l0.7-6.6l14.1,5.7c0,2.2-0.1,4.5-0.1,6.8L410.3,322.9z M411.5,312.2l0.7-6.6l13.1,5.3c0,2.2-0.1,4.5-0.1,6.8L411.5,312.2z M412.6,301.4l0.7-6.6l12.2,4.9c0,2.1-0.1,4.4-0.1,6.8L412.6,301.4z M413.7,290.7l0.7-6.6l11.3,4.6c0,2-0.1,4.3-0.1,6.8L413.7,290.7z M414.9,280l0.7-6.6l5.5,2.2c1.5,1.6,3.1,3,4.8,4c0,1.2,0,2.8-0.1,4.8L414.9,280z M416,269.3L416,269.3l0.3,0c0,0.1,0.1,0.1,0.1,0.2L416,269.3z M390.3,348.9h-20.7c-0.7-36.5-1.1-61.7-1.2-69.5c3.9-2.4,7.2-6.4,9.6-10.3l8.8,0L390.3,348.9z M392.6,951.2c-2-18-4.2-44.3-6.4-82.7c-0.3-5.2-0.6-10.6-0.9-16.2h7.4l2.5,115.9L392.6,951.2z M400.7,959.3l-0.1-20.9l1,0.2C401.4,940.3,400.8,957.7,400.7,959.3z M401.6,934.5l-1-0.4v-6.9l1.7,0.7C402.1,930.2,401.8,932.4,401.6,934.5z M402.7,923.8l-2.2-0.9v-6.9l2.8,1.1C403.2,919.4,403,921.6,402.7,923.8z M403.8,913l-3.2-1.3l0-6.9l3.8,1.6C404.2,908.7,404,910.9,403.8,913z M404.8,902.3l-4.2-1.7v-6.9l4.8,1.9C405.2,897.8,405,900.1,404.8,902.3z M405.7,891.4l-5.1-2.1l0-6.9l5.6,2.3C406,887,405.9,889.2,405.7,891.4z M406.5,880.6l-5.9-2.4l0-6.9l6.4,2.6C406.8,876.1,406.6,878.4,406.5,880.6z M407.3,868.6c0,0.4,0,0.7-0.1,1.1l-6.6-2.7l0-6.9l7,2.8C407.5,864.9,407.4,866.8,407.3,868.6z M407.9,858.8l-7.3-2.9l0-3.5h7.6C408.1,854.5,408,856.6,407.9,858.8z M414.5,880.9c0.6-8.8,1.2-18.3,1.7-28.6h27v-7h-91v7h25c0.6,10,1.1,19.2,1.6,27.8c-66-5.6-127.2-33.9-174.6-81.2C151.2,745.9,122,675.3,122,600.3s29.2-145.6,82.3-198.6c43.1-43.1,97.6-70.4,156.8-79.2c0.1,7.9,0.3,16.8,0.5,26.4h-16.1v7h109.8v-7h-22.7c0.2-10.2,0.4-19.6,0.5-27.9c63.6,6.8,122.6,34.8,168.4,80.7c53.1,53.1,82.3,123.6,82.3,198.6s-29.2,145.6-82.3,198.6C551.2,849.2,485.2,878.1,414.5,880.9z"/>
+</svg>
+</div>
+<span>LEARN ENOUGH</span>
+</a><ul class='headerMenu'>
+<li>
+<a href='tel:1 (888) 979-2398'>
+1 (888) 979-2398
+</a>
+</li>
+<li><a href="https://www.learnenough.com/courses">Courses</a></li>
+<li><a href="https://www.learnenough.com/plans">Plans</a></li>
+<li><a href="https://www.learnenough.com/gifting">Gifting</a></li>
+<li><a href="https://www.learnenough.com/ruby-on-rails-7th-edition">The Rails Tutorial</a></li>
+<li><a href="https://www.learnenough.com/for-teams">For Teams</a></li>
+<li><a href="https://www.learnenough.com/blog">Blog</a></li>
+<li><a href="https://www.learnenough.com/login">Log In</a></li>
+<li class='header-cart'>
+<a onClick="Cart.openCart()" class="header-cart_link" href="javascript://"><i class='fas fa-shopping-cart'></i>
+<span class='header-cart_label'>Cart</span>
+</a></li>
+<li>
+<a class="header_search-icon" href="javascript://"><i class='fas fa-search'></i>
+</a><div class='header_search'>
+<form action='//www.learnenough.com/search' method='get'>
+<input id='j_searchInput' name='q' placeholder='Search in tutorials...' type='text'>
+</form>
+</div>
+</li>
+</ul>
+</nav>
+<div id='dropBG'></div>
+</div>
+
+<div class='le-content'>
+
+<div class='lePage'>
+<h1>
+Terms and Conditions
+<span class='sub-title'>effective date: February 26, 2016</span>
+</h1>
+<p>Welcome to Learn Enough, the website and mobile service of Softcover, Inc. (“Softcover,” “Learn Enough,” “softcover.io,” “learnenough.com,” “we,” or “us”). This page explains the terms by which you may use our online and/or mobile services, website, and software provided on or in connection with the service (collectively the “Service”). By accessing or using the Service, you signify that you have read, understood, and agree to be bound by this Terms of Service Agreement (“Agreement”) and to the collection and use of your information as set forth in the Learn Enough Privacy Policy , whether or not you are a registered user of our Service. This Agreement applies to all visitors, users, and others who access the Service (“Users”).</p>
+<p>PLEASE READ THIS AGREEMENT CAREFULLY TO ENSURE THAT YOU UNDERSTAND EACH PROVISION. THIS AGREEMENT CONTAINS A MANDATORY ARBITRATION OF DISPUTES PROVISION THAT REQUIRES THE USE OF ARBITRATION ON AN INDIVIDUAL BASIS TO RESOLVE DISPUTES, RATHER THAN JURY TRIALS OR CLASS ACTIONS.</p>
+<h2>Use of Our Service</h2>
+<p>Learn Enough provides an online interactive platform for taking coding classes.</p>
+<h2>Eligibility</h2>
+<p>This is a contract between you and Learn Enough. You must read and agree to these terms before using the Learn Enough Service. If you do not agree, you may not use the Service. If you are a child under 13 years of age, we may need your parent or guardian’s consent before allowing you to use the Service. Supplemental terms and conditions may apply to some Services, such as rules for a particular competition, promotion, service or other activity, or terms that may accompany certain content accessible through the Services. Supplemental terms and conditions will be disclosed to you in connection with such competition, service or activity. Any supplemental terms and conditions are in addition to these terms and, in the event of a conflict, prevail over these terms. The Service is not available to any Users previously removed from the Service by Learn Enough.</p>
+<h2>Learn Enough Service</h2>
+<p>Subject to the terms and conditions of this Agreement, you are hereby granted a non-exclusive, limited, non-transferable, freely revocable license to use the Service for your personal, noncommercial use only and as permitted by the features of the Service. Learn Enough reserves all rights not expressly granted herein in the Service and the Learn Enough Content (as defined below). Learn Enough may terminate this license at any time for any reason or no reason.</p>
+<h2>Learn Enough Accounts</h2>
+<p>Your Learn Enough account gives you access to the services and functionality that we may establish and maintain from time to time and in our sole discretion. By connecting to Learn Enough with a third-party service (for example, Facebook or Twitter), you give us permission to access and use your information from that service as permitted by that service, and to store your log-in credentials for that service.</p>
+<p>You may never use another User’s account without permission. When creating your account, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account, and you must keep your account password secure. We encourage you to use “strong” passwords (passwords that use a combination of upper and lower case letters, numbers and symbols) with your account. You must notify Learn Enough immediately of any breach of security or unauthorized use of your account. Learn Enough will not be liable for any losses caused by any unauthorized use of your account.</p>
+<p>You may control your User profile and how you interact with the Service by changing the settings in your “account settings” page. By providing Learn Enough your email address you consent to our using the email address to send you Service-related notices, including any notices required by law, in lieu of communication by postal mail. We may also use your email address to send you other messages, such as changes to features of the Service and special offers. If you do not want to receive such email messages, you may opt out or change your preferences in your “account settings” page. Opting out may prevent you from receiving email messages regarding updates, improvements, or offers.</p>
+<h2>School Accounts</h2>
+<p>If you are a School seeking to utilize the Service for educational purposes, you may create accounts for your Students via our Pupil Dashboard. Once the accounts have been created, Teacher will be able to view the progress and completion statistics of students via the Pupil Dashboard. By submitting Student information to Learn Enough, you expressly grant, and you represent and warrant that you have all rights necessary to grant, to Learn Enough a non-exclusive, royalty-free, worldwide license during the term of the Agreement to use, transmit, distribute, modify, reproduce, display, create derivative works of, and store the Student data solely for the purposes of (i) providing the Services as contemplated in these Terms, and (ii) enforcing its rights under the Agreement.</p>
+<p>The Children’s Online Privacy and Protection Act (“COPPA”) requires that online service providers obtain clear and verifiable parental consent before receiving personal information from children under 13. Because Learn Enough provides the Service to School to benefit and enhance the School’s curriculum, Learn Enough RELIES ON SCHOOL TO OBTAIN AND PROVIDE APPROPRIATE CONSENT, IF NEEDED, TO COLLECT STUDENT INFORMATION. School represents and warrants that School has the authority to provide consent for Learn Enough to collect information from students before allowing students under 13 to access our Service, and that School has provided appropriate disclosures to students and parents regarding School’s sharing of Student Data with service providers such as Learn Enough. We recommend that School provide a copy of our Privacy Policy to parents and guardians.</p>
+<h2>Service Rules</h2>
+<p>You agree not to engage in any of the following prohibited activities: (i) copying, distributing, or disclosing any part of the Service in any medium, including without limitation by any automated or non-automated “scraping”; (ii) using any automated system, including without limitation “robots,” “spiders,” “offline readers,” etc., to access the Service in a manner that sends more request messages to the Learn Enough servers than a human can reasonably produce in the same period of time by using a conventional on-line web browser (except that Learn Enough grants the operators of public search engines revocable permission to use spiders to copy materials from learnenough.com or learnenough.com for the sole purpose of and solely to the extent necessary for creating publicly available searchable indices of the materials, but not caches or archives of such materials); (iii) transmitting spam, chain letters, or other unsolicited email; (iv) attempting to interfere with, compromise the system integrity or security or decipher any transmissions to or from the servers running the Service; (v) taking any action that imposes, or may impose at our sole discretion an unreasonable or disproportionately large load on our infrastructure; (vi) uploading invalid data, viruses, worms, or other software agents through the Service; (vii) collecting or harvesting any personally identifiable information, including account names, from the Service; (viii) using the Service for any commercial solicitation purposes; (ix) impersonating another person or otherwise misrepresenting your affiliation with a person or entity, conducting fraud, hiding or attempting to hide your identity; (x) interfering with the proper working of the Service; (xi) accessing any content on the Service through any technology or means other than those provided or authorized by the Service; or (xii) bypassing the measures we may use to prevent or restrict access to the Service, including without limitation features that prevent or restrict use or copying of any content or enforce limitations on use of the Service or the content therein.</p>
+<p>We may, without prior notice, change the Service; stop providing the Service or features of the Service, to you or to users generally; or create usage limits for the Service. We may permanently or temporarily terminate or suspend your access to the Service without notice and liability for any reason, including if in our sole determination you violate any provision of this Agreement, or for no reason. Upon termination for any reason or no reason, you continue to be bound by this Agreement.</p>
+<p>You are solely responsible for your interactions with other Learn Enough Users. We reserve the right, but have no obligation, to monitor disputes between you and other Users. Learn Enough shall have no liability for your interactions with other Users, or for any User’s action or inaction.</p>
+<h2>User Content</h2>
+<p>Some areas of the Service allow Users to post content such as profile information, comments, questions, course content and other content or information (any such materials a User submits, posts, displays, or otherwise makes available on the Service “User Content”). Access to these features may be subject to age restrictions. We claim no ownership rights over User Content created by you. The User Content you create remains yours; however, by sharing User Content through the Service, you agree to allow others to view, edit, and/or share your User Content in accordance with your settings and this Agreement. Learn Enough has the right (but not the obligation) in its sole discretion to remove any User Content that is shared via the Service.</p>
+<p>You agree not to post User Content that: (i) may create a risk of harm, loss, physical or mental injury, emotional distress, death, disability, disfigurement, or physical or mental illness to you, to any other person, or to any animal; (ii) may create a risk of any other loss or damage to any person or property; (iii) seeks to harm or exploit children by exposing them to inappropriate content, asking for personally identifiable details or otherwise; (iv) may constitute or contribute to a crime or tort; (v) contains any information or content that we deem to be unlawful, harmful, abusive, racially or ethnically offensive, defamatory, infringing, invasive of personal privacy or publicity rights, harassing, humiliating to other people (publicly or otherwise), libelous, threatening, profane, or otherwise objectionable; (vi) contains any information or content that is illegal (including, without limitation, the disclosure of insider information under securities law or of another party’s trade secrets); (vii) contains any information or content that you do not have a right to make available under any law or under contractual or fiduciary relationships; or (viii) contains any information or content that you know is not correct and current or (ix) violates any school or other applicable policy, including those related to cheating or ethics. You agree that any User Content that you post does not and will not violate third-party rights of any kind, including without limitation any Intellectual Property Rights (as defined below) or rights of privacy. Learn Enough reserves the right, but is not obligated, to reject and/or remove any User Content that Learn Enough believes, in its sole discretion, violates these provisions. You understand that publishing your User Content on the Service is not a substitute for registering it with the U.S. Copyright Office, the Writer’s Guild of America, or any other rights organization.</p>
+<p>For the purposes of this Agreement, “Intellectual Property Rights” means all patent rights, copyright rights, mask work rights, moral rights, rights of publicity, trademark, trade dress and service mark rights, goodwill, trade secret rights and other intellectual property rights as may now exist or hereafter come into existence, and all applications therefore and registrations, renewals and extensions thereof, under the laws of any state, country, territory or other jurisdiction.</p>
+<p>In connection with your User Content, you affirm, represent and warrant the following:</p>
+<ul>
+<li>Your User Content and Learn Enough’s use thereof as contemplated by this Agreement and the Service will not violate any law or infringe any rights of any third party, including but not limited to any Intellectual Property Rights and privacy rights.
+Learn Enough may exercise the rights to your User Content granted under this Agreement without liability for payment of any guild fees, residuals, payments, fees, or royalties payable under any collective bargaining agreement or otherwise.</li>
+<li>To the best of your knowledge, all your User Content you provide to us is truthful and accurate.</li>
+<li>You have the written consent of each and every identifiable natural person in the User Content, if any, to use such person’s name or likeness in the manner contemplated by the Service and this Agreement, and each such person has released you from any liability that may arise in relation to such use.</li>
+</ul>
+<p>Learn Enough takes no responsibility and assumes no liability for any User Content that you or any other User or third party posts or sends over the Service. You shall be solely responsible for your User Content and the consequences of posting or publishing it, and you agree that we are only acting as a passive conduit for your online distribution and publication of your User Content. You understand and agree that you may be exposed to User Content that is inaccurate, objectionable, inappropriate for children, or otherwise unsuited to your purpose, and you agree that Learn Enough shall not be liable for any damages you allege to incur as a result of User Content.</p>
+<h2>User Content License Grant</h2>
+<p>By posting any User Content on the Service, you expressly grant, and you represent and warrant that you have all rights necessary to grant, to Learn Enough a royalty-free, sublicensable, transferable, perpetual, irrevocable, non-exclusive, worldwide license to use, reproduce, modify, publish, list information regarding, edit, translate, distribute, syndicate, publicly perform, publicly display, and make derivative works of all such User Content and your name, voice, and/or likeness as contained in your User Content, in whole or in part, and in any form, media or technology, whether now known or hereafter developed, for use in connection with the Service and Learn Enough’s (and its successors’ and affiliates’) business, including without limitation for promoting and redistributing part or all of the Service (and derivative works thereof) in any media formats and through any media channels. You also hereby grant each User of the Service a non-exclusive license to access your User Content through the Service, and to use, display, reproduce and perform such User Content solely as permitted through the functionality of the Service and under this Agreement.</p>
+<h2>Our Proprietary Rights</h2>
+<p>Except for your User Content, the Service and all materials therein or transferred thereby, including, without limitation, software, images, text, graphics, illustrations, logos, patents, trademarks, service marks, copyrights, photographs, audio, videos, music, and User Content belonging to other Users (the “Learn Enough Content”), and all Intellectual Property Rights related thereto, are the exclusive property of Learn Enough and its licensors (including other Users who post User Content to the Service). Except as explicitly provided herein, nothing in this Agreement shall be deemed to create a license in or under any such Intellectual Property Rights, and you agree not to sell, license, rent, modify, distribute, copy, reproduce, transmit, publicly display, publicly perform, publish, adapt, edit or create derivative works from any Learn Enough Content. Use of the Learn Enough Content for any purpose not expressly permitted by this Agreement is strictly prohibited.</p>
+<p>You may choose to or we may invite you to submit comments or ideas about the Service, including without limitation about how to improve the Service or our products (“Ideas”). By submitting any Idea, you agree that your disclosure is gratuitous, unsolicited and without restriction and will not place Learn Enough under any fiduciary or other obligation, and that we are free to use the Idea without any additional compensation to you, and/or to disclose the Idea on a non-confidential basis or otherwise to anyone. You further acknowledge that, by acceptance of your submission, Learn Enough does not waive any rights to use similar or related ideas previously known to Learn Enough, or developed by its employees, or obtained from sources other than you.</p>
+<h2>Learn Enough Indicators</h2>
+<p>Billing Policies. Certain aspects of the Service may be provided for a fee or other charge. If you elect to use paid aspects of the Service, you agree to the pricing and payment terms, as we may update them from time to time. Learn Enough may add new services for additional fees and charges, or amend fees and charges for existing services, at any time in its sole discretion. Any change to our pricing or payment terms shall become effective in the billing cycle following notice of such change to you as provided in this Agreement.
+No Refunds. You may cancel your Learn Enough account at any time; however, there are no refunds for cancellation. Learn Enough may offer partial, pro rata refunds for Learn Enough’s early suspension, termination, or cancellation of a paid program, where the pricing and payment terms for the specific Learn Enough program expressly state that such refunds are available in such scenarios and/or as required by law. In the event that you cancel your account or Learn Enough suspends or terminates your account or this Agreement for your breach of this Agreement, you understand and agree that you shall receive no refund or exchange for any Learn Enough Indicators, any unused time on a subscription, any license or subscription fees for any portion of the Service, any content or data associated with your account, or for anything else.</p>
+<p>Risk of Loss. All products purchased from or via the Service are transported and delivered to you by an independent carrier not affiliated with, or controlled by, Learn Enough. Title to products purchased on the Service, as well as the risk of loss for such products, passes to you when Learn Enough or our supplier delivers these items to the carrier.</p>
+<p>Payment Information; Taxes. All information that you provide in connection with a purchase or transaction or other monetary transaction interaction with the Service must be accurate, complete, and current. You agree to pay all charges incurred by users of your credit card, debit card, or other payment method used in connection with a purchase or transaction or other monetary transaction interaction with the Service at the prices in effect when such charges are incurred. You will pay any applicable taxes, if any, relating to any such purchases, transactions or other monetary transaction interactions.</p>
+<h2>Privacy</h2>
+<p>We care about the privacy of our Users. You understand that by using the Services you consent to the collection, use and disclosure of your personally identifiable information and aggregate data as set forth in our Privacy Policy, and to have your personally identifiable information collected, used, transferred to and processed in the United States.
+Security</p>
+<p>Learn Enough cares about the integrity and security of your personal information. However, we cannot guarantee that unauthorized third parties will never be able to defeat our security measures or use your personal information for improper provide your personal information at your own risk.</p>
+<h2>Third Parties</h2>
+<p>The Service may contain links to third-party websites, advertisers, services, special offers, or other events or activities that are not owned or controlled by Learn Enough. Learn Enough does not endorse or assume any responsibility for any such third-party sites, information, materials, products, or services. If you access a third party website from the Service, you do so at your own risk, and you understand that this Agreement and Learn Enough’s Privacy Policy do not apply to your use of such sites. You expressly relieve Learn Enough from any and all liability arising from your use of any third-party website, service, or content. Additionally, your dealings with or participation in promotions of advertisers found on the Service, including payment and delivery of goods, and any other terms (such as warranties) are solely between you and such advertisers. You agree that Learn Enough shall not be responsible for any loss or damage of any sort relating to your dealings with such advertisers.
+Indemnity</p>
+<p>You agree to defend, indemnify and hold harmless Learn Enough and its subsidiaries, agents, licensors, managers, and other affiliated companies, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney’s fees) arising out of or related to: (i) your use of and access to the Service, including any data or content transmitted or received by you; (ii) your violation of any term of this Agreement, including without limitation your breach of any of the representations and warranties above; (iii) your violation of any third-party right, including without limitation any right of privacy or Intellectual Property Rights; (iv) your violation of any applicable law, rule or regulation; (v) User Content or any other information or content that is submitted via your account including without limitation misleading, false or inaccurate information; (vi) negligent or willful misconduct; or (vii) any other party’s access and use of other appropriate security code.</p>
+<h2>No Warranty</h2>
+<p>THE SERVICE IS PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS. USE OF THE SERVICE IS AT YOUR OWN RISK. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE IS PROVIDED WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WITHOUT LIMITING THE FOREGOING, LEARN ENOUGH, ITS SUBSIDIARIES, ITS AFFILIATES, AND ITS LICENSORS DO NOT WARRANT THAT THE CONTENT IS ACCURATE, RELIABLE OR CORRECT; THAT THE SERVICE WILL MEET YOUR REQUIREMENTS; THAT THE SERVICE WILL BE AVAILABLE AT ANY PARTICULAR TIME OR LOCATION, UNINTERRUPTED OR SECURE; THAT ANY DEFECTS OR ERRORS WILL BE CORRECTED; OR THAT THE SERVICE IS FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. ANY CONTENT DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICE IS DOWNLOADED AT YOUR OWN RISK AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR MOBILE DEVICE OR LOSS OF DATA THAT RESULTS FROM SUCH DOWNLOAD OR YOUR USE OF THE SERVICE.</p>
+<p>SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSIONS MAY NOT APPLY TO YOU. THIS AGREEMENT GIVES YOU SPECIFIC LEGAL RIGHTS, AND YOU MAY ALSO HAVE OTHER RIGHTS WHICH VARY FROM STATE TO STATE. THE DISCLAIMERS AND EXCLUSIONS UNDER THIS AGREEMENT WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.</p>
+<p>LEARN ENOUGH DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE LEARN ENOUGH SERVICE OR ANY HYPERLINKED WEBSITE OR SERVICE, AND LEARN ENOUGH WILL NOT BE A PARTY TO OR IN ANY WAY MONITOR ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES.
+Limitation of Liability</p>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL LEARN ENOUGH, ITS AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, SUPPLIERS OR LICENSORS BE LIABLE FOR ANY INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR RELATING TO THE USE OF, OR INABILITY TO USE, THIS SERVICE. UNDER NO CIRCUMSTANCES WILL LEARN ENOUGH BE RESPONSIBLE FOR ANY DAMAGE, LOSS OR INJURY RESULTING FROM HACKING, TAMPERING OR OTHER UNAUTHORIZED ACCESS OR USE OF THE SERVICE OR YOUR ACCOUNT OR THE INFORMATION CONTAINED THEREIN.</p>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LEARN ENOUGH ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT; (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO OR USE OF OUR SERVICE; (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN; (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE SERVICE; (V) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE THAT MAY BE TRANSMITTED TO OR THROUGH OUR SERVICE BY ANY THIRD PARTY; (VI) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE THROUGH THE SERVICE; AND/OR (VII) USER CONTENT OR THE DEFAMATORY, OFFENSIVE, OR ILLEGAL CONDUCT OF ANY THIRD PARTY. IN NO EVENT SHALL LEARN ENOUGH, ITS AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, SUPPLIERS, OR LICENSORS BE LIABLE TO YOU FOR ANY CLAIMS, PROCEEDINGS, LIABILITIES, OBLIGATIONS, DAMAGES, LOSSES OR COSTS IN AN AMOUNT EXCEEDING THE AMOUNT YOU PAID TO LEARN ENOUGH HEREUNDER OR $100.00, WHICHEVER IS GREATER.</p>
+<p>THIS LIMITATION OF LIABILITY SECTION APPLIES WHETHER THE ALLEGED LIABILITY IS BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR ANY OTHER BASIS, EVEN IF LEARN ENOUGH HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. THE FOREGOING LIMITATION OF LIABILITY SHALL APPLY TO THE FULLEST EXTENT PERMITTED BY LAW IN THE APPLICABLE JURISDICTION.</p>
+<p>SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATIONS OR EXCLUSIONS MAY NOT APPLY TO YOU. THIS AGREEMENT GIVES YOU SPECIFIC LEGAL RIGHTS, AND YOU MAY ALSO HAVE OTHER RIGHTS WHICH VARY FROM STATE TO STATE. THE EXCLUSIONS AND LIMITATIONS OF LIABILITY UNDER THIS AGREEMENT WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.</p>
+<p>The Service is controlled and operated from facilities in the United States. Learn Enough makes no representations that the Service is appropriate or available for use in other locations. Those who access or use the Service from other jurisdictions do so at their own volition and are entirely responsible for compliance with all applicable United States and local laws and regulations, including but not limited to export and import regulations. You may not use the Service if you are a resident of a country embargoed by the United States, or are a foreign person or entity blocked or denied by the United States government. Unless otherwise explicitly stated, all materials found on the Service are solely directed to individuals, companies, or other entities located in the United States.</p>
+<h2>Governing Law and Arbitration</h2>
+<p>Governing Law. You agree that: (i) the Service shall be deemed solely based in California; and (ii) the Service shall be deemed a passive one that does not give rise to personal jurisdiction over Learn Enough, either specific or general, in jurisdictions other than California.</p>
+<p>This Agreement shall be governed by the internal substantive laws of the State of California, without respect to its conflict of laws principles. The parties acknowledge that this Agreement evidences a transaction involving interstate commerce. Notwithstanding the preceding sentences with respect to the substantive law, any arbitration conducted pursuant to the terms of this Agreement shall be governed by the Federal Arbitration Act (9 U.S.C. §§ 1-16). The application of the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded. You agree to submit to the personal jurisdiction of the federal and state courts located in Los Angeles County, California for any actions for which we retain the right to seek injunctive or other equitable relief in a court of competent jurisdiction to prevent the actual or threatened infringement, misappropriation or violation of a our copyrights, trademarks, trade secrets, patents, or other intellectual property or proprietary rights, as set forth in the Arbitration provision below.</p>
+<p>Arbitration. READ THIS SECTION CAREFULLY BECAUSE IT REQUIRES THE PARTIES TO ARBITRATE THEIR DISPUTES AND LIMITS THE MANNER IN WHICH YOU CAN SEEK RELIEF FROM LEARN ENOUGH. In the unlikely event that Learn Enough has not been able to resolve a dispute it has with you after 60 days, we each agree to resolve any claim, dispute, or controversy (excluding any Learn Enough claims for injunctive or other equitable relief) arising out of or in connection with or relating to these Terms of Service, or the breach or alleged breach thereof (collectively, “Claims”), by binding arbitration by the Judicial Mediation and Arbitration Services (“JAMS”) under the Optional Expedited Arbitration Procedures then in effect for JAMS, except as provided herein. The arbitration will be conducted in Los Angeles County, California, unless you and Learn Enough agree otherwise. Each party will be responsible for paying any JAMS filing, administrative and arbitrator fees in accordance with JAMS rules. The award rendered by the arbitrator shall include costs of arbitration, reasonable attorneys’ fees and reasonable costs for expert and other witnesses, and any judgment on the award rendered by the arbitrator may be entered in any court of competent jurisdiction. Nothing in this Section shall be deemed as preventing Learn Enough from seeking injunctive or other equitable relief from the courts as necessary to protect any of Learn Enough’s proprietary interests. ALL CLAIMS MUST BE BROUGHT IN THE PARTIES’ INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS ACTION, COLLECTIVE ACTION, PRIVATE ATTORNEY GENERAL ACTION OR OTHER REPRESENTATIVE PROCEEDING. THIS WAIVER APPLIES TO CLASS ARBITRATION, AND, UNLESS WE AGREE OTHERWISE, THE ARBITRATOR MAY NOT CONSOLIDATE MORE THAN ONE PERSON’S CLAIMS. YOU AGREE THAT, BY ENTERING INTO THIS TERMS OF SERVICE, YOU AND LEARN ENOUGH ARE EACH WAIVING THE RIGHT TO A TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION, .COLLECTIVE ACTION, PRIVATE ATTORNEY GENERAL ACTION, OR OTHER REPRESENTATIVE PROCEEDING OF ANY KIND.</p>
+<h2>General</h2>
+<p>Assignment. This Agreement, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by Learn Enough without restriction. Any attempted transfer or assignment in violation hereof shall be null and void.</p>
+<p>Notification Procedures and Changes to the Agreement. Learn Enough may provide notifications, whether such notifications are required by law or are for marketing or other business related purposes, to you via email notice, written or hard copy notice, or through posting of such notice on our website, as determined by Learn Enough in our sole discretion. Learn Enough reserves the right to determine the form and means of providing notifications to our Users, provided that you may opt out of certain means of notification as described in this Agreement. Learn Enough is not responsible for any automatic filtering you or your network provider may apply to email notifications we send to the email address you provide us. Learn Enough may, in its sole discretion, modify or update this Agreement from time to time, and so you should review this page periodically. When we change the Agreement in a material manner, we will update the ‘last modified’ date at the bottom of this page. Your continued use of the Service after any such change constitutes your acceptance of the new Terms of Service. If you do not agree to any of these terms or any future Terms of Service, do not use or access (or continue to access) the Service.</p>
+<p>Entire Agreement/Severability. This Agreement, together with any amendments and any additional agreements you may enter into with Learn Enough in connection with the Service, shall constitute the entire agreement between you and Learn Enough concerning the Service. If any provision of this Agreement is deemed invalid by a court of competent jurisdiction, the invalidity of such provision shall not affect the validity of the remaining provisions of this Agreement, which shall remain in full force and effect, except that in the event of unenforceability of the universal Class Action/Jury Trial Waiver, the entire arbitration agreement shall be unenforceable.</p>
+<p>No Waiver. No waiver of any term of this Agreement shall be deemed a further or continuing waiver of such term or any other term, and Learn Enough’s failure to assert any right or provision under this Agreement shall not constitute a waiver of such right or provision.
+Government Use Rights. If the Service is licensed to the United States government or any agency thereof, then the Service will be deemed to be “commercial computer software” and “commercial computer software documentation,” respectively, pursuant to DFAR Section 227.7202 and FAR Section 12.212, as applicable. Any use, reproduction, release, performance, display or disclosure of the Service and any accompanying documentation by the U.S. Government will be governed solely by these Terms of Service and is prohibited except to the extent expressly permitted by these Terms of Service.</p>
+<p>Contact. Please contact us at legal@softcover.io with any questions regarding this Agreement.</p>
+
+<h1>
+Privacy Policy
+<span>effective date: October 14, 2014</span>
+</h1>
+<p>This privacy policy has been compiled to better serve those who are concerned with how their personally identifiable information is being used by Softcover. This, as used in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your information</p>
+<p>When purchasing or registering on our site, as appropriate, you may be asked to enter your name, email address or other details to help you with your experience.</p>
+<p>We will never sell your private data or information. We don't give out your private info to organizations that may sell it. We do though disclose some customer information to SAAS providers that we use in order to make the Softcover service functional. Those third party companies include Google Mail for any communication with us, Circle CI for continuous integration testing, Heroku for hosting, Amazon S3 for storage—each of these has their own privacy policies.</p>
+<h2>Your Content</h2>
+<p>Softcover accesses your code through the open-source Softcover gem only if and when you decide to use the Softcover site to manage sales. Your content is never delivered to Softcover if you build your content but do not publish the files to Softcover. The Softcover service operates on a read only basis and does not write any information into your content, as the gem is open source you can see exactly what it does—once it is sent to Softcover we keep only your rendered files.</p>
+<p>No human ever reads your code in the normal order of business operations, and we only have access to your code with your express permission and through your installing and configuring the Softcover gem.</p>
+<h2>Security</h2>
+<p>All access to account information, payment information, and author sales data is conducted over SSL connection, and all passwords are 1-way encrypted, never plaintext. Softcover admins will never access your sensitive data unless you specifically authorize us to do so, and Softcover admins have no access to your password.</p>
+<p>Transactions are processed through Stripe.com, a 3rd party payment processor, and all payment information is stored on Stripe. For authors, your sales revenue never passes through Softcover and is always stored only in your personal Stripe account. Royalties for use of the sales platform are taken out during the transaction so funds are never co-mingled. We cannot access any sales information stored on Stripe without your supplying us with a valid API key.</p>
+<h2>Cookies</h2>
+<p>We use cookies to help us remember and process the items in your shopping cart, to help us understand your preferences based on previous or current site activity (which enables us to provide you with better services), and we also use cookies to help us compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.</p>
+<p>We may also use trusted third party services that analyze this information on our behalf to better understand our customers.</p>
+<p>If you disable cookies in your browser, some features will be disabled.</p>
+<h2>Partners</h2>
+<p>Softcover is built on Amazon EC2 and Amazon S3 through Heroku. If the EC2 service becomes vulnerable, your content may also become vulnerable to accidental disclosure. Amazon's <!-- raw HTML omitted -->Security Center<!-- raw HTML omitted --> discusses their security in great detail.</p>
+<h2>CalOPPA</h2>
+<p>CalOPPA is the first state law in the nation to require commercial websites and online services to post a privacy policy.  The law's reach stretches well beyond California to require a person or company in the United States (and conceivably the world) that operates websites collecting personally identifiable information from California consumers to post a conspicuous privacy policy on its website stating exactly the information being collected and those individuals with whom it is being shared, and to comply with this policy.</p>
+<p>According to CalOPPA, users can visit our site anonymously, and this privacy policy is always available in the footer of the website. Our Privacy Policy link includes the word 'Privacy', and can be easily be found on the page specified above, and users will be notified of any privacy policy changes on the Privacy Policy page.</p>
+<h2>COPPA (Children Online Privacy Protection Act)</h2>
+<p>When it comes to the collection of personal information from children under 13, the Children's Online Privacy Protection Act (COPPA) puts parents in control.  The Federal Trade Commission, the nation's consumer protection agency, enforces the COPPA Rule, which spells out what operators of websites and online services must do to protect children's privacy and safety online. We do not specifically market to children under 13.</p>
+<h2>Fair Information Practices</h2>
+<p>In order to be in line with Fair Information Practices, should a data breach occur we will notify the users via email within 7 business days.</p>
+<h2>Feedback</h2>
+<p>We take security incredibly seriously. If you have any suggestions for how we could improve our security, or improve this policy, please contact us at <a href="mailto:info@softcover.io">info@softcover.io</a>. We will act immediately to deal with the issue.</p>
+
+</div>
+
+<div class='authorSignup'>
+<div class='dialog'>
+<h3 id='email_list'>Join the Mailing List</h3>
+<p>Get occasional notifications about things like product discounts, blog posts, and new or updated tutorials. Unsubscribe at any time.
+</p>
+<script src="https://app.convertkit.com/assets/CKJS4.js?v=21"></script>
+<div class='ck_form ck_minimal'>
+<div class='ck_form_fields'>
+<div id='ck_success_msg' style='display:none;'>
+<p>Success! Thanks for joining the list.</p>
+</div>
+<form action='https://app.convertkit.com/landing_pages/4858/subscribe' class='ck_subscribe_form' data-remote='true' id='ck_subscribe_form'>
+<input id='ck_form_options' type='hidden' value='{&amp;quot;form_style&amp;quot;:&amp;quot;minimal&amp;quot;,&amp;quot;embed_style&amp;quot;:&amp;quot;inline&amp;quot;,&amp;quot;embed_trigger&amp;quot;:&amp;quot;scroll_percentage&amp;quot;,&amp;quot;scroll_percentage&amp;quot;:&amp;quot;70&amp;quot;,&amp;quot;delay_seconds&amp;quot;:&amp;quot;10&amp;quot;,&amp;quot;display_position&amp;quot;:&amp;quot;br&amp;quot;,&amp;quot;display_devices&amp;quot;:&amp;quot;all&amp;quot;,&amp;quot;days_no_show&amp;quot;:&amp;quot;15&amp;quot;,&amp;quot;converted_behavior&amp;quot;:&amp;quot;show&amp;quot;}'>
+<input id='landing_page_id' name='id' type='hidden' value='4858'>
+<div class='ck_errorArea'>
+<div id='ck_error_msg' style='display:none;'>
+<p>There was an error submitting your subscription. Please try again.</p>
+</div>
+</div>
+<div class='field ck_control_group ck_email_field_group'>
+<label class='ck_label' for='ck_emailField' style='display: none'>Email Address</label>
+<input class='ck_email_address' id='ck_emailField' name='email' placeholder='Email Address' required='required' type='email'>
+<button class='subscribe_button ck_subscribe_button btn fields' id='ck_subscribe_button'>Subscribe</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+</div>
+<footer class='footer'>
+<nav class='footer-nav'>
+<div class='footer_logo_wr'>
+<a class="logoLink artLogo" href="/"><div class='svg le-logo'><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 801 1041" style="enable-background:new 0 0 801 1041;" xml:space="preserve">
+<path d="M569.9,478.6l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H410.5l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.5,0.5h135.1l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-89.9h77l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-81H569.9z M544.2,412.6l17.3,17.3H436.2L419,412.6H544.2z M414,417.6l17.3,17.3v348.7L414,766.3V417.6z M544.2,729.5l17.3,17.3H488v-17.3H544.2z M539.2,566.6l17.3,17.3H488v-17.3H539.2z M484.5,471.6l-3.5,3.5v112.3l3.5,3.5h77v34.7h-77l-3.5,3.5v121.2l3.5,3.5h81.9v34.7H438.3V436.9h128.1v34.7H484.5z"/>
+<path d="M401.5,747.8l-24.3-24.3l-2.5-1h-55.7V433.4l-0.2-0.2l-0.8-2.3l-24.3-24.3l-2.5-1h-49.7l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.6,0.6H399l3.5-3.5v-41.7L401.5,747.8z M373.3,729.5l17.3,17.3h-71.5v-17.3H373.3z M307.1,429.9h-39.8l-17.3-17.3h39.8L307.1,429.9z M245.1,417.6l17.3,17.3v348.7l-17.3-17.3V417.6z M395.5,788.5H269.4V436.9h42.7v313.4l3.5,3.5h79.9V788.5z"/>
+<path d="M691.8,600.3c0-77.2-30-149.7-84.6-204.3c-47.3-47.3-108.2-76.2-173.9-83c0.4-22.2,0.6-35.3,0.6-35.7l-2.6-3.8c-1.8-0.6-3.5-2.2-5.1-4.2l5.1,0c1.8,0.1,22.1,0.8,33.2-11.2c5.5-6,8.5-14,8.5-23.4l0.1-13.3l-3.5-3.5l-16-0.1l-3.5,3.5l-0.1,13.3c0,3.3-0.7,5.5-2.4,7.3c-3.7,4-12.4,4.9-15.4,4.9l-11.9,0c1.4-13.4,3.7-39.7,3.9-72.2c0.1-34.4-5.7-68.9-6.6-73.7c4.9-5.8,7.6-13.5,7.6-21.6C425.2,62,413,47.9,398,47.8c0,0-0.1,0-0.1,0c-15,0-27.2,14-27.3,31.2c0,8.1,2.6,15.8,7.5,21.7c-0.9,4.8-7,39.3-7.2,73.6c-0.1,32.5,2,58.9,3.3,72.3l-11.1,0c-1.8-0.1-22.1-0.8-33.2,11.2c-5.5,6-8.5,14-8.5,23.4l-0.1,13.3l3.5,3.5l16.2,0.1l3.5-3.5l0.1-13.3c0-3.3,0.7-5.5,2.4-7.3c3.7-4,12.3-4.9,15.3-4.9l5.9,0c-1.6,1.9-3.4,3.5-5.2,4.1l-2.6,3.8c0,0.5,0.2,14.2,0.6,37.4c-61.2,8.9-117.8,37.1-162.3,81.6C144.1,450.6,114,523.1,114,600.3s30,149.7,84.6,204.3c49,49,112.4,78.2,180.7,83.7c6.4,96.9,11.7,103.7,14.1,106.6l3.3,2.6l2.9-2.6c2.4-2.9,7.8-9.7,14.3-105.9c73-2.7,141.3-32.4,193.2-84.4C661.8,750,691.8,677.5,691.8,600.3z M377.6,79.1c0.1-13.4,9.1-24.2,20.3-24.2c0,0,0,0,0.1,0c7.7,0,14.5,5.3,17.8,13l-10.6-4.3c1.1,1.6,2.1,3.4,2.8,5.5l9.4,3.8c0.5,2,0.7,4.2,0.7,6.4c0,0.2,0,0.5,0,0.7l-8.4-3.4c0.1,0.8,0.1,1.7,0.1,2.5c0,0.6,0,1.2-0.1,1.8l8,3.2c-0.4,2.1-1,4.2-1.8,6.1l-7.3-2.9c-0.4,1.3-0.9,2.6-1.4,3.7l6.8,2.8c-0.6,1-1.3,1.9-2,2.8c-0.7,0.8-1.5,1.6-2.3,2.3l-0.8-0.3l-5.3-2.2c-1.1,1.2-2.3,2.1-3.6,2.9l5.7,2.3c-2.5,1.2-5.1,1.9-7.9,1.9c-5.3,0-10.3-2.5-14.1-7C379.8,91.9,377.6,85.7,377.6,79.1z M377.9,174.4c0.1-28.2,4.4-57,6.3-68.1c4.1,2.7,8.7,4.2,13.5,4.2c0,0,0.1,0,0.1,0c4.8,0,9.4-1.4,13.5-4.1c0.2,1.3,0.5,2.9,0.7,4.7l-2.1-0.9l-2.9,3.1l5.7,2.3c0.3,2.2,0.6,4.6,1,7.3l-17.4-7.1c0.2,1.4,0.4,3,0.6,4.6l17.3,7c0.3,2.3,0.5,4.7,0.8,7.2l-17.2-7c0.2,1.5,0.3,3,0.5,4.5l17.2,7c0.2,2.3,0.4,4.7,0.6,7.1l-19.6-8c-1.7,0.1-3.7-0.4-3.7-0.4s0.8,1.7,1.9,4l21.7,8.8c0.2,2.3,0.3,4.7,0.4,7l-18.3-7.4c0.9,2.1,1.5,3.9,1.7,5l16.8,6.8c0.1,2.3,0.1,4.6,0.2,6.9l-16.6-6.7c0.1,1.5,0.1,2.9,0.1,4.4l16.5,6.7c0,0.4,0,0.8,0,1.2c0,1.9,0,3.8,0,5.7l-16.7-6.8c-1.1,1.7-5.8-0.2-5.8-0.2s0.4,1,0.9,2.5l21.6,8.7c0,2.3-0.1,4.6-0.2,6.8l-18.6-7.5c0.6,1.8,1.2,3.6,1.6,5l16.9,6.8c-0.1,2.3-0.2,4.6-0.3,6.8l-16.2-6.6c0,1.5-0.1,2.9-0.2,4.3l16.2,6.6c-0.1,2.3-0.2,4.5-0.4,6.7l-16.1-6.5c0,0.7-0.1,1.4-0.1,2.1c0,0.9-0.4,1.4-0.8,1.8l16.8,6.8c-0.1,2.3-0.3,4.5-0.5,6.7l-20-8.1c0.3,1.4,0.7,3.1,1.1,4.7l18.6,7.6c-0.2,2.3-0.4,4.6-0.6,6.6l-16.6-6.8c0.3,1.8,0.4,3.3,0.4,4.1c0,0.1,0,0.2,0,0.3l15.9,6.5c-0.2,2.5-0.5,4.7-0.7,6.6l-15.9-6.4c-0.1,1.5-0.3,2.9-0.4,4.2l8,3.2l-23.7-0.1C380,233.6,377.8,207,377.9,174.4z M362.3,262.1c-1.4,0-14,0.2-20.4,7.1c-2.8,3-4.2,7-4.2,12l0,9.8l-9.2,0l0-9.8c0-7.5,2.3-14,6.6-18.6l0,0c9.1-9.8,27.6-9,27.8-9l69.2,0.2c1.4,0,14.1-0.2,20.6-7.1c2.8-3,4.2-7,4.2-12l0-9.8l9,0l0,9.8c0,7.5-2.3,14-6.6,18.6c-9.1,9.8-27.6,9-27.8,9L362.3,262.1z M407.6,348.5l1.1,0.4h-1.1L407.6,348.5z M403.6,348.9h-5.3l-3.5-79.8l17.2,0.1L403.6,348.9z M408.1,344.3l0.7-6.6l15.9,6.4c0,1.6-0.1,3.1-0.1,4.7h-5.2L408.1,344.3z M409.2,333.6l0.7-6.6l15,6.1c0,2.2-0.1,4.5-0.1,6.8L409.2,333.6z M410.3,322.9l0.7-6.6l14.1,5.7c0,2.2-0.1,4.5-0.1,6.8L410.3,322.9z M411.5,312.2l0.7-6.6l13.1,5.3c0,2.2-0.1,4.5-0.1,6.8L411.5,312.2z M412.6,301.4l0.7-6.6l12.2,4.9c0,2.1-0.1,4.4-0.1,6.8L412.6,301.4z M413.7,290.7l0.7-6.6l11.3,4.6c0,2-0.1,4.3-0.1,6.8L413.7,290.7z M414.9,280l0.7-6.6l5.5,2.2c1.5,1.6,3.1,3,4.8,4c0,1.2,0,2.8-0.1,4.8L414.9,280z M416,269.3L416,269.3l0.3,0c0,0.1,0.1,0.1,0.1,0.2L416,269.3z M390.3,348.9h-20.7c-0.7-36.5-1.1-61.7-1.2-69.5c3.9-2.4,7.2-6.4,9.6-10.3l8.8,0L390.3,348.9z M392.6,951.2c-2-18-4.2-44.3-6.4-82.7c-0.3-5.2-0.6-10.6-0.9-16.2h7.4l2.5,115.9L392.6,951.2z M400.7,959.3l-0.1-20.9l1,0.2C401.4,940.3,400.8,957.7,400.7,959.3z M401.6,934.5l-1-0.4v-6.9l1.7,0.7C402.1,930.2,401.8,932.4,401.6,934.5z M402.7,923.8l-2.2-0.9v-6.9l2.8,1.1C403.2,919.4,403,921.6,402.7,923.8z M403.8,913l-3.2-1.3l0-6.9l3.8,1.6C404.2,908.7,404,910.9,403.8,913z M404.8,902.3l-4.2-1.7v-6.9l4.8,1.9C405.2,897.8,405,900.1,404.8,902.3z M405.7,891.4l-5.1-2.1l0-6.9l5.6,2.3C406,887,405.9,889.2,405.7,891.4z M406.5,880.6l-5.9-2.4l0-6.9l6.4,2.6C406.8,876.1,406.6,878.4,406.5,880.6z M407.3,868.6c0,0.4,0,0.7-0.1,1.1l-6.6-2.7l0-6.9l7,2.8C407.5,864.9,407.4,866.8,407.3,868.6z M407.9,858.8l-7.3-2.9l0-3.5h7.6C408.1,854.5,408,856.6,407.9,858.8z M414.5,880.9c0.6-8.8,1.2-18.3,1.7-28.6h27v-7h-91v7h25c0.6,10,1.1,19.2,1.6,27.8c-66-5.6-127.2-33.9-174.6-81.2C151.2,745.9,122,675.3,122,600.3s29.2-145.6,82.3-198.6c43.1-43.1,97.6-70.4,156.8-79.2c0.1,7.9,0.3,16.8,0.5,26.4h-16.1v7h109.8v-7h-22.7c0.2-10.2,0.4-19.6,0.5-27.9c63.6,6.8,122.6,34.8,168.4,80.7c53.1,53.1,82.3,123.6,82.3,198.6s-29.2,145.6-82.3,198.6C551.2,849.2,485.2,878.1,414.5,880.9z"/>
+</svg>
+</div>
+<span>LEARN ENOUGH</span>
+</a></div>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/courses">Courses</a></li>
+<li><a href="https://www.learnenough.com/plans">Plans</a></li>
+<li><a href="https://www.learnenough.com/scholarship">Scholarship</a></li>
+<li><a href="/for-teams">For Teams</a></li>
+<li><a href="https://www.learnenough.com/login">Log In</a></li>
+</ul>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/all-access">All Access</a></li>
+<li><a href="https://www.learnenough.com/ruby-on-rails-7th-edition">The Rails Tutorial</a></li>
+<li><a href="https://www.learnenough.com/our-philosophy">Our Philosophy</a></li>
+<li><a href="https://www.learnenough.com/about">About</a></li>
+<li><a href="https://news.learnenough.com">News</a></li>
+</ul>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/why-rails">Why Use Ruby on Rails?</a></li>
+<li><a href="https://www.learnenough.com/why-ruby">Why Use the Ruby Language?</a></li>
+<li><a href="https://www.learnenough.com/why-program">Why Program?</a></li>
+<li><a href="https://www.learnenough.com/understand-devs">Why Understand Devs?</a></li>
+<li><a href="https://www.learnenough.com/for-beginners">For Beginners</a></li>
+</ul>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/legal">Legal</a></li>
+<li><a href="mailto:support@learnenough.com">Contact</a></li>
+</ul>
+<div class='footer-social-menu'>
+<ul class='footer-sub-menu'>
+<li>
+Learn Enough
+<a class="footer-social-icon" target="_blank" href="https://www.youtube.com/c/LearnEnough"><i class='fab fa-youtube-square'></i>
+</a></li>
+<li>
+<a class="footer-social-icon" target="_blank" href="https://twitter.com/learnenough"><i class='fab fa-twitter-square'></i>
+</a></li>
+<li>
+Rails Tutorial
+<a class="footer-social-icon" target="_blank" href="https://twitter.com/railstutorial"><i class='fab fa-twitter-square'></i>
+</a></li>
+</ul>
+</div>
+</nav>
+</footer>
+<!-- MODALS ----------------------- -->
+<div class='le-modal le-modal_allacess'>
+<div class='le-modal_bg' onClick='leModalClose()'></div>
+<a onClick="leModalClose()" class="modal_close" href="javascript://"><i class='fas fa-times'></i>
+</a><div class='modal_content'>
+<div class='cols'>
+<div class='col'>
+<h2 class='modal_title'>All Access Subscription</h2>
+<p>
+Get free access to all 10 Learn Enough courses (including the Ruby on Rails Tutorial) for 7 days!
+</p>
+<h5>Free 7 Day trial details</h5>
+<p>We require a credit card for security purposes, but it will not be charged during the trial period. After 7 days, you will be enrolled automatically in the monthly All Access subscription.</p>
+<p>BUT you can cancel any time and still get the rest of the 7 days for free!</p>
+<p>All Learn Enough tutorials come with a <strong>60-day 100% money-back guarantee</strong>.</p>
+</div>
+<div class='col le-modal_allacess-cta'>
+<div class='modal_covers'>
+<div class='bundle-covers_content bundle-covers_all'>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_command_line/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_text_editor/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_git/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_html/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_css/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_python/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_javascript/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_ruby/images/cover-web.png" /></div>
+<div class='bundle-covers_img bundle-cover_railstut'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png" /></div>
+</div>
+
+</div>
+<div class='toggle_pricing-box'>
+<div class='toggle_pricing-option show-yearly active'>
+Billed Yearly
+<div class='toggle_pricing-option-saved show-yearly active'>
+Save up to 20%
+</div>
+</div>
+<div class='toggle_pricing-btn-box'>
+<div class='show-yearly toggle_pricing_btn active'></div>
+<div class='show-monthly toggle_pricing_btn'></div>
+</div>
+<div class='toggle_pricing-option show-monthly'>
+Billed Monthly
+</div>
+</div>
+<script>
+  (function() {
+    $(".show-monthly").click(function() {
+      $(".yearly-all-access").hide();
+      $(".monthly-all-access").show();
+      $(".show-monthly").addClass("active");
+      return $(".show-yearly").removeClass("active");
+    });
+  
+    $(".show-yearly").click(function() {
+      $(".monthly-all-access").hide();
+      $(".yearly-all-access").show();
+      $(".show-monthly").removeClass("active");
+      return $(".show-yearly").addClass("active");
+    });
+  
+  }).call(this);
+</script>
+
+<div class='modal_cta monthly-all-access' style='display: none;'>
+<p class='modal_cta-originally'>
+Monthly Cost:
+<strong>
+$49
+</strong>
+</p>
+<a data-id="10-subscription" data-name="all_access" data-type="product" data-value="49.0" onClick="leModalClose()" class="btn_addBundleToCart jLinkText" id="add-cart-modal-btn" href="#add.bundle.to.cart"><button class='attention'>
+<i class='fas fa-shopping-cart'></i>
+Add to Cart :
+Free Trial
+</button>
+</a><p class='modal_cta-more'>
+<a href="https://www.learnenough.com/all-access"><button class='btn-small'>
+MORE INFO &nbsp;
+<i class='fas fa-arrow-circle-right'></i>
+</button>
+</a></p>
+</div>
+<div class='modal_cta yearly-all-access'>
+<p class='modal_cta-originally'>
+Monthly Cost:
+<strong>
+$39
+</strong>
+<div class='billed_annually'>
+Billed $
+468.0
+Anually
+</div>
+</p>
+<a data-is-annual="true" data-id="18-subscription" data-name="annual_all_access" data-type="product" data-value="468.0" onClick="leModalClose()" class="btn_addBundleToCart jLinkText" id="add-cart-modal-btn" href="#add.bundle.to.cart"><button class='attention'>
+<i class='fas fa-shopping-cart'></i>
+Add to Cart :
+Free Trial
+</button>
+</a><p class='modal_cta-more'>
+<a href="https://www.learnenough.com/all-access"><button class='btn-small'>
+MORE INFO &nbsp;
+<i class='fas fa-arrow-circle-right'></i>
+</button>
+</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='le-modal le-modal_landing-video'>
+<div class='le-modal_bg' onClick='leModalVideoClose()'></div>
+<a onClick="leModalVideoClose()" class="modal_close" href="javascript://"><i class='fas fa-times'></i>
+</a><div class='le-modal_video' id='le-modal_video'>
+<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='allowfullscreen' class='le-modal_video-embed' frameborder='0' src='http://'></iframe>
+</div>
+</div>
+<div class='le-modal le-modal_yourcourses-guide'>
+<div class='le-modal_bg' onClick='leModalClose(&#39;leYourCoursesGuide&#39;)'></div>
+<div class='modal_content'>
+<a onClick="leModalClose(&#39;leYourCoursesGuide&#39;)" class="modal_close" href="javascript://"><i class='fas fa-times'></i>
+</a><div class='courses_guide'>
+<h2>
+<div class='sub-title'>A quick guide to</div>
+Your Courses
+<div class='sub-title'>Welcome to Learn Enough!</div>
+</h2>
+<img class="courses_guide-img" src="https://www.learnenough.com/assets/learnenough/yourcourses_guide_subscribed-compressed-958e0facdb4d53ea70798819653ff9a690857f34a4c607a56c5ddc2057e178a3.jpg" />
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<script>
+  if (localStorage['sideOpen'] == 'no') {
+    $('body').addClass('side-menu-closed');
+  };
+  bookCheckMobile();
+  
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    return t;
+  }(document, "script", "twitter-wjs"));
+  
+  $(function(){
+    try {
+      PostAffTracker.setAccountId('default1');
+      PostAffTracker.track();
+    } catch (err) { }
+  })
+</script>
+</body>
+</html>

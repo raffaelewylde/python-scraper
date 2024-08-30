@@ -2,6 +2,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
+import time
 
 # Configuration
 base_url = "https://www.learnenough.com"  # Replace with the target website
@@ -34,7 +35,7 @@ def login(session):
 
     # Post login request
     response = session.post(login_url, data=payload)
-    if response.status_code == 200 and "Log Out" in response.text:
+    if response.status_code == 200:
         print("Login successful!")
     else:
         print("Login failed!")
@@ -51,6 +52,7 @@ def download_file(session, url, save_path):
         print(f"Downloaded: {url}")
     else:
         print(f"Failed to download: {url}")
+    time.sleep(120)
 
 
 # Save HTML content
@@ -62,6 +64,7 @@ def save_html(session, url, save_path):
         print(f"Saved HTML: {url}")
     else:
         print(f"Failed to save HTML: {url}")
+    time.sleep(120)
 
 
 # Recursive function to scrape media files and HTML

@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html class='publicDialogAnth ' id='publicDialog'>
+<head>
+<meta charset='utf-8'>
+<title>Ruby on Rails (Rails 7) Tutorial | Learn Enough to Be Dangerous</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<script src='//use.typekit.net/nbl5sqs.js'></script>
+<script>
+try{Typekit.load({ async: true });}catch(e){}
+</script>
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="2qkrz+WZTJyuJEps/YXy7XFIzcsXCq+mXRE1Yw1i9e+NlXp7dDi8cp5dMwu1DeFdtXTqV82mx5HOaBXhXiKnfA==" />
+<meta content='Learn how to develop and deploy real, industrial-strength web applications with Ruby on Rails. This new 7th edition has been fully updated for Rails 7.' name='description'>
+<link href='//www.railstutorial.org' rel='canonical'>
+<meta content='https://www.learnenough.com/ruby-on-rails-7th-edition' property='og:url'>
+<meta content='Ruby on Rails Tutorial' property='og:title'>
+<meta content='Since its initial publication in 2010, the Ruby on Rails Tutorial has been one of the leading introductions to web development. In this bestselling tutorial, you’ll learn how to develop and deploy real, industrial-strength web applications with Ruby on Rails, the open-source web framework that powers top websites such as Hulu, GitHub, Shopify, and Airbnb. This new 7th edition has been fully updated for Rails 7. Read full post ' property='og:description'>
+<meta content='39.0' property='og:product:price:amount'>
+<meta content='16' property='og:product:retailer_item_id'>
+<meta content='https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png' property='og:image'>
+<meta content='https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png' property='og:image:secure_url'>
+<meta content='image/png' property='og:image:type'>
+<meta content='280' property='og:image:width'>
+<meta content='420' property='og:image:height'>
+<meta content='Learnenough.com' property='og:site_name'>
+<meta content='in stock' property='og:product:availability'>
+<meta content='new' property='og:product:condition'>
+<meta content='USD' property='og:product:price:currency'>
+<link href='/favicon-le.png' rel='icon'>
+<link href='/le/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed'>
+
+<link rel="stylesheet" media="screen" href="https://www.learnenough.com/assets/novo_le-d33e7afd19159aeabb1fdd24354c02f4283979a11fd8d7e3409d6c048ed9eaed.css" />
+<script>
+  window.Config = {
+    env: "production",
+    bucket: "softcover",
+    previewBucket: "softcover-cloud",
+    userId: false
+  }
+</script>
+<script async data-version='4' log-level='warn' src='https://www.paypalobjects.com/api/checkout.js' type='text/javascript'></script>
+<script src='https://js.braintreegateway.com/web/3.42.0/js/client.min.js' type='text/javascript'></script>
+<script src='https://js.braintreegateway.com/web/3.42.0/js/paypal-checkout.min.js' type='text/javascript'></script>
+<script src='//code.jquery.com/jquery-2.0.3.min.js' type='text/javascript'></script>
+<script src='//cdn.jsdelivr.net/formalize/0.1/js/jquery.formalize.min.js' type='text/javascript'></script>
+<script src='//cdn.jsdelivr.net/underscorejs/1.6.0/underscore-min.js' type='text/javascript'></script>
+<script async src='https://js.stripe.com/v3/' type='text/javascript'></script>
+<script src='https://www.google.com/jsapi' type='text/javascript'></script>
+<script src='https://kit.fontawesome.com/87949e96a1.js' type='text/javascript'></script>
+<script id="pap_x2s6df8d" src="https://learnenough.postaffiliatepro.com/scripts/trackjs.js" type="text/javascript"></script>
+<script type="text/javascript" id="pap_x2s6df8d" src="https://learnenough.postaffiliatepro.com/scripts/voa0j7"></script>
+<script src="https://www.learnenough.com/assets/application-f6489d7de152682dafc45ea684c90b1bd0fc873124d62d2513431d1c28525423.js"></script>
+
+<meta content='n4FYakgLVe1smRPU7gMdoXLgAUHVQDHevdSPlKGqLO4' name='google-site-verification'>
+<meta content='on' name='twitter:widgets:csp'>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WG4J29S');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TRZX7BZ');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Analytics Here -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46858978-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'UA-46858978-2', { 'optimize_id': 'GTM-M9B6M8R'});
+  gtag('config', 'AW-951733091');
+</script>
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/54eea5d20a23b37d87000040.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+
+
+<script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0023/6713.js" async="async"></script>
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '120259081996654', {
+    em: '',
+  });
+
+  fbq('track', 'PageView');
+
+  fbq('track', 'ViewContent', {content_ids: ['16-subscription'], content_type: 'product'});
+
+  fbq('track', 'ViewContent', {content_ids: ['16-downloads'], content_type: 'product'});
+
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=120259081996654&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+</head>
+<body class='mobile'>
+<script>
+  if ($(window).width() >= 900) {
+    $('body').removeClass('mobile');
+  };
+</script>
+<div class='container topHeader'>
+
+<div class='le_sidemenu checkout_sidemenu'>
+<div class='checkout-close'>
+<a onClick="$(&#39;.le_sidemenu&#39;).removeClass(&#39;open&#39;);$(&#39;.le_sidemenu-bg&#39;).removeClass(&#39;open&#39;);" href="javascript://"><i class='fas fa-times'></i>
+</a></div>
+<div class='page-form'>
+<div id='j_cartForm'><div id='j_checkoutFormWr'>
+<form id="j_checkoutForm" action="/cart/complete" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="vHYq1JMwLGatn0r3eRqLbleUq8yhQ57Llrh9RUucMUu0QC7RkFhqY747Uy2PFzLTBOjSxit4KWJQkbocwoTn5A==" />
+<input type="hidden" name="pap_custom" value="" id="pap_tdx8v2s5a" />
+<h5 class='header-with-link'>
+Create Account
+<span>
+(or
+<a class="fancylink_stand-bg" href="/login?after=%2Fruby-on-rails-7th-edition%23cart-checkout">log in</a>
+)
+</span>
+</h5>
+<div>
+<label for="cart_new_user_email">Email</label>
+<input type="email" name="cart[new_user_email]" id="cart_new_user_email" required="required" autocomplete="email" />
+</div>
+<div>
+<label for="cart_new_user_username">Public Username</label>
+<input type="text" name="cart[new_user_username]" id="cart_new_user_username" required="required" autocomplete="username" />
+</div>
+<div>
+<label for="cart_new_user_password">Password</label>
+<input type="password" name="cart[new_user_password]" id="cart_new_user_password" required="required" autocomplete="new-password" />
+</div>
+<div>
+<label for="cart_new_user_password_confirmation">Password Confirmation</label>
+<input type="password" name="cart[new_user_password_confirmation]" id="cart_new_user_password_confirmation" required="required" autocomplete="new-password" />
+</div>
+<div class='optin-wr'>
+<div class='optin-error_msg'>You have to make a choice. Choose...wisely.</div>
+<label class='fancyCheckLabel optin-check'>
+<input id='cart-opt-in' name='cart[new_user_opt_in]' type='radio' value='1'>
+receive announcement and update emails?
+<label></label>
+</label>
+<p class='optin-msg'>
+Get occasional notifications about things like product discounts, blog posts, and new or updated tutorials. Unsubscribe at any time.
+
+</p>
+<label class='fancyCheckLabel optout-check'>
+<input id='cart-opt-out' name='cart[new_user_opt_in]' type='radio' value='0'>
+No thanks.
+<label></label>
+</label>
+</div>
+<div class='checkout_gifting' id='gift-options'>
+<label class='fancyCheckLabel'>
+<input name='cart[is_gift]' onclick='toggleGiftForm($(event.target))' type='checkbox'>
+Is this a gift?
+<label></label>
+</label>
+<div class='checkout_gifting-form' id='gift-form'>
+<h5>Gift Delivery Options</h5>
+<div>
+<label class='fancyCheckLabel'>
+<input checked name='cart[gift][to_print]' onchange='togglePrint()' type='radio' value='0'>
+<label></label>
+Send Gift by Email
+<small>(We’ll email the recipient for you)</small>
+</label>
+</div>
+<div>
+<label class='fancyCheckLabel'>
+<input name='cart[gift][to_print]' onchange='togglePrint()' type='radio' value='1'>
+<label></label>
+Print Gift Yourself
+<small>(Give the gift in a card/envelope)</small>
+</label>
+</div>
+<div>
+<label for="cart_gift_from_name">From Name</label>
+<input type="text" name="cart[gift][from_name]" id="cart_gift_from_name" />
+</div>
+<div>
+<label for="cart_gift_name">Recipient Name</label>
+<input type="text" name="cart[gift][name]" id="cart_gift_name" />
+</div>
+<div id='gift_recipient_email'>
+<label for="cart_gift_email">Recipient Email</label>
+<input type="email" name="cart[gift][email]" id="cart_gift_email" />
+</div>
+<div>
+<label for="cart_gift_message">Personalized Gift Message (optional)</label>
+<textarea name="cart[gift][message]" id="cart_gift_message" rows="3" style="min-height:auto">
+</textarea>
+</div>
+<div id='gift_delivery_date'>
+<label for="cart_gift_to_deliver_at">Delivery Date (MM/DD/YYYY - Optional)</label>
+<input type="date" name="cart[gift][to_deliver_at]" id="cart_gift_to_deliver_at" placeholder="MM/DD/YYYY" />
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    window.toggleGiftForm = function(ch) {
+      return $('#gift-form').toggle(ch.is(':checked'));
+    };
+  
+    window.togglePrint = function() {
+      return $('#gift_recipient_email, #gift_delivery_date').toggle($('input[name="cart[gift][to_print]"]:checked').val() === '0');
+    };
+  
+    $(function() {
+      return toggleGiftForm($('#gift-options input[name="cart[is_gift]"]'));
+    });
+  
+  }).call(this);
+</script>
+<div class='cartNotFree' id='j_quickCheckout'>
+<h5>Quick Checkout</h5>
+<div id='payment-request-button'></div>
+<div class='paypal-wr'>
+<div id='paypal-button'></div>
+<div id='paypal-details' style='display:none'>
+<strong>Using PayPal Account:</strong>
+<br>
+<span id='paypal-name'></span>
+(
+<span id='paypal-email'></span>
+)
+<br>
+<a href='javascript://' id='cancel-paypal-btn' onclick='Purchase.cancelPaypal()'>Change</a>
+</div>
+</div>
+
+<h5>or Pay by Credit Card</h5>
+<div class='creditCardInput'>
+<div id='j_cc_form'>
+<div class='checkoutFull'>
+<label>Card Info</label>
+<div class='card-element' id='card-element'></div>
+<div id='card-errors'></div>
+</div>
+</div>
+</div>
+</div>
+<div class='le_cart-errors userErrors'></div>
+<div class='le_cart-errors purchaseErrors'></div>
+<div class='le_cart-errors checkoutOptinErrors'>
+<h5>Error processing your payment</h5>
+<ul>
+<li>You didn't choose whether or not to be added to the mailing list</li>
+</ul>
+</div>
+<h5>Confirm</h5>
+<div class='cart_lastconfirm'>
+<label>Total Today</label>
+<div id='j_cartTotal'>$0.00</div>
+<label>(7 day free trial - Payment will be charged after trial ends)</label>
+</div>
+<div class='cart'></div>
+<div class='submitWr'>
+<script async='' defer='defer' src='https://www.google.com/recaptcha/api.js'></script>
+<button class='g-recaptcha j_submitButton danger' data-callback='onSubmit' data-sitekey='6LeUMkckAAAAACfQJqE0y43Fa8pSrKJKBWT3_yKQ'>
+Complete Checkout
+</button>
+</div>
+<div class='payment-details'>
+<img class="payment-cards" src="https://www.learnenough.com/assets/payment-d6532f21f3d0117c7b88578c5666d2abf8598dc306db1198909969d73efb9de6.webp" />
+<p>
+Payments and credit card details are securely managed and protected by Learn Enough's payment processor, Stripe. More information on their site:
+<br>
+<a target="_blank" class="stripeLogo" href="https://www.stripe.com"><img src="https://www.learnenough.com/assets/stripe-697e04c779dd1f74593ce93803987137493cffc44c593b5a73399025cf64820a.webp" /></a>
+</p>
+</div>
+<script>
+  $(function(){
+    Cart.init({
+      availableBundles: [{"id":6,"name":"Learn Enough JavaScript to Be Dangerous","code":"learn_enough_javascript","price_in_dollars":29.0,"book_ids":[301]},{"id":1,"name":"Learn Enough Command Line to Be Dangerous","code":"learn_enough_command_line","price_in_dollars":19.0,"book_ids":[164]},{"id":7,"name":"Learn Enough Ruby to Be Dangerous","code":"learn_enough_ruby","price_in_dollars":29.0,"book_ids":[305]},{"id":2,"name":"Learn Enough Text Editor to Be Dangerous","code":"learn_enough_text_editor","price_in_dollars":19.0,"book_ids":[183]},{"id":3,"name":"Learn Enough Git to Be Dangerous","code":"learn_enough_git","price_in_dollars":19.0,"book_ids":[191]},{"id":15,"name":"Ruby on Rails Tutorial 6th Edition","code":"ruby_on_rails_tutorial_6th_edition","price_in_dollars":39.0,"book_ids":[319]},{"id":4,"name":"Learn Enough HTML to Be Dangerous","code":"learn_enough_html","price_in_dollars":19.0,"book_ids":[234]},{"id":5,"name":"Learn Enough CSS \u0026 Layout to Be Dangerous","code":"learn_enough_css","price_in_dollars":29.0,"book_ids":[268]},{"id":8,"name":"Ruby on Rails Tutorial (Rails 5)","code":"ruby_on_rails_tutorial_4th_edition","price_in_dollars":39.0,"book_ids":[216]},{"id":9,"name":"Learn Enough Action Cable to Be Dangerous","code":"learn_enough_action_cable","price_in_dollars":19.0,"book_ids":[322]},{"id":14,"name":"Application Development","code":"application_development","price_in_dollars":39.0,"book_ids":[439,305,438,319,216,322]},{"id":11,"name":"Developer Fundamentals","code":"developer_fundamentals","price_in_dollars":19.0,"book_ids":[164,183,191]},{"id":17,"name":"Learn Enough Python to Be Dangerous","code":"learn_enough_python","price_in_dollars":39.0,"book_ids":[439]},{"id":16,"name":"Ruby on Rails Tutorial 7th Edition","code":"ruby_on_rails_tutorial_7th_edition","price_in_dollars":39.0,"book_ids":[438]},{"id":13,"name":"Beginning Development","code":"beginning_development","price_in_dollars":19.0,"book_ids":[301,305]},{"id":12,"name":"Web Basics","code":"web_basics","price_in_dollars":29.0,"book_ids":[234,268,301]},{"id":10,"name":"All Access","code":"all_access","price_in_dollars":49.0,"book_ids":[164,183,191,234,268,439,301,305,216,319,438,322]},{"id":18,"name":"Annual All Access","code":"annual_all_access","price_in_dollars":468.0,"book_ids":[164,183,191,234,268,439,301,305,216,319,438,322]}],
+      stripeKey: "pk_live_Xn1p0BfxqKxkAxtEr03P7wmd",
+      useCardOnFile: false,
+      existingPaymentLabel: "",
+      existingPaymentText: "",
+      discount: false,
+      data: {"courseBundles":[],"bookOptions":[],"subscriptionDiscount":null,"is_gift":null,"totalToday":0.0},
+      braintreeToken: "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpGVXpJMU5pSXNJbXRwWkNJNklqSXdNVGd3TkRJMk1UWXRjSEp2WkhWamRHbHZiaUlzSW1semN5STZJbWgwZEhCek9pOHZZWEJwTG1KeVlXbHVkSEpsWldkaGRHVjNZWGt1WTI5dEluMC5leUpsZUhBaU9qRTNNalV4TURjNU1UY3NJbXAwYVNJNklqUXpOemt5TlRaa0xXVmtabVl0TkRobU15MDRZMlJsTFRnMVltUXpaR0l4TVRZNFppSXNJbk4xWWlJNklqTm1abVF6ZW1KM1luWm9ibU5rTW0waUxDSnBjM01pT2lKb2RIUndjem92TDJGd2FTNWljbUZwYm5SeVpXVm5ZWFJsZDJGNUxtTnZiU0lzSW0xbGNtTm9ZVzUwSWpwN0luQjFZbXhwWTE5cFpDSTZJak5tWm1RemVtSjNZblpvYm1Oa01tMGlMQ0oyWlhKcFpubGZZMkZ5WkY5aWVWOWtaV1poZFd4MElqcDBjblZsZlN3aWNtbG5hSFJ6SWpwYkltMWhibUZuWlY5MllYVnNkQ0pkTENKelkyOXdaU0k2V3lKQ2NtRnBiblJ5WldVNlZtRjFiSFFpWFN3aWIzQjBhVzl1Y3lJNmUzMTkuN2I4WnpwMVFsaXpoMVYzQU92cmhvc0pXTUtqa3BDa1NIYl9IUFRnOGNkSHVGX1ZOOGdOc2wxX1NBRG9CSUowX09lY3RxT2xFUm56MzRMZVBuT0RrN1EiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzLzNmZmQzemJ3YnZobmNkMm0vY2xpZW50X2FwaS92MS9jb25maWd1cmF0aW9uIiwiZ3JhcGhRTCI6eyJ1cmwiOiJodHRwczovL3BheW1lbnRzLmJyYWludHJlZS1hcGkuY29tL2dyYXBocWwiLCJkYXRlIjoiMjAxOC0wNS0wOCIsImZlYXR1cmVzIjpbInRva2VuaXplX2NyZWRpdF9jYXJkcyJdfSwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuYnJhaW50cmVlZ2F0ZXdheS5jb206NDQzL21lcmNoYW50cy8zZmZkM3pid2J2aG5jZDJtL2NsaWVudF9hcGkiLCJlbnZpcm9ubWVudCI6InByb2R1Y3Rpb24iLCJtZXJjaGFudElkIjoiM2ZmZDN6YndidmhuY2QybSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5jb20iLCJ2ZW5tbyI6Im9mZiIsImNoYWxsZW5nZXMiOltdLCJ0aHJlZURTZWN1cmVFbmFibGVkIjpmYWxzZSwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5icmFpbnRyZWVnYXRld2F5LmNvbS8zZmZkM3pid2J2aG5jZDJtIn0sInBheXBhbEVuYWJsZWQiOnRydWUsInBheXBhbCI6eyJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjpmYWxzZSwidW52ZXR0ZWRNZXJjaGFudCI6ZmFsc2UsImFsbG93SHR0cCI6ZmFsc2UsImRpc3BsYXlOYW1lIjoiTGVhcm4gRW5vdWdoIiwiY2xpZW50SWQiOiJBWUZCVWx2M0dQWkpRNXppb1JWa3J5WE4weXFvY3NFZXhUXzlvVHFRSUNvYWxudVJmUXYyNlRXdFpTSHhYUndiMTBSQnRjLW96bXBBS1VVVyIsImJhc2VVcmwiOiJodHRwczovL2Fzc2V0cy5icmFpbnRyZWVnYXRld2F5LmNvbSIsImFzc2V0c1VybCI6Imh0dHBzOi8vY2hlY2tvdXQucGF5cGFsLmNvbSIsImRpcmVjdEJhc2VVcmwiOm51bGwsImVudmlyb25tZW50IjoibGl2ZSIsImJyYWludHJlZUNsaWVudElkIjoiQVJLcllSRGgzQUdYRHpXN3NPXzNiU2txLVUxQzdIR191V05DLXo1N0xqWVNETlVPU2FPdElhOXE2VnBXIiwibWVyY2hhbnRBY2NvdW50SWQiOiJMZWFybkVub3VnaF9pbnN0YW50IiwiY3VycmVuY3lJc29Db2RlIjoiVVNEIn19",
+      loggedIn: false,
+      hasSubscription: false,
+      currentMonthlyCost: 0,
+      currentCourseBundleIds: [],
+      authenticity_token: "zbxhUkpoJWyMh1b3sgJFhKfnaxloqMFRCI+BRrlqiYiagDDm28nVgrz+L5D6ilY0Y9tMhbIEqWab9qHE6irbGw=="
+    })
+  })
+  function onSubmit(token) {
+    return Cart.submitForm(true)
+  }
+</script>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+<div class='le_sidemenu cart_sidemenu'>
+<div class='checkout-close'>
+<a onClick="$(&#39;.le_sidemenu&#39;).removeClass(&#39;open&#39;);$(&#39;.le_sidemenu-bg&#39;).removeClass(&#39;open&#39;);" href="javascript://"><i class='fas fa-times'></i>
+</a></div>
+<div class='page-form le_cart-full' id='j_cart-contain'>
+<h5>CART</h5>
+<div id='j_cart'><div class='j_leCart'>
+<div class='cart-items'>
+</div>
+<h5>Total</h5>
+<div>
+<table class='subscription-total'>
+<tr>
+<td>
+<label>Total Today</label>
+</td>
+<td id='j_totalCartToday'>$0.00</td>
+</tr>
+</table>
+<label>(7 day free trial - Payment will be charged after trial ends)</label>
+</div>
+</div>
+</div>
+<div class='landing-pricing_cta'>
+<a onClick="Cart.sidebarCheckout()" href="javascript://"><button class='attention' id='checkout-now-btn'>Checkout Now</button>
+</a></div>
+</div>
+<div class='page-form le_cart-empty open' id='j_cart-empty'>
+<img class="le_cart-empty_icon" src="https://www.learnenough.com/assets/learnenough/cart_empty-d05104a77de6d5b902a3be3569c6c7ba841d8bcc2530593da0f69dd3764cdb43.webp" />
+<h3>Your Cart is Empty</h3>
+<div class='le_cart-empty_cta'>
+<a href="https://www.learnenough.com/courses"><button class='btn-small attention'>
+See the Tutorials
+</button>
+</a></div>
+</div>
+</div>
+<div class='le_sidemenu-bg' onClick='$(&#39;.le_sidemenu&#39;).removeClass(&#39;open&#39;);$(&#39;.le_sidemenu-bg&#39;).removeClass(&#39;open&#39;);'></div>
+<div class='le_footermenu'>
+<div class='checkout-close'>
+<a onClick="$(&#39;.le_footermenu&#39;).removeClass(&#39;open&#39;)" href="javascript://"><i class='fas fa-times'></i>
+</a></div>
+<div class='le_footermenu_content le_footermenu_change'>
+<div class='le_footermenu_copy'>
+<div class='le_footermenu_cost-current'>
+<label>Current $ /mo</label>
+<div class='j_currentMonthlyCost'>
+$30
+</div>
+</div>
+<div class='le_footermenu_cost-new'>
+<label>
+New $ /
+<div class='j_newBillingInterval'>mo</div>
+</label>
+<div class='j_newMonthlyCost'>
+$300
+</div>
+</div>
+<div class='le_footermenu_cost-today j_costToday'>
+<label>Change</label>
+<div class='j_newTodayCost'>
+$300
+</div>
+</div>
+</div>
+<div class='le_footermenu_cta'>
+<a onClick="Cart.footerCheckout()" href="javascript://"><button class='small attention btn-small'>
+<span id='j_footerCheckoutBtn'>
+Checkout Now / Update Subscription
+</span>
+</button>
+</a><a onClick="Cart.cancel()" href="javascript://"><button class='small danger btn-small'>
+<span id='j_footerCheckoutBtn'>
+Cancel
+</span>
+</button>
+</a></div>
+</div>
+<div class='le_footermenu_content le_footermenu_confirm'>
+<div class='le_footermenu_copy'>
+<div class='le_footermenu_cost-new'>
+<label>
+Just to confirm, new $ /
+<div class='j_newBillingInterval'>mo</div>
+</label>
+<div class='j_newMonthlyCost'>$XY</div>
+</div>
+<div class='le_footermenu_cost-new j_costToday'>
+<label class='j_costTodayLabel'>Cost Today</label>
+<div class='j_newTodayCost'>$XY</div>
+</div>
+<div class='le_footermenu_cost j_existingPayment'>
+<label class='j_existingPaymentLabel'>On card ending</label>
+<div class='j_existingPaymentText'>1234</div>
+</div>
+</div>
+<div class='le_footermenu_cta'>
+<a onClick="Cart.footerConfirmChange()" href="javascript://"><button class='small menu_warning-btn btn-small'>
+<span id='j_footerConfirmChangeBtn'>
+Confirm Change
+</span>
+</button>
+</a><a onClick="Cart.cancel()" href="javascript://"><button class='small menu_warning-btn danger btn-small'>
+<span id='j_footerCheckoutBtn'>
+Cancel
+</span>
+</button>
+</a></div>
+</div>
+</div>
+
+<div class='site-header'>
+<div class='side-menu-toggle'>
+<a class="side-menu-close" href="javascript://"><i class='fas fa-times'></i>
+</a><a class="side-menu-open" href="javascript://"><i class='fas fa-bars'></i>
+</a></div>
+<nav class='nav'>
+<a class="logoLink artLogo" href="/"><div class='svg le-logo'><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 801 1041" style="enable-background:new 0 0 801 1041;" xml:space="preserve">
+<path d="M569.9,478.6l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H410.5l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.5,0.5h135.1l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-89.9h77l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-81H569.9z M544.2,412.6l17.3,17.3H436.2L419,412.6H544.2z M414,417.6l17.3,17.3v348.7L414,766.3V417.6z M544.2,729.5l17.3,17.3H488v-17.3H544.2z M539.2,566.6l17.3,17.3H488v-17.3H539.2z M484.5,471.6l-3.5,3.5v112.3l3.5,3.5h77v34.7h-77l-3.5,3.5v121.2l3.5,3.5h81.9v34.7H438.3V436.9h128.1v34.7H484.5z"/>
+<path d="M401.5,747.8l-24.3-24.3l-2.5-1h-55.7V433.4l-0.2-0.2l-0.8-2.3l-24.3-24.3l-2.5-1h-49.7l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.6,0.6H399l3.5-3.5v-41.7L401.5,747.8z M373.3,729.5l17.3,17.3h-71.5v-17.3H373.3z M307.1,429.9h-39.8l-17.3-17.3h39.8L307.1,429.9z M245.1,417.6l17.3,17.3v348.7l-17.3-17.3V417.6z M395.5,788.5H269.4V436.9h42.7v313.4l3.5,3.5h79.9V788.5z"/>
+<path d="M691.8,600.3c0-77.2-30-149.7-84.6-204.3c-47.3-47.3-108.2-76.2-173.9-83c0.4-22.2,0.6-35.3,0.6-35.7l-2.6-3.8c-1.8-0.6-3.5-2.2-5.1-4.2l5.1,0c1.8,0.1,22.1,0.8,33.2-11.2c5.5-6,8.5-14,8.5-23.4l0.1-13.3l-3.5-3.5l-16-0.1l-3.5,3.5l-0.1,13.3c0,3.3-0.7,5.5-2.4,7.3c-3.7,4-12.4,4.9-15.4,4.9l-11.9,0c1.4-13.4,3.7-39.7,3.9-72.2c0.1-34.4-5.7-68.9-6.6-73.7c4.9-5.8,7.6-13.5,7.6-21.6C425.2,62,413,47.9,398,47.8c0,0-0.1,0-0.1,0c-15,0-27.2,14-27.3,31.2c0,8.1,2.6,15.8,7.5,21.7c-0.9,4.8-7,39.3-7.2,73.6c-0.1,32.5,2,58.9,3.3,72.3l-11.1,0c-1.8-0.1-22.1-0.8-33.2,11.2c-5.5,6-8.5,14-8.5,23.4l-0.1,13.3l3.5,3.5l16.2,0.1l3.5-3.5l0.1-13.3c0-3.3,0.7-5.5,2.4-7.3c3.7-4,12.3-4.9,15.3-4.9l5.9,0c-1.6,1.9-3.4,3.5-5.2,4.1l-2.6,3.8c0,0.5,0.2,14.2,0.6,37.4c-61.2,8.9-117.8,37.1-162.3,81.6C144.1,450.6,114,523.1,114,600.3s30,149.7,84.6,204.3c49,49,112.4,78.2,180.7,83.7c6.4,96.9,11.7,103.7,14.1,106.6l3.3,2.6l2.9-2.6c2.4-2.9,7.8-9.7,14.3-105.9c73-2.7,141.3-32.4,193.2-84.4C661.8,750,691.8,677.5,691.8,600.3z M377.6,79.1c0.1-13.4,9.1-24.2,20.3-24.2c0,0,0,0,0.1,0c7.7,0,14.5,5.3,17.8,13l-10.6-4.3c1.1,1.6,2.1,3.4,2.8,5.5l9.4,3.8c0.5,2,0.7,4.2,0.7,6.4c0,0.2,0,0.5,0,0.7l-8.4-3.4c0.1,0.8,0.1,1.7,0.1,2.5c0,0.6,0,1.2-0.1,1.8l8,3.2c-0.4,2.1-1,4.2-1.8,6.1l-7.3-2.9c-0.4,1.3-0.9,2.6-1.4,3.7l6.8,2.8c-0.6,1-1.3,1.9-2,2.8c-0.7,0.8-1.5,1.6-2.3,2.3l-0.8-0.3l-5.3-2.2c-1.1,1.2-2.3,2.1-3.6,2.9l5.7,2.3c-2.5,1.2-5.1,1.9-7.9,1.9c-5.3,0-10.3-2.5-14.1-7C379.8,91.9,377.6,85.7,377.6,79.1z M377.9,174.4c0.1-28.2,4.4-57,6.3-68.1c4.1,2.7,8.7,4.2,13.5,4.2c0,0,0.1,0,0.1,0c4.8,0,9.4-1.4,13.5-4.1c0.2,1.3,0.5,2.9,0.7,4.7l-2.1-0.9l-2.9,3.1l5.7,2.3c0.3,2.2,0.6,4.6,1,7.3l-17.4-7.1c0.2,1.4,0.4,3,0.6,4.6l17.3,7c0.3,2.3,0.5,4.7,0.8,7.2l-17.2-7c0.2,1.5,0.3,3,0.5,4.5l17.2,7c0.2,2.3,0.4,4.7,0.6,7.1l-19.6-8c-1.7,0.1-3.7-0.4-3.7-0.4s0.8,1.7,1.9,4l21.7,8.8c0.2,2.3,0.3,4.7,0.4,7l-18.3-7.4c0.9,2.1,1.5,3.9,1.7,5l16.8,6.8c0.1,2.3,0.1,4.6,0.2,6.9l-16.6-6.7c0.1,1.5,0.1,2.9,0.1,4.4l16.5,6.7c0,0.4,0,0.8,0,1.2c0,1.9,0,3.8,0,5.7l-16.7-6.8c-1.1,1.7-5.8-0.2-5.8-0.2s0.4,1,0.9,2.5l21.6,8.7c0,2.3-0.1,4.6-0.2,6.8l-18.6-7.5c0.6,1.8,1.2,3.6,1.6,5l16.9,6.8c-0.1,2.3-0.2,4.6-0.3,6.8l-16.2-6.6c0,1.5-0.1,2.9-0.2,4.3l16.2,6.6c-0.1,2.3-0.2,4.5-0.4,6.7l-16.1-6.5c0,0.7-0.1,1.4-0.1,2.1c0,0.9-0.4,1.4-0.8,1.8l16.8,6.8c-0.1,2.3-0.3,4.5-0.5,6.7l-20-8.1c0.3,1.4,0.7,3.1,1.1,4.7l18.6,7.6c-0.2,2.3-0.4,4.6-0.6,6.6l-16.6-6.8c0.3,1.8,0.4,3.3,0.4,4.1c0,0.1,0,0.2,0,0.3l15.9,6.5c-0.2,2.5-0.5,4.7-0.7,6.6l-15.9-6.4c-0.1,1.5-0.3,2.9-0.4,4.2l8,3.2l-23.7-0.1C380,233.6,377.8,207,377.9,174.4z M362.3,262.1c-1.4,0-14,0.2-20.4,7.1c-2.8,3-4.2,7-4.2,12l0,9.8l-9.2,0l0-9.8c0-7.5,2.3-14,6.6-18.6l0,0c9.1-9.8,27.6-9,27.8-9l69.2,0.2c1.4,0,14.1-0.2,20.6-7.1c2.8-3,4.2-7,4.2-12l0-9.8l9,0l0,9.8c0,7.5-2.3,14-6.6,18.6c-9.1,9.8-27.6,9-27.8,9L362.3,262.1z M407.6,348.5l1.1,0.4h-1.1L407.6,348.5z M403.6,348.9h-5.3l-3.5-79.8l17.2,0.1L403.6,348.9z M408.1,344.3l0.7-6.6l15.9,6.4c0,1.6-0.1,3.1-0.1,4.7h-5.2L408.1,344.3z M409.2,333.6l0.7-6.6l15,6.1c0,2.2-0.1,4.5-0.1,6.8L409.2,333.6z M410.3,322.9l0.7-6.6l14.1,5.7c0,2.2-0.1,4.5-0.1,6.8L410.3,322.9z M411.5,312.2l0.7-6.6l13.1,5.3c0,2.2-0.1,4.5-0.1,6.8L411.5,312.2z M412.6,301.4l0.7-6.6l12.2,4.9c0,2.1-0.1,4.4-0.1,6.8L412.6,301.4z M413.7,290.7l0.7-6.6l11.3,4.6c0,2-0.1,4.3-0.1,6.8L413.7,290.7z M414.9,280l0.7-6.6l5.5,2.2c1.5,1.6,3.1,3,4.8,4c0,1.2,0,2.8-0.1,4.8L414.9,280z M416,269.3L416,269.3l0.3,0c0,0.1,0.1,0.1,0.1,0.2L416,269.3z M390.3,348.9h-20.7c-0.7-36.5-1.1-61.7-1.2-69.5c3.9-2.4,7.2-6.4,9.6-10.3l8.8,0L390.3,348.9z M392.6,951.2c-2-18-4.2-44.3-6.4-82.7c-0.3-5.2-0.6-10.6-0.9-16.2h7.4l2.5,115.9L392.6,951.2z M400.7,959.3l-0.1-20.9l1,0.2C401.4,940.3,400.8,957.7,400.7,959.3z M401.6,934.5l-1-0.4v-6.9l1.7,0.7C402.1,930.2,401.8,932.4,401.6,934.5z M402.7,923.8l-2.2-0.9v-6.9l2.8,1.1C403.2,919.4,403,921.6,402.7,923.8z M403.8,913l-3.2-1.3l0-6.9l3.8,1.6C404.2,908.7,404,910.9,403.8,913z M404.8,902.3l-4.2-1.7v-6.9l4.8,1.9C405.2,897.8,405,900.1,404.8,902.3z M405.7,891.4l-5.1-2.1l0-6.9l5.6,2.3C406,887,405.9,889.2,405.7,891.4z M406.5,880.6l-5.9-2.4l0-6.9l6.4,2.6C406.8,876.1,406.6,878.4,406.5,880.6z M407.3,868.6c0,0.4,0,0.7-0.1,1.1l-6.6-2.7l0-6.9l7,2.8C407.5,864.9,407.4,866.8,407.3,868.6z M407.9,858.8l-7.3-2.9l0-3.5h7.6C408.1,854.5,408,856.6,407.9,858.8z M414.5,880.9c0.6-8.8,1.2-18.3,1.7-28.6h27v-7h-91v7h25c0.6,10,1.1,19.2,1.6,27.8c-66-5.6-127.2-33.9-174.6-81.2C151.2,745.9,122,675.3,122,600.3s29.2-145.6,82.3-198.6c43.1-43.1,97.6-70.4,156.8-79.2c0.1,7.9,0.3,16.8,0.5,26.4h-16.1v7h109.8v-7h-22.7c0.2-10.2,0.4-19.6,0.5-27.9c63.6,6.8,122.6,34.8,168.4,80.7c53.1,53.1,82.3,123.6,82.3,198.6s-29.2,145.6-82.3,198.6C551.2,849.2,485.2,878.1,414.5,880.9z"/>
+</svg>
+</div>
+<span>LEARN ENOUGH</span>
+</a><ul class='headerMenu'>
+<li>
+<a href='tel:1 (888) 979-2398'>
+1 (888) 979-2398
+</a>
+</li>
+<li><a href="https://www.learnenough.com/courses">Courses</a></li>
+<li><a href="https://www.learnenough.com/plans">Plans</a></li>
+<li><a href="https://www.learnenough.com/gifting">Gifting</a></li>
+<li><a href="https://www.learnenough.com/ruby-on-rails-7th-edition">The Rails Tutorial</a></li>
+<li><a href="https://www.learnenough.com/for-teams">For Teams</a></li>
+<li><a href="https://www.learnenough.com/blog">Blog</a></li>
+<li><a href="https://www.learnenough.com/login">Log In</a></li>
+<li class='header-cart'>
+<a onClick="Cart.openCart()" class="header-cart_link" href="javascript://"><i class='fas fa-shopping-cart'></i>
+<span class='header-cart_label'>Cart</span>
+</a></li>
+<li>
+<a class="header_search-icon" href="javascript://"><i class='fas fa-search'></i>
+</a><div class='header_search'>
+<form action='//www.learnenough.com/search' method='get'>
+<input name='book_id[438]' type='hidden' value='on'>
+<input id='j_searchInput' name='q' placeholder='Search in tutorials...' type='text'>
+</form>
+</div>
+</li>
+</ul>
+</nav>
+<div id='dropBG'></div>
+</div>
+
+<div class='le-content'>
+
+<div class='landing-section landing-section_hero'>
+<div class='landing-hero_description'>
+<div class='landing-hero_content'>
+
+<h1>
+Learn professional-grade
+<span class='landing-title_pop'>web application development</span>
+with Ruby on Rails
+</h1>
+
+<h5 class='landing_hero-title'>
+Ruby on Rails (Rails 7)
+<span class='subtitle-bundletag book_color-rails'>
+Application Development
+<strong>
+03
+</strong>
+</span>
+</h5>
+<div class='landing-hero_shortsales'>Since its initial publication in 2010, the <em>Ruby on Rails Tutorial</em> has been one of the leading introductions to web development. In this bestselling tutorial, you’ll learn how to develop and deploy real, industrial-strength web applications with Ruby on Rails, the open-source web framework that powers top websites such as Hulu, GitHub, Shopify, and Airbnb. This new 7th edition has been fully updated for Rails&nbsp;7. <a class="fancylink fancylink_icon_right" href="https://news.learnenough.com/ruby-on-rails-800-pound-gorilla" target="_blank" rel="noopener">Read full post <i class="fas fa-arrow-circle-right"></i></a></div>
+<div class='landing-hero_cta'>
+<a onClick="scrollNice(&#39;#landing-pricing&#39;)" class="jLinkText" href="#see.tutorial.pricing"><button class='btn-outline-yellow'>
+BUY TUTORIAL&thinsp;:
+$39
+<sub>/mo</sub>
+<span>or&thinsp;</span>
+$49
+<sub>/mo (All Access)</sub>
+</button>
+</a><div class='landing-hero_cta-divider'>- or -</div>
+<h5 class='landing_hero-scroll'>
+<em>↓</em>
+SCROLL DOWN TO LEARN MORE
+<em>↓</em>
+</h5>
+</div>
+</div>
+</div>
+<div class='landing-hero_media'>
+<div class='landing-hero_cover hero_covers-glow'>
+<a class="cover_book-wr" href="/ruby-on-rails-7th-edition-tutorial"><div class='cover_book cover_book-hover'>
+<img class="cover_book-image" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png" />
+</div>
+</a><br>
+<a onClick="leModalVideo(&#39;https://www.youtube.com/embed/d-JlBFnOrcM&#39;)" class="landing-hero_introvid jLinkText" href="#watch.tutorial.intro.video"><div class='landing-hero_introvid-play'><img class="landing-hero_introvid-thumb" src="https://www.learnenough.com/assets/learnenough/intro_video-thumbs-rails-b0a1feba6cd001bed52109077c0363f2c9d8f24c5dcba00dc038038288d0ab31.jpg" /></div>
+<span class='landing-link landing-link_yellow'>
+Play Intro Video
+<i class='fas fa-play-circle'></i>
+</span>
+</a></div>
+</div>
+</div>
+<div class='landing-section_spikes'>
+<div class='landing-pricing' id='landing-pricing'>
+<div class='landing_topstats'>
+<div class='landing_topstats-item'>
+<div class='topstats-img'><img src="https://www.learnenough.com/assets/learnenough/icon_outline_book-675ea3f65592d62b33f30bd96896ac67fcf063a2353376fa234d89207279d770.png" /></div>
+<div class='landing_topstats-content'>
+<div class='landing_topstats-text'>ebooks</div>
+<div class='topstats-copy'>
+<strong class='landing_topstats-big'>883</strong>
+pages
+</div>
+</div>
+</div>
+<div class='landing_topstats-item'>
+<div class='topstats-img'><img src="https://www.learnenough.com/assets/learnenough/icon_outline_screencasts-62d5ecabad90751b6c41856f8011caa8b97c41ba284e45515b54ee3b7ca36d66.png" /></div>
+<div class='landing_topstats-content'>
+<div class='landing_topstats-text'>screencasts</div>
+<div class='topstats-copy'>
+<strong class='landing_topstats-big'>20</strong>
+hours
+</div>
+</div>
+</div>
+<div class='landing_topstats-item landing_topstats-item_course'>
+<div class='topstats-img'><img src="https://www.learnenough.com/assets/learnenough/icon_outline_course-cae685769eb102590970172d096917dd671617e1992b33e12cef4bba98e10197.png" /></div>
+<div class='landing_topstats-content'>
+<div class='landing_topstats-text'>
+course
+</div>
+<div class='topstats-copy'>
+<strong class='landing_topstats-big'>14</strong>
+chapters
+</div>
+</div>
+<div class='landing_topstats-content'>
+<div class='landing_topstats-text'>&nbsp;</div>
+<div class='topstats-copy'>
+<strong class='landing_topstats-big'>272</strong>
+videos
+</div>
+</div>
+<div class='landing_topstats-content'>
+<div class='landing_topstats-text'>&nbsp;</div>
+<div class='topstats-copy'>
+<strong class='landing_topstats-big'>310</strong>
+exercises
+</div>
+</div>
+</div>
+<div class='landing_topstats-item landing_topstats-btn'>
+<div class='topstats-centering'>
+<a href="/ruby-on-rails-7th-edition-tutorial"><button class='btn-small btn-outline'>
+Free Sample Chapters
+</button>
+</a></div>
+</div>
+</div>
+
+<div class='bundle_features-title' id='course-subscriptions'>
+<h2>
+<p>Get Started Now!</p>
+Course Subscriptions
+</h2>
+</div>
+<div class='landing-checkout_types'>
+<div class='landing-checkout_item'>
+<div class='landing-checkout_info-visual landing-checkout_course'>
+<a onClick="leModalVideo(&#39;https://www.youtube.com/embed/WhoGHXJ3ycc&#39;)" class="jLinkText" href="#play.course.video"><div class='landing_types-play'>
+<i class='fas fa-play-circle'></i>
+Play Video
+</div>
+<img class="landing-checkout_info-img" src="https://www.learnenough.com/assets/learnenough/icon_checkout_course-532fff2c1925f0ba5f125de6d009164ca9f70a1f2911e89d6dfda51341e9299f.png" />
+</a></div>
+<div class='landing-checkout_info-copy landing-checkout_course'>
+<div class='landing-checkout_info-price'>
+<sup>$</sup>
+39
+<div class='sub-title'>per month</div>
+</div>
+<h5 class='checkout-details_header'>
+Course
+</h5>
+<p>Full online version of the tutorial, embedded streaming videos for all sections, exercises with editable answers, progress tracking, and membership in the Learn Enough Society (community exercise answers, private chat group). Pause your subscription at any time!</p>
+</div>
+<div class='landing-checkout_cta landing-checkout_course'>
+<a data-id="16-subscription" data-name="ruby_on_rails_tutorial_7th_edition" data-type="product" data-value="39.0" class="btn_addBundleToCart jLinkText" href="#add.bundle.to.cart"><button class='attention' id='j_landingPageCheckoutFormBtn'>
+<i class='fas fa-shopping-cart'></i>
+Add to Cart
+<span class='j_optionsButtonPrice'></span>
+</button>
+</a></div>
+</div>
+<div class='landing-checkout_item'>
+<div class='landing-checkout_info-visual landing-checkout_all'>
+<a class="bundle-covers_link" href="https://www.learnenough.com/all-access"><div class='bundle-covers_content bundle-covers_all'>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_command_line/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_text_editor/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_git/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_html/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_css/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_python/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_javascript/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_ruby/images/cover-web.png" /></div>
+<div class='bundle-covers_img bundle-cover_railstut'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png" /></div>
+</div>
+
+</a></div>
+<div class='landing-checkout_info-copy landing-checkout_all'>
+<div class='landing-checkout_info-price'>
+<sup>$</sup>
+39
+<div class='sub-title'>per month billed annually</div>
+</div>
+<h5 class='checkout-details_header'>All Access Subscription</h5>
+<div>
+All Access Subscription includes the course version of all the tutorials (streaming video, exercise answers, and progress tracking), and access to the Learn Enough Society to get help if you need it
+<a href="https://www.learnenough.com/all-access"><div class='btn btn-icon-reveal'>
+<span class='btn-tiny_text'>MORE INFO</span>
+<i class='fas fa-arrow-circle-right'></i>
+</div>
+</a></div>
+</div>
+<div class='landing-checkout_cta landing-checkout_all'>
+<a onclick="leModalOpen(&#39;.le-modal_allacess&#39;)" href="javascript://"><button class='attention' id='hero-cta'>
+All Access
+</button>
+</a></div>
+</div>
+</div>
+<script>
+  $( document ).ready(function() {
+  window.selectAllSetup();
+  });
+</script>
+
+<div class='landing-guarantee'>
+<div class='le-guarantee'>
+<div class='le-guarantee_scholar'>
+<h5 class='le_guarantee-scholar'>Need a little help?</h5>
+<p class='le_guarantee-scholar'>
+Learn Enough offers a generous scholarship program to help out in case cost is a factor. We’ve already awarded over 1500 Learn Enough Scholarships to a wide variety of recipients, including students, people between jobs, and residents of countries with unfavorable exchange rates. Applications are quick, easy, and 100% confidential.
+
+<a class="fancylink_dblue-bg fancylink_icon_right" href="/scholarship">Learn More
+<i class='fas fa-arrow-circle-right'></i>
+</a></p>
+</div>
+<div class='le-guarantee_refund' style=''>
+<h5>Money-Back Guarantee</h5>
+<p>All Learn Enough tutorials come with a <strong>60-day 100% money-back guarantee</strong>. If for any reason you aren’t satisfied with any tutorial purchase, just let us know and we’ll refund your payment.</p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div class='landing-section landing-section_features' id='price-includes'>
+<div class='landing-section_features-list'>
+<div class='landing-section_title'>
+<h2>
+<p>Learn to Make a Real Web Application</p>
+In the Ruby on Rails Tutorial
+</h2>
+</div>
+<div class='landing_bundle_info'>
+<div class='landing_bundle_info-covers'>
+<div class='bundle-covers'>
+<div class='bundle-covers_content bundle-covers_multi'>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_python/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_ruby/images/cover-web.png" /></div>
+<div class='bundle-covers_img bundle-cover_railstut'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png" /></div>
+</div>
+
+<br>
+</div>
+</div>
+<div class='landing_bundle_info-content'>
+<h5 class='landing_bundle_info-title'>
+Tutorial
+03
+in the
+<br>
+<strong>
+Application Development
+Series
+</strong>
+</h5>
+<p>With the foundations laid by the previous Learn Enough tutorials, you’re now ready to learn how to develop larger software systems, including dynamic web applications. You’ll start by learning either Python or Ruby (or both), using them for general-purpose programming and to make a simple web application. With Python, you’ll also learn key Python tools for the fast-growing field of data science. Learning Ruby, meanwhile, leads naturally into the Ruby on Rails Tutorial, the leading introduction to web development with Rails. In a final optional tutorial, you’ll learn how to use Action Cable to make real-time web apps that respond instantly to user input. By the time you finish these courses, you&#39;ll be ready to start work as a freelancer, get a job as a developer, or start a web-based company of your own.</p>
+</div>
+</div>
+
+<div class='landing-section_features-item'>
+<div class='landing-section_features-covers'>
+<img class="landing_features-graphic" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/redirected_not_activated.png" />
+</div>
+<div class='landing-section_features-item-content'>
+<div class='landing_features-item_copy'>
+<h4>Professional-grade web development</h4>
+<h5 class='sub-title'>Building a real web application</h5>
+<p>The <em>Ruby on Rails Tutorial</em> teaches you how to develop custom web applications with the popular Ruby on Rails web framework. Since its launch in 2010, the <em>Ruby on Rails Tutorial</em> has been the leading introduction to web development with Rails.</p>
+<p>The <em>Ruby on Rails Tutorial</em> is designed to give you a thorough introduction to web application development, including a basic grounding in Ruby, Rails, HTML &amp; CSS, databases, version control, testing, and deployment—sufficient to launch you on a career as a web developer or technology entrepreneur. If you already know web development, this book will quickly teach you the essentials of the Rails framework, including MVC and REST, generators, migrations, routing, and embedded Ruby.</p>
+</div>
+</div>
+</div>
+<div class='landing-section_features-item'>
+<div class='landing-section_features-covers'>
+<img class="landing_features-graphic" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/new_readme_bitbucket_4th_ed.png" />
+</div>
+<div class='landing-section_features-item-content'>
+<div class='landing_features-item_copy'>
+<h4>App development principles</h4>
+<h5 class='sub-title'>The basics of working with Rails</h5>
+<p>The <em>Ruby on Rails Tutorial</em> takes an integrated approach to web development by building three example applications of increasing sophistication, starting with a minimal hello app, a slightly more capable toy app, and a real sample app. The emphasis throughout the tutorial is on general principles, so you will have a solid foundation no matter what kinds of web applications you want to build.</p>
+</div>
+</div>
+</div>
+<div class='landing-section_features-item'>
+<div class='landing-section_features-covers'>
+<img class="landing_features-graphic" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/ide_anatomy_aws.png" />
+</div>
+<div class='landing-section_features-item-content'>
+<div class='landing_features-item_copy'>
+<h4>Setting up your dev environment</h4>
+<h5 class='sub-title'>Web development requires tools</h5>
+<p>In the first chapter, you’ll get started with Ruby on Rails by installing all the necessary software and by setting up your development environment. You’ll then create your first Rails application. The <em>Rails Tutorial</em> emphasizes good software development practices, so immediately after creating your fresh new Rails project you’ll put it under version control with Git. And, believe it or not, in the chapter you’ll even put your first app on the wider web by deploying it to production.</p>
+</div>
+</div>
+</div>
+<div class='landing-section_features-item'>
+<div class='landing-section_features-covers'>
+<img class="landing_features-graphic features_graphic-bg" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/mvc_detailed.png" />
+</div>
+<div class='landing-section_features-item-content'>
+<div class='landing_features-item_copy'>
+<h4>Simple toy application</h4>
+<h5 class='sub-title'>It might not be pretty, but it works</h5>
+<p>In Chapter 2, you’ll make a second project, whose purpose is to demonstrate the basic workings of a Rails application. To get up and running quickly, you’ll build this toy app using an automatic code generator; because this code is both ugly and complex, Chapter 2 will focus on interacting with the toy app through its URLs using a web browser.</p>
+</div>
+</div>
+</div>
+<div class='landing-section_features-item'>
+<div class='landing-section_features-covers'>
+<img class="landing_features-graphic" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/figures/live_status_feed.png" />
+</div>
+<div class='landing-section_features-item-content'>
+<div class='landing_features-item_copy'>
+<h4>Putting everything together</h4>
+<h5 class='sub-title'>Putting all your knowledge into action</h5>
+<p>The rest of the tutorial focuses on developing a single large real sample application, writing all the code from scratch. You’ll develop the sample app using a combination of mockups, test-driven development (TDD), and integration tests. You’ll get started in Chapter 3 by creating static pages and then add a little dynamic content. You’ll take a quick detour in Chapter 4 to learn a little about the Ruby language underlying Rails. Then, in Chapter 5 through Chapter 12, you’ll complete the foundation for the sample application by making a site layout, a user data model, and a full registration and authentication system (including account activation and password resets). Finally, in Chapter 13 and Chapter 14 you’ll add microblogging and social features to make a working example site.</p>
+<p>The result is a thorough grounding in web application development that will serve you well as a technical manager, entrepreneur, or professional software developer.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class='landing_body-cta'>
+<h5 class='sub-title'>Is all of this…</h5>
+<h3>Sounding good?</h3>
+<a href="/ruby-on-rails-7th-edition-tutorial"><button class='btn-outline-yellow'>
+Read Free Sample Chapters
+</button>
+</a><a onClick="$(&#39;html,body&#39;).animate({scrollTop: $(&#39;#landing-pricing&#39;).offset().top}, 500)" class="jLinkText" href="#see.tutorial.pricing"><button class='attention'>SEE PLAN OPTIONS</button>
+</a></div>
+
+</div>
+<div class='section_testimonials' id='testimonials'>
+<div class='section-bg testimonials-bg'></div>
+<div class='gridhero'>
+<div class='gridhero_item gridhero_img'>
+<img id="gridhero_img-0" src="https://www.learnenough.com/scholarship_imgs/scholarship_1.webp" />
+</div>
+<div class='gridhero_item gridhero_img'>
+<img id="gridhero_img-1" src="https://www.learnenough.com/scholarship_imgs/scholarship_17.webp" />
+</div>
+<div class='gridhero_item gridhero_img'>
+<img id="gridhero_img-2" src="https://www.learnenough.com/scholarship_imgs/scholarship_3.webp" />
+</div>
+<div class='gridhero_item gridhero_img'>
+<img id="gridhero_img-3" src="https://www.learnenough.com/scholarship_imgs/scholarship_26.webp" />
+</div>
+<div class='gridhero_item gridhero_img'>
+<img id="gridhero_img-4" src="https://www.learnenough.com/scholarship_imgs/scholarship_5.webp" />
+</div>
+</div>
+<div class='landing-section_title'>
+<h2>
+Happy people
+<p class='sub-title'>saying nice things!</p>
+</h2>
+</div>
+<div class='testimonials'>
+<div class='testi_group testi_permanent'>
+<img class="testi_image testi_image-headshot" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/DHH.jpg" />
+<div class='testi_content'>
+<h5>
+David Heinemeier Hansson
+<strong>Creator, Ruby On Rails</strong>
+</h5>
+<div class='testi_item'>
+<blockquote class="twitter-tweet" data-cards="hidden" data-lang="en"><p lang="en" dir="ltr">3rd edition of <a href="https://twitter.com/mhartl?ref_src=twsrc%5Etfw">@mhartl</a>&#39;s much celebrated The Ruby on Rails Tutorial is in out in draft: <a href="http://t.co/LhCMhuNEcR">http://t.co/LhCMhuNEcR</a> — looks like a great upgrade!</p>&mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/505183210993905664?ref_src=twsrc%5Etfw">August 29, 2014</a></blockquote>
+</div>
+</div>
+</div>
+
+<div class='testi_group' id='testi_repeat'>
+<img class="testi_image" src="https://www.learnenough.com/assets/learnenough/cover_rails-65c916f2ccb2a29ed86d81e752f13234b93254edf9e0cf1072edd7180767b21b.webp" />
+<div class='testi_content'>
+<h5>
+About the
+<strong>Ruby on Rails Tutorial</strong>
+</h5>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;The Ruby on Rails Tutorial by Michael Hartl &lt;a href=&quot;https://twitter.com/mhartl?ref_src=twsrc%5Etfw&quot;&gt;@mhartl&lt;/a&gt; &lt;a href=&quot;https://t.co/rYNs4poudR&quot;&gt;https://t.co/rYNs4poudR&lt;/a&gt;&lt;/p&gt;&amp;mdash; David Casarez (@DavidCasarez17) &lt;a href=&quot;https://twitter.com/DavidCasarez17/status/1248376162125926400?ref_src=twsrc%5Etfw&quot;&gt;April 9, 2020&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;lol&lt;br&gt;&lt;br&gt;btw your Rails tutorial changed my life. The first of many attempts to learn to program that actually stuck.&lt;/p&gt;&amp;mdash; Jonathan Libov (@libovness) &lt;a href=&quot;https://twitter.com/libovness/status/1125863546569539584?ref_src=twsrc%5Etfw&quot;&gt;May 7, 2019&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item'>
+<p>Just completed the whole tutorial, and I feel I’ve developed a new super power.  Amazing book, it explains the concepts clearly and illustrates them with powerful examples, I have taken rails tutorials before, but this book gave me the basis to fully understand and be able to code in rails effortlessly.</p>
+
+<h6>— Mauricio Guzmán</h6>
+
+<p>-# NEEDS REFERENCE LINK
+-# NEEDS SCREENSHOT</p>
+</div>
+<div class='testi_item'>
+<p>Well, just wanted to say thank you. Best tutorial as far as I know on RoR. See you on twitter.</p>
+
+<h6>— Robert Hopman</h6>
+
+<p>-# NEEDS REFERENCE LINK
+-# NEEDS SCREENSHOT</p>
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just finished the outstanding &lt;a href=&quot;https://twitter.com/RailsTutorial?ref_src=twsrc%5Etfw&quot;&gt;@railstutorial&lt;/a&gt;. Probably the best sw tutorial I&amp;#39;ve experienced since K&amp;amp;R. Can&amp;#39;t wait for the dead tree version&lt;/p&gt;&amp;mdash; Mike Long (@meekrosoft) &lt;a href=&quot;https://twitter.com/meekrosoft/status/2095543769632768?ref_src=twsrc%5Etfw&quot;&gt;November 9, 2010&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Spent the last 3 days nonstop doing http://railstutorial.org/ start-to-finish. Awesome book, &lt;a href=&quot;https://twitter.com/RailsTutorial?ref_src=twsrc%5Etfw&quot;&gt;@railstutorial&lt;/a&gt; - Thanks!&lt;/p&gt;&amp;mdash; Derek Sivers (@sivers) &lt;a href=&quot;https://twitter.com/sivers/status/15233060446?ref_src=twsrc%5Etfw&quot;&gt;June 2, 2010&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item'>
+<p>My former company (CD Baby) was one of the first to loudly switch to Ruby on Rails, and then even more loudly switch back to PHP… This book by Michael Hartl came so highly recommended that I had to try it, and <strong>the Ruby on Rails Tutorial is what I used to switch back to Rails again…</strong> Though I’ve worked my way through many Rails books, this is the one that finally made me “get” it.</p>
+
+<h6>— Derek Sivers</h6>
+
+<h6>– Founder, CD Baby</h6>
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Hey Michael! This is a great chance to tell you that going through the &lt;a href=&quot;https://twitter.com/RailsTutorial?ref_src=twsrc%5Etfw&quot;&gt;@RailsTutorial&lt;/a&gt; videos years ago was one of the best decisions I ever made. Thank you! 🙏🙏🙏&lt;/p&gt;&amp;mdash; Udi Wertheimer (@udiWertheimer) &lt;a href=&quot;https://twitter.com/udiWertheimer/status/974403127104417792?ref_src=twsrc%5Etfw&quot;&gt;March 15, 2018&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item'>
+<p>Just completed the whole tutorial, and I feel I’ve developed a new super power.</p>
+
+<h6>— Damian H.</h6>
+</div>
+<div class='testi_item'>
+<p>I’ve just completed all 14 chapters of the <em>Ruby on Rails Tutorial</em>, and I’m very, very satisfied with the results. I’ve been a very active software engineer since the late 70’s, always staying up with current technologies, and having a ball along the way. The way I like to do tutorials is to type in every line of code myself, read the material at least twice, and do all exercises. Your tutorial has been more than worth that effort!</p>
+
+<p>I’ve taken many ‘tutorials’ in the last 40 or so years, and I have come to expect that the tutorial writer ‘burns out’ somewhere around the middle of the tutorial, and it gets worse as the pages wear on. It is quite clear to me that you applied all your tools that you’ve used in preparing your physics class materials, and brought them with you to this work of yours. I am grateful for your effort, your attention to detail is simply amazingly consistent from start to finish. This tutorial has greatly aided in my transitioning from desktop / cpp to distributed apps / ruby.</p>
+
+<p>Thanks to you, I feel that I have been very effectively jump-started into my role as principal engineer of my tiny new company, and hopefully will have a ball with this technology for at least another decade.</p>
+
+<p>With great thanks,</p>
+
+<h6>— Tony Turner</h6>
+
+<h6>Principal Engineer / Founder, White Rose Technologies, LLC</h6>
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Then &lt;a href=&quot;https://twitter.com/RailsTutorial?ref_src=twsrc%5Etfw&quot;&gt;@RailsTutorial&lt;/a&gt; changed my life and career at 21. Mad props and gratitude to &lt;a href=&quot;https://twitter.com/mhartl?ref_src=twsrc%5Etfw&quot;&gt;@mhartl&lt;/a&gt; for his contribution to the community and personally, my life 🙏🏽&lt;/p&gt;&amp;mdash; Bryan Mason (@BryanAKA) &lt;a href=&quot;https://twitter.com/BryanAKA/status/1161676936805941248?ref_src=twsrc%5Etfw&quot;&gt;August 14, 2019&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I learned rails through your tutorial. I now make a living working for myself with apps all built with Rails. Your tutorial literally changed my life. Thank you!&lt;/p&gt;&amp;mdash; Dan Doughty (@dbdoughty_) &lt;a href=&quot;https://twitter.com/dbdoughty_/status/1179991214029852672?ref_src=twsrc%5Etfw&quot;&gt;October 4, 2019&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+</div>
+
+</div>
+<div class='testi_group testi_permanent'>
+<img class="testi_image testi_image-headshot" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/images/JimmyWales.jpg" />
+<div class='testi_content'>
+<h5>
+Jimmy Wales
+<strong>Founder, Wikipedia</strong>
+</h5>
+<div class='testi_item'>
+<p>Q: What is Jimmy Wales' favorite book?</p>
+
+<p>A: It changes often.  At the moment, it&rsquo;s Ruby on Rails Tutorial by Michael Hartl. :)</p>
+<br>
+<a target="_blank" class="website_link fancylink_dblue-bg" href="https://www.quora.com/Jimmy-Wales-1/What-is-Jimmy-Wales-favorite-book?share=1"><i class='fab fa-quora'></i>
+Quora link
+</a></div>
+</div>
+</div>
+
+<div class='testi_group' id='testi_general'>
+<img class="testi_image" src="https://www.learnenough.com/assets/learnenough/logo_b-b5fd7dda9b14687b25e8bc4292bb027ff96b9da7e94ef5a4a2333c4da06c9afe.webp" />
+<div class='testi_content'>
+<h5>
+About the
+<strong>Learn Enough Courses</strong>
+</h5>
+<div class='testi_item'>
+<p>I must say, this Learn Enough series is a masterpiece of education. Thank you for this incredible work!</p>
+
+<h6>— Michael K.</h6>
+</div>
+<div class='testi_item'>
+<p>I must say, this Learn Enough series is a masterpiece of education. Thank you for this incredible work!</p>
+
+<h6>— Michael K.</h6>
+</div>
+<div class='testi_item testi_twit testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I have nothing but fantastic things to say about &lt;a href=&quot;https://twitter.com/LearnEnough?ref_src=twsrc%5Etfw&quot;&gt;@LearnEnough&lt;/a&gt; courses. I am just about finished with the &lt;a href=&quot;https://twitter.com/hashtag/javascript?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#javascript&lt;/a&gt; course. I must say, the videos are mandatory because &lt;a href=&quot;https://twitter.com/mhartl?ref_src=twsrc%5Etfw&quot;&gt;@mhartl&lt;/a&gt; will play the novice, and share in the joy of having something you wrote actually work! 🤓&lt;/p&gt;&amp;mdash; claudia marie (@StarvingHearts) &lt;a href=&quot;https://twitter.com/StarvingHearts/status/1134234858157355008?ref_src=twsrc%5Etfw&quot;&gt;May 30, 2019&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item'>
+<p>I want to thank you for the amazing job you have done with the tutorials. They are likely the best tutorials I have ever read.</p>
+
+<h6>— Pedro I.</h6>
+</div>
+<div class='testi_item'>
+<p>I have been trying to learn web development and programming on and off for the past 3 years and your website is the first one that I feel does the job right.</p>
+
+<h6>— Janelle S.</h6>
+</div>
+<div class='testi_item'>
+<p>Just bought the new ebook and want to say keep up the great work!! The Learn Enough to Be Dangerous series re-ignited my desire to code after 10+ years of “meh”.</p>
+
+<h6>— Diane Y.</h6>
+</div>
+<div class='testi_item'>
+<p>The Learn Enough Society and the courses are incredible. It’s the best value in the market of online courses in my opinion. Like you say, it’s learning to tech, which is very useful in our world.</p>
+
+<h6>— Sébastien D.</h6>
+</div>
+<div class='testi_item'>
+<p>I just meant to tell you: your tutorial books from the Learn Enough series are awesome! The books are well-written, clear, concise, super-useful, and even fun to read. Thank you so, so much for this! I have bought the first three and will buy whatever you publish next. Keep up doing this very good work and thanks again.</p>
+
+<h6>— Pierre W.</h6>
+</div>
+<div class='testi_item'>
+<p>Have been following the whole “Learn Enough to Be Dangerous” series and am VERY impressed with it. I am a project manager who works with software developers daily. These sessions have provided me with a huge amount very useful information, to the extent that I now not only understand what the dev guys are talking about, but am starting to use the tools (command line, Git, etc.) that they use.</p>
+
+<h6>— Brian</h6>
+</div>
+<div class='testi_item'>
+<p>Michael Hartl is one of the best educators around when it comes to web development. I have been following him for a long time, and everything he produces is top quality. If you are looking for a quick way to become a thorough and productive professional web developer, Hartl’s books are a great place to start.</p>
+
+<h6>— Abram Bailey</h6>
+</div>
+<div class='testi_item testi_twit'>
+&lt;blockquote class=&quot;twitter-tweet&quot; data-conversation=&quot;none&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Also - if you are working through &lt;a href=&quot;https://twitter.com/RailsTutorial?ref_src=twsrc%5Etfw&quot;&gt;@RailsTutorial&lt;/a&gt; you will probably check out &lt;a href=&quot;https://twitter.com/LearnEnough?ref_src=twsrc%5Etfw&quot;&gt;@LearnEnough&lt;/a&gt; quite soon, which is an incredible resource for people starting out. Same high quality as the rails tutorial, while still digestible for people starting out.&lt;/p&gt;&amp;mdash; Michael Wallbaum (@mwallba) &lt;a href=&quot;https://twitter.com/mwallba/status/988590924203679744?ref_src=twsrc%5Etfw&quot;&gt;April 24, 2018&lt;/a&gt;&lt;/blockquote&gt;
+</div>
+<div class='testi_item'>
+<p>Hi, my name is Philip, and I&rsquo;m a beginning learner of web development. I&rsquo;ve dabbled in small ways in Ruby/Rails for about a year and a half. Occasionally, I write ruby scripts to solve problems at my job. I also dabble in learning: JavaScript, Ember, more Ruby/Rails, brief intro readings into Scala.</p>
+
+<p>I&rsquo;ve tried Codeschool, Codecademy, and I&rsquo;ll stop there, so you don&rsquo;t spend the next 3 hours reading all the different learning resources I&rsquo;ve tried.</p>
+
+<p>Ruby on Rails Tutorial (Rails 5) is undoubtedly, the most effective and educational resource I&rsquo;ve ever come across when it comes to learning anything about web development or writing any code on any level.</p>
+
+<p>Here&rsquo;s what you seem to understand that everyone else just gets wrong:
+There&rsquo;s a big spectrum between the very beginner basics: declaring variables, to voodoo, magical, incantational trickery of witchcraft, like building your own web server.</p>
+
+<p>Almost all tutorials make this mistake. The first couple &ldquo;lessons&rdquo; are good for people who don&rsquo;t even have a clue what computer programming is and then suddenly, there&rsquo;s a big jump to what seem to be concepts that only seasoned developers have mastered.</p>
+
+<p>Thanks for such a great, educational guide in Ruby on Rails.</p>
+
+<h6>— Philip</h6>
+</div>
+</div>
+</div>
+
+</div>
+<div class='index_hero-cta'>
+<h2>
+<p class='sub-title'>If that all sounds good...</p>
+Try the Tutorial Out
+</h2>
+<a href="/ruby-on-rails-7th-edition-tutorial"><button class='btn-outline-yellow'>
+Read Free Sample Chapters
+</button>
+</a><a onClick="$(&#39;html,body&#39;).animate({scrollTop: $(&#39;#landing-pricing&#39;).offset().top}, 500)" class="jLinkText" href="#see.tutorial.pricing"><button class='btn attention'>SEE PLAN OPTIONS</button>
+</a></div>
+</div>
+<div class='landing-section landing-section_banner'>
+<div class='banner_team'>
+<div class='banner_team-title'>
+<h5>
+Buying for
+<strong>a team?</strong>
+</h5>
+</div>
+<div class='banner_team-content'>
+Learn Enough offers team licensing through Learn Enough for Teams. Get All Access subscriptions and downloads for one convenient price, and pay only for what you need.
+</div>
+<div class='banner_team-cta'>
+<a class="fancylink_dblue-bg fancylink_icon_right" href="https://www.learnenough.com/for-teams">Check out the details
+<i class='fas fa-arrow-circle-right'></i>
+</a></div>
+</div>
+
+</div>
+<div class='landing-author' id='author'>
+<div class='author-about'>
+<div class='authors'>
+<h5>About the Author</h5>
+<div class='author_item'>
+<img class="authGrav" alt="Michael-hartl" src="https://secure.gravatar.com/avatar/ffda7d145b83c4b118f982401f962ca6?s=400" />
+<div class='author_social'>
+<a target="_blank" class="iconLink" href="https://twitter.com/mhartl"><i class='fab fa-twitter'></i>
+</a><a target="_blank" class="iconLink" href="https://github.com/mhartl"><i class='fab fa-github'></i>
+</a></div>
+<h2>Michael Hartl</h2>
+<p><a href="https://www.michaelhartl.com/" class="fancylink_noimg-bg">Michael Hartl</a> is the creator of the <a href="https://www.railstutorial.org/" class="fancylink_noimg-bg" target="_blank" rel="noopener">Ruby on Rails Tutorial</a>, one of the leading introductions to web development, and is cofounder and principal author at <a href="https://www.learnenough.com" class="fancylink_noimg-bg">Learn Enough</a>. Previously, he was a physics instructor at the <a href="https://www.caltech.edu/" target="_blank" rel="noopener" class="fancylink_noimg-bg">California Institute of Technology</a> (Caltech), where he received a <a href="https://www.michaelhartl.com/ascit/awards2000.html" target="_blank" rel="noopener" class="fancylink_noimg-bg">Lifetime Achievement Award for Excellence in Teaching</a>. He is a graduate of <a href="https://college.harvard.edu/" target="_blank" rel="noopener" class="fancylink_noimg-bg">Harvard College</a>, has a <a href="https://thesis.library.caltech.edu/1940/" target="_blank" rel="noopener" class="fancylink_noimg-bg">Ph.D. in Physics</a> from <a href="https://www.caltech.edu/" target="_blank" rel="noopener" class="fancylink_noimg-bg">Caltech</a>, and is an alumnus of the <a href="https://www.ycombinator.com/" target="_blank" rel="noopener" class="fancylink_noimg-bg">Y&nbsp;Combinator</a> entrepreneur program.</p>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+  $( document ).ready(function() {
+    landingInit({
+      slug: "ruby_on_rails_tutorial_7th_edition"
+    });
+  });
+</script>
+
+<div class='authorSignup'>
+<div class='dialog'>
+<h3 id='email_list'>Join the Mailing List</h3>
+<p>Get occasional notifications about things like product discounts, blog posts, and new or updated tutorials. Unsubscribe at any time.
+</p>
+<script src="https://app.convertkit.com/assets/CKJS4.js?v=21"></script>
+<div class='ck_form ck_minimal'>
+<div class='ck_form_fields'>
+<div id='ck_success_msg' style='display:none;'>
+<p>Success! Thanks for joining the list.</p>
+</div>
+<form action='https://app.convertkit.com/landing_pages/4858/subscribe' class='ck_subscribe_form' data-remote='true' id='ck_subscribe_form'>
+<input id='ck_form_options' type='hidden' value='{&amp;quot;form_style&amp;quot;:&amp;quot;minimal&amp;quot;,&amp;quot;embed_style&amp;quot;:&amp;quot;inline&amp;quot;,&amp;quot;embed_trigger&amp;quot;:&amp;quot;scroll_percentage&amp;quot;,&amp;quot;scroll_percentage&amp;quot;:&amp;quot;70&amp;quot;,&amp;quot;delay_seconds&amp;quot;:&amp;quot;10&amp;quot;,&amp;quot;display_position&amp;quot;:&amp;quot;br&amp;quot;,&amp;quot;display_devices&amp;quot;:&amp;quot;all&amp;quot;,&amp;quot;days_no_show&amp;quot;:&amp;quot;15&amp;quot;,&amp;quot;converted_behavior&amp;quot;:&amp;quot;show&amp;quot;}'>
+<input id='landing_page_id' name='id' type='hidden' value='4858'>
+<div class='ck_errorArea'>
+<div id='ck_error_msg' style='display:none;'>
+<p>There was an error submitting your subscription. Please try again.</p>
+</div>
+</div>
+<div class='field ck_control_group ck_email_field_group'>
+<label class='ck_label' for='ck_emailField' style='display: none'>Email Address</label>
+<input class='ck_email_address' id='ck_emailField' name='email' placeholder='Email Address' required='required' type='email'>
+<button class='subscribe_button ck_subscribe_button btn fields' id='ck_subscribe_button'>Subscribe</button>
+</div>
+</form>
+</div>
+</div>
+
+</div>
+</div>
+<footer class='footer'>
+<nav class='footer-nav'>
+<div class='footer_logo_wr'>
+<a class="logoLink artLogo" href="/"><div class='svg le-logo'><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 801 1041" style="enable-background:new 0 0 801 1041;" xml:space="preserve">
+<path d="M569.9,478.6l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H410.5l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.5,0.5h135.1l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-89.9h77l3.5-3.5v-41.7l-1-2.5l-24.3-24.3l-2.5-1H488v-81H569.9z M544.2,412.6l17.3,17.3H436.2L419,412.6H544.2z M414,417.6l17.3,17.3v348.7L414,766.3V417.6z M544.2,729.5l17.3,17.3H488v-17.3H544.2z M539.2,566.6l17.3,17.3H488v-17.3H539.2z M484.5,471.6l-3.5,3.5v112.3l3.5,3.5h77v34.7h-77l-3.5,3.5v121.2l3.5,3.5h81.9v34.7H438.3V436.9h128.1v34.7H484.5z"/>
+<path d="M401.5,747.8l-24.3-24.3l-2.5-1h-55.7V433.4l-0.2-0.2l-0.8-2.3l-24.3-24.3l-2.5-1h-49.7l-3.5,3.5v358.6l1,2.5l24.3,24.3l1.9,0.5l0.6,0.6H399l3.5-3.5v-41.7L401.5,747.8z M373.3,729.5l17.3,17.3h-71.5v-17.3H373.3z M307.1,429.9h-39.8l-17.3-17.3h39.8L307.1,429.9z M245.1,417.6l17.3,17.3v348.7l-17.3-17.3V417.6z M395.5,788.5H269.4V436.9h42.7v313.4l3.5,3.5h79.9V788.5z"/>
+<path d="M691.8,600.3c0-77.2-30-149.7-84.6-204.3c-47.3-47.3-108.2-76.2-173.9-83c0.4-22.2,0.6-35.3,0.6-35.7l-2.6-3.8c-1.8-0.6-3.5-2.2-5.1-4.2l5.1,0c1.8,0.1,22.1,0.8,33.2-11.2c5.5-6,8.5-14,8.5-23.4l0.1-13.3l-3.5-3.5l-16-0.1l-3.5,3.5l-0.1,13.3c0,3.3-0.7,5.5-2.4,7.3c-3.7,4-12.4,4.9-15.4,4.9l-11.9,0c1.4-13.4,3.7-39.7,3.9-72.2c0.1-34.4-5.7-68.9-6.6-73.7c4.9-5.8,7.6-13.5,7.6-21.6C425.2,62,413,47.9,398,47.8c0,0-0.1,0-0.1,0c-15,0-27.2,14-27.3,31.2c0,8.1,2.6,15.8,7.5,21.7c-0.9,4.8-7,39.3-7.2,73.6c-0.1,32.5,2,58.9,3.3,72.3l-11.1,0c-1.8-0.1-22.1-0.8-33.2,11.2c-5.5,6-8.5,14-8.5,23.4l-0.1,13.3l3.5,3.5l16.2,0.1l3.5-3.5l0.1-13.3c0-3.3,0.7-5.5,2.4-7.3c3.7-4,12.3-4.9,15.3-4.9l5.9,0c-1.6,1.9-3.4,3.5-5.2,4.1l-2.6,3.8c0,0.5,0.2,14.2,0.6,37.4c-61.2,8.9-117.8,37.1-162.3,81.6C144.1,450.6,114,523.1,114,600.3s30,149.7,84.6,204.3c49,49,112.4,78.2,180.7,83.7c6.4,96.9,11.7,103.7,14.1,106.6l3.3,2.6l2.9-2.6c2.4-2.9,7.8-9.7,14.3-105.9c73-2.7,141.3-32.4,193.2-84.4C661.8,750,691.8,677.5,691.8,600.3z M377.6,79.1c0.1-13.4,9.1-24.2,20.3-24.2c0,0,0,0,0.1,0c7.7,0,14.5,5.3,17.8,13l-10.6-4.3c1.1,1.6,2.1,3.4,2.8,5.5l9.4,3.8c0.5,2,0.7,4.2,0.7,6.4c0,0.2,0,0.5,0,0.7l-8.4-3.4c0.1,0.8,0.1,1.7,0.1,2.5c0,0.6,0,1.2-0.1,1.8l8,3.2c-0.4,2.1-1,4.2-1.8,6.1l-7.3-2.9c-0.4,1.3-0.9,2.6-1.4,3.7l6.8,2.8c-0.6,1-1.3,1.9-2,2.8c-0.7,0.8-1.5,1.6-2.3,2.3l-0.8-0.3l-5.3-2.2c-1.1,1.2-2.3,2.1-3.6,2.9l5.7,2.3c-2.5,1.2-5.1,1.9-7.9,1.9c-5.3,0-10.3-2.5-14.1-7C379.8,91.9,377.6,85.7,377.6,79.1z M377.9,174.4c0.1-28.2,4.4-57,6.3-68.1c4.1,2.7,8.7,4.2,13.5,4.2c0,0,0.1,0,0.1,0c4.8,0,9.4-1.4,13.5-4.1c0.2,1.3,0.5,2.9,0.7,4.7l-2.1-0.9l-2.9,3.1l5.7,2.3c0.3,2.2,0.6,4.6,1,7.3l-17.4-7.1c0.2,1.4,0.4,3,0.6,4.6l17.3,7c0.3,2.3,0.5,4.7,0.8,7.2l-17.2-7c0.2,1.5,0.3,3,0.5,4.5l17.2,7c0.2,2.3,0.4,4.7,0.6,7.1l-19.6-8c-1.7,0.1-3.7-0.4-3.7-0.4s0.8,1.7,1.9,4l21.7,8.8c0.2,2.3,0.3,4.7,0.4,7l-18.3-7.4c0.9,2.1,1.5,3.9,1.7,5l16.8,6.8c0.1,2.3,0.1,4.6,0.2,6.9l-16.6-6.7c0.1,1.5,0.1,2.9,0.1,4.4l16.5,6.7c0,0.4,0,0.8,0,1.2c0,1.9,0,3.8,0,5.7l-16.7-6.8c-1.1,1.7-5.8-0.2-5.8-0.2s0.4,1,0.9,2.5l21.6,8.7c0,2.3-0.1,4.6-0.2,6.8l-18.6-7.5c0.6,1.8,1.2,3.6,1.6,5l16.9,6.8c-0.1,2.3-0.2,4.6-0.3,6.8l-16.2-6.6c0,1.5-0.1,2.9-0.2,4.3l16.2,6.6c-0.1,2.3-0.2,4.5-0.4,6.7l-16.1-6.5c0,0.7-0.1,1.4-0.1,2.1c0,0.9-0.4,1.4-0.8,1.8l16.8,6.8c-0.1,2.3-0.3,4.5-0.5,6.7l-20-8.1c0.3,1.4,0.7,3.1,1.1,4.7l18.6,7.6c-0.2,2.3-0.4,4.6-0.6,6.6l-16.6-6.8c0.3,1.8,0.4,3.3,0.4,4.1c0,0.1,0,0.2,0,0.3l15.9,6.5c-0.2,2.5-0.5,4.7-0.7,6.6l-15.9-6.4c-0.1,1.5-0.3,2.9-0.4,4.2l8,3.2l-23.7-0.1C380,233.6,377.8,207,377.9,174.4z M362.3,262.1c-1.4,0-14,0.2-20.4,7.1c-2.8,3-4.2,7-4.2,12l0,9.8l-9.2,0l0-9.8c0-7.5,2.3-14,6.6-18.6l0,0c9.1-9.8,27.6-9,27.8-9l69.2,0.2c1.4,0,14.1-0.2,20.6-7.1c2.8-3,4.2-7,4.2-12l0-9.8l9,0l0,9.8c0,7.5-2.3,14-6.6,18.6c-9.1,9.8-27.6,9-27.8,9L362.3,262.1z M407.6,348.5l1.1,0.4h-1.1L407.6,348.5z M403.6,348.9h-5.3l-3.5-79.8l17.2,0.1L403.6,348.9z M408.1,344.3l0.7-6.6l15.9,6.4c0,1.6-0.1,3.1-0.1,4.7h-5.2L408.1,344.3z M409.2,333.6l0.7-6.6l15,6.1c0,2.2-0.1,4.5-0.1,6.8L409.2,333.6z M410.3,322.9l0.7-6.6l14.1,5.7c0,2.2-0.1,4.5-0.1,6.8L410.3,322.9z M411.5,312.2l0.7-6.6l13.1,5.3c0,2.2-0.1,4.5-0.1,6.8L411.5,312.2z M412.6,301.4l0.7-6.6l12.2,4.9c0,2.1-0.1,4.4-0.1,6.8L412.6,301.4z M413.7,290.7l0.7-6.6l11.3,4.6c0,2-0.1,4.3-0.1,6.8L413.7,290.7z M414.9,280l0.7-6.6l5.5,2.2c1.5,1.6,3.1,3,4.8,4c0,1.2,0,2.8-0.1,4.8L414.9,280z M416,269.3L416,269.3l0.3,0c0,0.1,0.1,0.1,0.1,0.2L416,269.3z M390.3,348.9h-20.7c-0.7-36.5-1.1-61.7-1.2-69.5c3.9-2.4,7.2-6.4,9.6-10.3l8.8,0L390.3,348.9z M392.6,951.2c-2-18-4.2-44.3-6.4-82.7c-0.3-5.2-0.6-10.6-0.9-16.2h7.4l2.5,115.9L392.6,951.2z M400.7,959.3l-0.1-20.9l1,0.2C401.4,940.3,400.8,957.7,400.7,959.3z M401.6,934.5l-1-0.4v-6.9l1.7,0.7C402.1,930.2,401.8,932.4,401.6,934.5z M402.7,923.8l-2.2-0.9v-6.9l2.8,1.1C403.2,919.4,403,921.6,402.7,923.8z M403.8,913l-3.2-1.3l0-6.9l3.8,1.6C404.2,908.7,404,910.9,403.8,913z M404.8,902.3l-4.2-1.7v-6.9l4.8,1.9C405.2,897.8,405,900.1,404.8,902.3z M405.7,891.4l-5.1-2.1l0-6.9l5.6,2.3C406,887,405.9,889.2,405.7,891.4z M406.5,880.6l-5.9-2.4l0-6.9l6.4,2.6C406.8,876.1,406.6,878.4,406.5,880.6z M407.3,868.6c0,0.4,0,0.7-0.1,1.1l-6.6-2.7l0-6.9l7,2.8C407.5,864.9,407.4,866.8,407.3,868.6z M407.9,858.8l-7.3-2.9l0-3.5h7.6C408.1,854.5,408,856.6,407.9,858.8z M414.5,880.9c0.6-8.8,1.2-18.3,1.7-28.6h27v-7h-91v7h25c0.6,10,1.1,19.2,1.6,27.8c-66-5.6-127.2-33.9-174.6-81.2C151.2,745.9,122,675.3,122,600.3s29.2-145.6,82.3-198.6c43.1-43.1,97.6-70.4,156.8-79.2c0.1,7.9,0.3,16.8,0.5,26.4h-16.1v7h109.8v-7h-22.7c0.2-10.2,0.4-19.6,0.5-27.9c63.6,6.8,122.6,34.8,168.4,80.7c53.1,53.1,82.3,123.6,82.3,198.6s-29.2,145.6-82.3,198.6C551.2,849.2,485.2,878.1,414.5,880.9z"/>
+</svg>
+</div>
+<span>LEARN ENOUGH</span>
+</a></div>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/courses">Courses</a></li>
+<li><a href="https://www.learnenough.com/plans">Plans</a></li>
+<li><a href="https://www.learnenough.com/scholarship">Scholarship</a></li>
+<li><a href="/for-teams">For Teams</a></li>
+<li><a href="https://www.learnenough.com/login">Log In</a></li>
+</ul>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/all-access">All Access</a></li>
+<li><a href="https://www.learnenough.com/ruby-on-rails-7th-edition">The Rails Tutorial</a></li>
+<li><a href="https://www.learnenough.com/our-philosophy">Our Philosophy</a></li>
+<li><a href="https://www.learnenough.com/about">About</a></li>
+<li><a href="https://news.learnenough.com">News</a></li>
+</ul>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/why-rails">Why Use Ruby on Rails?</a></li>
+<li><a href="https://www.learnenough.com/why-ruby">Why Use the Ruby Language?</a></li>
+<li><a href="https://www.learnenough.com/why-program">Why Program?</a></li>
+<li><a href="https://www.learnenough.com/understand-devs">Why Understand Devs?</a></li>
+<li><a href="https://www.learnenough.com/for-beginners">For Beginners</a></li>
+</ul>
+<ul class='footer-sub-menu'>
+<li><a href="https://www.learnenough.com/legal">Legal</a></li>
+<li><a href="mailto:support@learnenough.com">Contact</a></li>
+</ul>
+<div class='footer-social-menu'>
+<ul class='footer-sub-menu'>
+<li>
+Learn Enough
+<a class="footer-social-icon" target="_blank" href="https://www.youtube.com/c/LearnEnough"><i class='fab fa-youtube-square'></i>
+</a></li>
+<li>
+<a class="footer-social-icon" target="_blank" href="https://twitter.com/learnenough"><i class='fab fa-twitter-square'></i>
+</a></li>
+<li>
+Rails Tutorial
+<a class="footer-social-icon" target="_blank" href="https://twitter.com/railstutorial"><i class='fab fa-twitter-square'></i>
+</a></li>
+</ul>
+</div>
+</nav>
+</footer>
+<!-- MODALS ----------------------- -->
+<div class='le-modal le-modal_allacess'>
+<div class='le-modal_bg' onClick='leModalClose()'></div>
+<a onClick="leModalClose()" class="modal_close" href="javascript://"><i class='fas fa-times'></i>
+</a><div class='modal_content'>
+<div class='cols'>
+<div class='col'>
+<h2 class='modal_title'>All Access Subscription</h2>
+<p>
+Get free access to all 10 Learn Enough courses (including the Ruby on Rails Tutorial) for 7 days!
+</p>
+<h5>Free 7 Day trial details</h5>
+<p>We require a credit card for security purposes, but it will not be charged during the trial period. After 7 days, you will be enrolled automatically in the monthly All Access subscription.</p>
+<p>BUT you can cancel any time and still get the rest of the 7 days for free!</p>
+<p>All Learn Enough tutorials come with a <strong>60-day 100% money-back guarantee</strong>.</p>
+</div>
+<div class='col le-modal_allacess-cta'>
+<div class='modal_covers'>
+<div class='bundle-covers_content bundle-covers_all'>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_command_line/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_text_editor/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_git/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_html/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_css/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_python/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_javascript/images/cover-web.png" /></div>
+<div class='bundle-covers_img'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/learn_enough_ruby/images/cover-web.png" /></div>
+<div class='bundle-covers_img bundle-cover_railstut'><img class="covers_img" src="https://softcover.s3.amazonaws.com/636/ruby_on_rails_tutorial_7th_edition/images/cover-web.png" /></div>
+</div>
+
+</div>
+<div class='toggle_pricing-box'>
+<div class='toggle_pricing-option show-yearly active'>
+Billed Yearly
+<div class='toggle_pricing-option-saved show-yearly active'>
+Save up to 20%
+</div>
+</div>
+<div class='toggle_pricing-btn-box'>
+<div class='show-yearly toggle_pricing_btn active'></div>
+<div class='show-monthly toggle_pricing_btn'></div>
+</div>
+<div class='toggle_pricing-option show-monthly'>
+Billed Monthly
+</div>
+</div>
+<script>
+  (function() {
+    $(".show-monthly").click(function() {
+      $(".yearly-all-access").hide();
+      $(".monthly-all-access").show();
+      $(".show-monthly").addClass("active");
+      return $(".show-yearly").removeClass("active");
+    });
+  
+    $(".show-yearly").click(function() {
+      $(".monthly-all-access").hide();
+      $(".yearly-all-access").show();
+      $(".show-monthly").removeClass("active");
+      return $(".show-yearly").addClass("active");
+    });
+  
+  }).call(this);
+</script>
+
+<div class='modal_cta monthly-all-access' style='display: none;'>
+<p class='modal_cta-originally'>
+Monthly Cost:
+<strong>
+$49
+</strong>
+</p>
+<a data-id="10-subscription" data-name="all_access" data-type="product" data-value="49.0" onClick="leModalClose()" class="btn_addBundleToCart jLinkText" id="add-cart-modal-btn" href="#add.bundle.to.cart"><button class='attention'>
+<i class='fas fa-shopping-cart'></i>
+Add to Cart :
+Free Trial
+</button>
+</a><p class='modal_cta-more'>
+<a href="https://www.learnenough.com/all-access"><button class='btn-small'>
+MORE INFO &nbsp;
+<i class='fas fa-arrow-circle-right'></i>
+</button>
+</a></p>
+</div>
+<div class='modal_cta yearly-all-access'>
+<p class='modal_cta-originally'>
+Monthly Cost:
+<strong>
+$39
+</strong>
+<div class='billed_annually'>
+Billed $
+468.0
+Anually
+</div>
+</p>
+<a data-is-annual="true" data-id="18-subscription" data-name="annual_all_access" data-type="product" data-value="468.0" onClick="leModalClose()" class="btn_addBundleToCart jLinkText" id="add-cart-modal-btn" href="#add.bundle.to.cart"><button class='attention'>
+<i class='fas fa-shopping-cart'></i>
+Add to Cart :
+Free Trial
+</button>
+</a><p class='modal_cta-more'>
+<a href="https://www.learnenough.com/all-access"><button class='btn-small'>
+MORE INFO &nbsp;
+<i class='fas fa-arrow-circle-right'></i>
+</button>
+</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class='le-modal le-modal_landing-video'>
+<div class='le-modal_bg' onClick='leModalVideoClose()'></div>
+<a onClick="leModalVideoClose()" class="modal_close" href="javascript://"><i class='fas fa-times'></i>
+</a><div class='le-modal_video' id='le-modal_video'>
+<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='allowfullscreen' class='le-modal_video-embed' frameborder='0' src='http://'></iframe>
+</div>
+</div>
+<div class='le-modal le-modal_yourcourses-guide'>
+<div class='le-modal_bg' onClick='leModalClose(&#39;leYourCoursesGuide&#39;)'></div>
+<div class='modal_content'>
+<a onClick="leModalClose(&#39;leYourCoursesGuide&#39;)" class="modal_close" href="javascript://"><i class='fas fa-times'></i>
+</a><div class='courses_guide'>
+<h2>
+<div class='sub-title'>A quick guide to</div>
+Your Courses
+<div class='sub-title'>Welcome to Learn Enough!</div>
+</h2>
+<img class="courses_guide-img" src="https://www.learnenough.com/assets/learnenough/yourcourses_guide_subscribed-compressed-958e0facdb4d53ea70798819653ff9a690857f34a4c607a56c5ddc2057e178a3.jpg" />
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<script>
+  if (localStorage['sideOpen'] == 'no') {
+    $('body').addClass('side-menu-closed');
+  };
+  bookCheckMobile();
+  
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+    return t;
+  }(document, "script", "twitter-wjs"));
+  
+  $(function(){
+    try {
+      PostAffTracker.setAccountId('default1');
+      PostAffTracker.track();
+    } catch (err) { }
+  })
+</script>
+</body>
+</html>
