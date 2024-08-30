@@ -1,6 +1,4 @@
-# Updated to ensure doesnt download file multiple times
 import os
-import time
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
@@ -57,7 +55,6 @@ def download_file(session, url, save_path):
         print(f"Downloaded: {url}")
     else:
         print(f"Failed to download: {url}")
-    time.sleep(30)  # Wait for 30 seconds before downloading the next item
 
 
 # Save HTML content
@@ -73,7 +70,6 @@ def save_html(session, url, save_path):
         print(f"Saved HTML: {url}")
     else:
         print(f"Failed to save HTML: {url}")
-    time.sleep(30)  # Wait for 30 seconds before downloading the next item
 
 
 # Recursive function to scrape media files and HTML
