@@ -1,0 +1,48 @@
+You are an experienced python developer with a focus on scraping web content. 
+
+Please write me a python 3 program that recursively clones everything under https://learnenough.com/your_courses and https://learnenough.com/course and all media content, especially videos. The videos are mp4 files, hosted on cloudfront.net.  In the html source code the videos have an parent tag with id of id="vjs_video_3_html5_api" and class="vjs_tech" and the link in in the child "source" tag. This site requires login to access content and I have valid login credentials. It also uses a csrf token in the login. Include a code block that checks if I'm still logged in and if not to login again before trying to proceed with next page.
+
+If it makes any difference to your program, the response headers from a sample page follow below including the cookies set.
+
+
+Response Headers
+-------
+cache-control
+	max-age=0, private, must-revalidate
+content-encoding
+	gzip
+content-type
+	text/html; charset=utf-8
+date
+	Sun, 01 Sep 2024 00:01:06 GMT
+etag
+	W/"4e73f896e84e113198678d9c3d346036"
+referrer-policy
+	strict-origin-when-cross-origin
+server
+	envoy
+set-cookie
+	ahoy_visit=a580356e-8ab8-4c8f-a5f4-48d4bcf22f7e; path=/; expires=Sun, 01 Sep 2024 04:01:05 GMT
+set-cookie
+	_polytexnic_session=B2ipvs8LiERweajNwM7DoORLNv6%2FxBFRMzLzq2qkrVPKp8v7Rpmg6vRVfOpZP654tvB41tP5Yel76yw3U3VnRl%2BLagVM2tatAF%2F1r2YWDTERnvaWyan7kSTmFe2%2FAolZWamRk5VNBAAZ1W%2BWRJ6Elk0G6Qv0xtPCIHqvdeQ1JfeH0hqbS564uOP%2FJ%2B2v0JLDok3p65hNo2%2BTj3sAhs3gleCYenFkoALd%2BP9ahXvSFbk%3D--3eCcVlUN77ZyP26I--Dcypjt8G%2Be0Q%2BarnwszS%2Fw%3D%3D; path=/; HttpOnly
+transfer-encoding
+	chunked
+vary
+	Accept-Encoding
+x-content-type-options
+	nosniff
+x-download-options
+	noopen
+x-envoy-upstream-service-time
+	1088
+x-frame-options
+	SAMEORIGIN
+x-permitted-cross-domain-policies
+	none
+x-request-id
+	21af70fa-995e-4afe-a489-14ca8a3176d6
+x-runtime
+	1.082114
+x-xss-protection
+	1; mode=block
+--- end response headers---
