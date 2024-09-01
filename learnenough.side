@@ -1,0 +1,284 @@
+{
+  "id": "c4d63c63-3117-4cd2-8483-338deb3fd965",
+  "version": "2.0",
+  "name": "learnenough",
+  "url": "https://www.learnenough.com",
+  "tests": [{
+    "id": "e65e5c2b-9c9a-440a-b530-19f0c799b5f5",
+    "name": "login and go to cli vid 1",
+    "commands": [{
+      "id": "6ea117fb-b45c-4cb4-a990-491a0a047f1b",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0fe61037-d1d7-4c8f-8451-c68eb4dcbf48",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "2085x1117",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9af27d1-e061-4923-bf42-020b0f959884",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,2)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5705a2c3-e6ac-41d4-a0a6-7a3644d83bed",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0.6666666865348816)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f145986f-e087-4589-821a-e5942ef899a5",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,1210)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "82f2b1e0-98a0-49f3-a15e-0a6cb89e0003",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,2004.6666259765625)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6bd58a90-33b4-4fa1-a476-3adedab16f8a",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,4800)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2e8d75d6-8cfa-4af3-896a-72e0e163e5cb",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,6208.66650390625)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd021035-18a4-4e07-9391-ca4e06648887",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.footer-sub-menu:nth-child(2) > li:nth-child(5) > a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Log In')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'https://www.learnenough.com/login')])[2]", "xpath:href"],
+        ["xpath=//footer/nav/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f6841409-54b9-4bfc-aba1-065b98d03d5f",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=user[login]", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0926f12-dc86-4de3-8d56-11464d61edc5",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_login",
+      "targets": [
+        ["id=user_login", "id"],
+        ["name=user[login]", "name"],
+        ["css=#user_login", "css:finder"],
+        ["xpath=//input[@id='user_login']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/form/div/input", "xpath:position"]
+      ],
+      "value": "abdenour@truenorthgnomes.info"
+    }, {
+      "id": "44653d7a-e5a8-48cb-bcf7-9a10017093cb",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_password",
+      "targets": [
+        ["id=user_password", "id"],
+        ["name=user[password]", "name"],
+        ["css=#user_password", "css:finder"],
+        ["xpath=//input[@id='user_password']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "387ef22f-bc08-4991-b1ad-4bd1a2c5ddcb",
+      "comment": "",
+      "command": "type",
+      "target": "id=user_password",
+      "targets": [
+        ["id=user_password", "id"],
+        ["name=user[password]", "name"],
+        ["css=#user_password", "css:finder"],
+        ["xpath=//input[@id='user_password']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/form/div[2]/input", "xpath:position"]
+      ],
+      "value": "daf*efw@BUA6mqk8fvp"
+    }, {
+      "id": "8c742e2f-f27c-4c1f-b297-3d51ec493047",
+      "comment": "",
+      "command": "click",
+      "target": "css=.logregLinks",
+      "targets": [
+        ["css=.logregLinks", "css:finder"],
+        ["xpath=//form[@id='new_user']/div[4]", "xpath:idRelative"],
+        ["xpath=//div[6]/div/div/div/form/div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6f4b1de-f33a-45a2-9fab-58b34e82cdf6",
+      "comment": "",
+      "command": "click",
+      "target": "id=user_remember_me",
+      "targets": [
+        ["id=user_remember_me", "id"],
+        ["css=#user_remember_me", "css:finder"],
+        ["xpath=//input[@id='user_remember_me']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div[3]/input[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41d0938e-c801-42f0-8a9f-f0a5e9ab69ab",
+      "comment": "",
+      "command": "click",
+      "target": "name=commit",
+      "targets": [
+        ["name=commit", "name"],
+        ["css=.submitWr > input", "css:finder"],
+        ["xpath=//input[@name='commit']", "xpath:attributes"],
+        ["xpath=//form[@id='new_user']/div[5]/input", "xpath:idRelative"],
+        ["xpath=//form/div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "42232188-ed67-4703-b3a6-d3163a7eb98f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Continue course (9%)",
+      "targets": [
+        ["linkText=Continue course (9%)", "linkText"],
+        ["css=.yourcourses-item:nth-child(5) .yourcourses-book:nth-child(1) .yourcourses-options .fancylink_stand-bg", "css:finder"],
+        ["xpath=//a[contains(text(),'Continue course (9%)')]", "xpath:link"],
+        ["xpath=//form[@id='your-courses-form']/div/div[2]/div/div[2]/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, '/course/learn_enough_command_line')])[2]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "475f07b6-15e3-4311-b394-099cf3f7329b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=START COURSE",
+      "targets": [
+        ["linkText=START COURSE", "linkText"],
+        ["css=.btnSmall", "css:finder"],
+        ["xpath=//a[contains(text(),'START COURSE')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/course/learn_enough_command_line/basics?start_course=true')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'START COURSE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9150f6e1-d692-4c0a-8af8-994ba950c125",
+      "comment": "",
+      "command": "click",
+      "target": "id=vjs_video_3_html5_api",
+      "targets": [
+        ["id=vjs_video_3_html5_api", "id"],
+        ["css=#vjs_video_3_html5_api", "css:finder"],
+        ["xpath=//video[@id='vjs_video_3_html5_api']", "xpath:attributes"],
+        ["xpath=//div[@id='vjs_video_3']/video", "xpath:idRelative"],
+        ["xpath=//video", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e81f5e29-7444-49ac-9891-90f362771768",
+      "comment": "",
+      "command": "click",
+      "target": "id=vjs_video_3_html5_api",
+      "targets": [
+        ["id=vjs_video_3_html5_api", "id"],
+        ["css=#vjs_video_3_html5_api", "css:finder"],
+        ["xpath=//video[@id='vjs_video_3_html5_api']", "xpath:attributes"],
+        ["xpath=//div[@id='vjs_video_3']/video", "xpath:idRelative"],
+        ["xpath=//video", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a75e7bf8-f583-47a6-b2c6-4199df0adbeb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=START CHAPTER",
+      "targets": [
+        ["linkText=START CHAPTER", "linkText"],
+        ["css=.btnSmall", "css:finder"],
+        ["xpath=//a[contains(text(),'START CHAPTER')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/course/learn_enough_command_line/basics/introduction?start_chapter=true')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'START CHAPTER')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a37480fe-b42c-446b-84d9-f194a2c59a8e",
+      "comment": "",
+      "command": "click",
+      "target": "id=vjs_video_3_html5_api",
+      "targets": [
+        ["id=vjs_video_3_html5_api", "id"],
+        ["css=#vjs_video_3_html5_api", "css:finder"],
+        ["xpath=//video[@id='vjs_video_3_html5_api']", "xpath:attributes"],
+        ["xpath=//div[@id='vjs_video_3']/video", "xpath:idRelative"],
+        ["xpath=//video", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7b1dc64-ebf6-4f9c-9c7c-edd970be870d",
+      "comment": "",
+      "command": "click",
+      "target": "id=vjs_video_3_html5_api",
+      "targets": [
+        ["id=vjs_video_3_html5_api", "id"],
+        ["css=#vjs_video_3_html5_api", "css:finder"],
+        ["xpath=//video[@id='vjs_video_3_html5_api']", "xpath:attributes"],
+        ["xpath=//div[@id='vjs_video_3']/video", "xpath:idRelative"],
+        ["xpath=//video", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "226f1712-83c4-4c29-8cb4-a934990f4be5",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "165a1dd6-e5d0-4d93-9172-e2291e79ecd6",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["e65e5c2b-9c9a-440a-b530-19f0c799b5f5"]
+  }],
+  "urls": ["https://www.learnenough.com/"],
+  "plugins": []
+}
