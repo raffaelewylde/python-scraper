@@ -1,8 +1,6 @@
 You are an experienced python developer with a focus on scraping web content. 
 
-Please write me a python 3 program that recursively clones everything under https://learnenough.com/your_courses and https://learnenough.com/course and all media content, especially videos. The videos are mp4 files, hosted on cloudfront.net.  In the html source code the videos have an parent tag with id of id="vjs_video_3_html5_api" and class="vjs_tech" and the link in in the child "source" tag. This site requires login to access content and I have valid login credentials. It also uses a csrf token in the login. Include a code block that checks if I'm still logged in and if not to login again before trying to proceed with next page.
-
-If it makes any difference to your program, the response headers from a sample page follow below including the cookies set.
+Please write me a python 3 program that recursively clones everything under https://learnenough.com/your_courses and https://learnenough.com/course and all media content, especially videos. The videos are mp4 files, hosted on cloudfront.net.  In the html source code the videos have an parent tag with id of id="vjs_video_3_html5_api" and class="vjs_tech" and the link in in the child "source" tag. This site requires login to access content and I have valid login credentials. It also uses a csrf token in the login. Include a code block that checks if I'm still logged in and if not to login again before trying to proceed with next page. I'm including the response headers from a sample requests beloe. I believe the "_polytecxnic_session" cookie should be parsed from each previous response and included on the next request.
 
 
 Response Headers
