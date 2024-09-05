@@ -1,6 +1,6 @@
 import os
 import time
-import requests
+from requests_html import HTMLSession
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin, urlparse
 
@@ -8,11 +8,11 @@ from urllib.parse import urljoin, urlparse
 base_url = "https://www.learnenough.com"  # Replace with the target website
 login_url = urljoin(base_url, "/login")  # The login page URL
 download_dir = "downloaded_site"
-username = "abdenour@truenorthgnomes.info"  # Replace with your actual username or email
-password = "daf*efw@BUA6mqk8fvp"  # Replace with your actual password
+username = "learn@truenorthgnomes.info"  # Replace with your actual username or email
+password = "ham8yhm!RXJ3xqm2enc"# Replace with your actual password
 
 # Create session
-session = requests.Session()
+session = HTMLSession()
 
 
 # Login
@@ -41,10 +41,17 @@ def login(session):
         print("Login failed!")
         exit()
 
+# Function to check if logged in
+def is_logged_in(session, url):
+    response = session.get(url)
+    soup = BeautifulSoup(response.content, "html.parser")
+    logout_link = soup.find("a", href="/sign_out")
+    return logout_link is not None
 
 # Function to download a file
 def download_file(session, url, save_path):
     response = session.get(url, stream=True)
+    response.html.render()
     if response.status_code == 200:
         with open(save_path, "wb") as file:
             for chunk in response.iter_content(chunk_size=8192):
@@ -52,19 +59,20 @@ def download_file(session, url, save_path):
         print(f"Downloaded: {url}")
     else:
         print(f"Failed to download: {url}")
-    time.sleep(120)  # Wait for 120 seconds before downloading the next item
+    time.sleep(15)  # Wait for 15 seconds before downloading the next item
 
 
 # Save HTML content
 def save_html(session, url, save_path):
     response = session.get(url)
+    response.html.render()
     if response.status_code == 200:
         with open(save_path, "w", encoding="utf-8") as file:
             file.write(response.text)
         print(f"Saved HTML: {url}")
     else:
         print(f"Failed to save HTML: {url}")
-    time.sleep(120)  # Wait for 120 seconds before downloading the next item
+    time.sleep(15)  # Wait for 15 seconds before downloading the next item
 
 
 # Recursive function to scrape media files and HTML
@@ -73,8 +81,14 @@ def scrape_site(session, url, visited=set()):
         return
     visited.add(url)
 
+      # Check if still logged in
+    if not is_logged_in(session, url):
+        print("Session expired, logging in again...")
+        login(session)
+
     # Request page content
     response = session.get(url)
+    response.html.render()
     soup = BeautifulSoup(response.content, "html.parser")
 
     # Save the HTML file

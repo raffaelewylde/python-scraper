@@ -56,7 +56,7 @@ def download_video(session, url, save_path):
         print(f"Downloaded video: {url}")
     else:
         print(f"Failed to download video: {url}")
-    time.sleep(120)
+    time.sleep(15)
 
 
 # Function to save text content
