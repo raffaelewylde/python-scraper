@@ -10,3 +10,14 @@ HEad to https://www.learnenough.com/course/css_and_layout/introduction?start_cou
 same for every course just change the title in the middle
 
 First video use css_selector #vjs_video_3_html5_api
+
+video tags
+
+<video class="vjs-tech" data-setup="{&quot;playbackRates&quot;: [1, 1.25, 1.5, 2]}" preload="auto" id="vjs_video_3_html5_api" tabindex="-1">
+<source src="https://d3lkrgzmvn5whn.cloudfront.net/learn_enough_text_editor/vim.mp4?Expires=1725519671&amp;Signature=HPm2ozm0~ineqaUyKHudTCu02uKvW9akxdT22c8wH9ppdtYCPD2OoTy-41J8v5XLX7w5qN179FQOzexNNQH1~ZX6CRd4gWcJNA8F1syVw~yCryXBT4ZWeIbVgaEWBfkUcCP-ak-YWdfPLJWcF5f9dPrXSGvGKUBBMHPQZgaZty1OjZOpOIBVwiKT2DvpJ8ZKlaDDch8dwOymgKiHF5RhXW-rKvcJ41Vjpq4y~kK-NOL2AlMVqvf7qreoiI8k0caahsS1RH4l~IEy~9uqhrMH7xOa9~jgoMAX98sj1PhbgGjh7zu-yA4md2lS0MHjzKnxO5zhIexNBawVwbwygmNUDg__&amp;Key-Pair-Id=APKAI2YIJVRACIGZBYDA" type="video/mp4">
+
+<p class="vjs-no-js">
+To view this video please enable JavaScript, and consider upgrading to a web browser that
+<a href="http://videojs.com/html5-video-support/" target="_blank" class="vjs-hidden" hidden="hidden">supports HTML5 video</a>
+</p>
+</video>

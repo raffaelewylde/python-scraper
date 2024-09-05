@@ -1,5 +1,9 @@
 import os
+import re
 import time
+from html import unescape
+from urllib.parse import urljoin, urlparse
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -7,8 +11,8 @@ from bs4 import BeautifulSoup
 base_url = "https://www.learnenough.com"  # Replace with the target website
 login_url = urljoin(base_url, "/login")  # The login page URL
 download_dir = "selenium_download"
-username = "abdenour@truenorthgnomes.info"  # Replace with your actual username or email
-password = "daf*efw@BUA6mqk8fvp"  # Replace with your actual password
+username = "learn@truenorthgnomes.info"  # Replace with your actual username or email
+password = "ham8yhm!RXJ3xqm2enc"  # Replace with your actual password
 
 # Create session
 session = requests.Session()
@@ -100,6 +104,9 @@ def scrape_site(session, url, visited=set()):
             video_path = f"{base_path}.mp4"
             os.makedirs(os.path.dirname(video_path), exist_ok=True)
             download_video(session, video_url, video_path)
+
+    # Video Regex attempt
+    vid_tag = re.compile(r"")
 
     # Save text content
     text_path = f"{base_path}.txt"
