@@ -2,8 +2,6 @@ import os
 import time
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
-from html import unescape
 
 # Configuration
 base_url = "https://www.learnenough.com"  # Replace with the target website
