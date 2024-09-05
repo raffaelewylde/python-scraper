@@ -29,13 +29,9 @@ DOWNLOAD_DIR = "my_selenium_downloads"
 LOGIN = "learn@truenorthgnomes.info"
 VIDEO_URLS = []
 PASSWORD = "ham8yhm!RXJ3xqm2enc"
-LOGIN_CHECK_ELEMENT = (
-    By.LINK_TEXT,
-    "Log Out",
-)
-
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
+LOGIN_CHECK_ELEMENT = driver.find_element(By.LINK_TEXT, "Log Out")
 
 def login():
     """
