@@ -158,6 +158,8 @@ def page_actions():
 def main():
     login()
     for courseurl in ALL_COURSE_URLS:
+        if not is_logged_in():
+            login()
         driver.get(courseurl)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "btn.btnSmall")))
         driver.find_element(By.CLASS_NAME, "btn.btnSmall").click()
@@ -172,3 +174,7 @@ def main():
     for video_url in VIDEO_URLS:
         download_file(video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url)))
         print(f"Downloaded: {video_url}")
+
+if __name__ == "__main__":
+    main()
+    
