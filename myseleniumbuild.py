@@ -31,7 +31,6 @@ VIDEO_URLS = []
 PASSWORD = "ham8yhm!RXJ3xqm2enc"
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
-LOGIN_CHECK_ELEMENT = driver.find_element(By.LINK_TEXT, "Log Out")
 
 def login():
     """
@@ -153,6 +152,7 @@ def page_actions():
 
 def main():
     login()
+    LOGIN_CHECK_ELEMENT = driver.find_element(By.CSS_SELECTOR, "a[href='/sign_out']")
     for courseurl in ALL_COURSE_URLS:
         if not is_logged_in():
             login()
