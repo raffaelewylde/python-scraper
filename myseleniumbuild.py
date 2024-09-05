@@ -127,8 +127,10 @@ def get_video_urls():
 #        print("No video elements found on the page.")
     try:
         source = driver.page_source
-        soup = BeautifulSoup(source, "html.parser")
-        video_src_tag = soup.find("source", string=re.compile(r"mp4"))
+        soup = BeautifulSoup(source.content, "html.parser")
+        video_source_tag = soup.find_all("source") 
+        for tag in video_source_tag:
+            soup.find("src", string=re.compile(r"mp4"))
         if video_src_tag:
             tag_content = video_src_tag.string
             link_match = re.search(r"^http://.*cloudfront.net.*[a-Z0-9]{20}$", tag_content)
