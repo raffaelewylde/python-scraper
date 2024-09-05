@@ -6,11 +6,12 @@ import re
 # Set the base URL and the paths to scrape
 base_url = "https://learnenough.com"
 login_url = f"{base_url}/login"
-course_urls = [f"{base_url}/your_courses", f"{base_url}/course/"]
+course_urls = [f"{base_url}/your-courses", f"{base_url}/course/"]
+download_directory = "files_downLoaded"
 
 # User credentials (replace with your actual credentials)
-username = "your_username"
-password = "your_password"
+username = "learn@truenorthgnomes.info"
+password = "ham8yhm!RXJ3xqm2enc"
 
 # Session to maintain cookies and session data
 session = requests.Session()
@@ -25,7 +26,7 @@ def login():
 
     # Create login data payload
     login_data = {
-        "user[email]": username,
+        "user[login]": username,
         "user[password]": password,
         "authenticity_token": csrf_token,
         "commit": "Log in",
@@ -34,6 +35,14 @@ def login():
     # Post login data to the login URL
     response = session.post(login_url, data=login_data)
 
+    # Get Auth Cookie
+    auth_cookie = response.cookies.get("auth_cookie")
+
+    if response.status_code == 200 and "Your Courses" in response.text:
+        print("Logged in successfully.")
+
+    if response.status_code == 200 and "Your Courses" in response.text:
+        print("Logged in successfully.")
     if response.status_code == 200 and "Your Courses" in response.text:
         print("Logged in successfully.")
     else:
@@ -61,26 +70,31 @@ def scrape_and_download(url):
     video_sources = soup.find_all("source", src=re.compile(r"cloudfront.net"))
     for video_source in video_sources:
         video_url = video_source["src"]
+        print(video_url)
         download_media(video_url)
 
     # Find all internal links to follow
     for link in soup.find_all("a", href=True):
         href = link["href"]
         if href.startswith(base_url):
+            print(href)
             scrape_and_download(href)
         elif href.startswith("/"):
+            print(href)
             scrape_and_download(f"{base_url}{href}")
 
 
 # Function to download media files
 def download_media(url):
     local_filename = url.split("/")[-1]
+    os.makedirs(download_directory, exist_ok=True)
+    save_path = os.path.join(download_directory, local_filename)
     with session.get(url, stream=True) as r:
         r.raise_for_status()
-        with open(local_filename, "wb") as f:
+        with open(save_path, "wb") as f:
             for chunk in r.iter_content(chunk_size=8192):
                 f.write(chunk)
-    print(f"Downloaded {local_filename}")
+    print(f"Downloaded {save_path}")
 
 
 # Main script execution

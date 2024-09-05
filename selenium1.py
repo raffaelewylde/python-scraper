@@ -14,8 +14,8 @@ from urllib.parse import urljoin, urlparse
 LOGIN_URL = "https://learnenough.com/login"
 BASE_URL = "https://learnenough.com/"
 DOWNLOAD_DIR = "./learnenough_content"
-EMAIL = "abdenour@truenorthgnomes.info"  # Replace with your email/username
-PASSWORD = "daf*efw@BUA6mqk8fvp"  # Replace with your password
+EMAIL = "learn@truenorthgnomes.info"  # Replace with your email/username
+PASSWORD = "ham8yhm!RXJ3xqm2enc"  # Replace with your password
 LOGIN_CHECK_ELEMENT = (
     By.LINK_TEXT,
     "Log Out",
