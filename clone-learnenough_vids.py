@@ -7,9 +7,10 @@ from urllib.parse import urljoin, urlparse
 # Configuration
 base_url = "https://www.learnenough.com"  # Replace with the target website
 login_url = urljoin(base_url, "/login")  # The login page URL
-download_dir = "downloaded_site"
+download_dir = "downloaded_site_sept_5"
+download_url = urljoin(base_url, "/your_courses")  # The download page URL
 username = "learn@truenorthgnomes.info"  # Replace with your actual username or email
-password = "ham8yhm!RXJ3xqm2enc"# Replace with your actual password
+password = "ham8yhm!RXJ3xqm2enc"  # Replace with your actual password
 
 # Create session
 session = HTMLSession()
@@ -41,6 +42,7 @@ def login(session):
         print("Login failed!")
         exit()
 
+
 # Function to check if logged in
 def is_logged_in(session, url):
     response = session.get(url)
@@ -48,10 +50,15 @@ def is_logged_in(session, url):
     logout_link = soup.find("a", href="/sign_out")
     return logout_link is not None
 
+
 # Function to download a file
 def download_file(session, url, save_path):
     response = session.get(url, stream=True)
-    response.html.render()
+    try:
+        response.html.render()
+    except:
+        print(f"Error rendering HTML for {url}. Skipping download.")
+        return
     if response.status_code == 200:
         with open(save_path, "wb") as file:
             for chunk in response.iter_content(chunk_size=8192):
@@ -65,7 +72,15 @@ def download_file(session, url, save_path):
 # Save HTML content
 def save_html(session, url, save_path):
     response = session.get(url)
-    response.html.render()
+    try:
+        response.html.render()
+    except:
+        print(f"Error rendering HTML for {url}. Skipping download.")
+        return
+    if response.status_code == 200:
+        with open(save_path, "w", encoding="utf-8") as file:
+            file.write(response.text)
+        print(f"Saved HTML: {url}")
     if response.status_code == 200:
         with open(save_path, "w", encoding="utf-8") as file:
             file.write(response.text)
@@ -75,20 +90,26 @@ def save_html(session, url, save_path):
     time.sleep(15)  # Wait for 15 seconds before downloading the next item
 
 
-# Recursive function to scrape media files and HTML
 def scrape_site(session, url, visited=set()):
     if url in visited:
         return
     visited.add(url)
 
-      # Check if still logged in
+    # Check if still logged in
     if not is_logged_in(session, url):
         print("Session expired, logging in again...")
         login(session)
 
     # Request page content
     response = session.get(url)
-    response.html.render()
+    try:
+        response.html.render()
+    except:
+        print(f"Error rendering HTML for {url}. Skipping download.")
+        return  # Add return statement to exit the function when rendering fails
+    soup = BeautifulSoup(response.content, "html.parser")
+
+    # ... rest of the code ...
     soup = BeautifulSoup(response.content, "html.parser")
 
     # Save the HTML file
@@ -114,7 +135,7 @@ def scrape_site(session, url, visited=set()):
             download_file(session, css_url, css_save_path)
 
     # Find and download media files
-    media_links = soup.find_all(["img", "video", "audio", "source"])
+    media_links = soup.find_all(["video", "source"])
     for media in media_links:
         media_url = media.get("src") or media.get("data-src")
         if media_url:
@@ -149,4 +170,4 @@ def scrape_site(session, url, visited=set()):
 # Main execution
 if __name__ == "__main__":
     login(session)
-    scrape_site(session, base_url)
+    scrape_site(session, download_url)

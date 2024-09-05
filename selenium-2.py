@@ -10,8 +10,10 @@ from urllib.parse import urljoin, urlparse, unquote
 base_url = "https://www.learnenough.com"  # Replace with the target website
 login_url = urljoin(base_url, "/login")  # The login page URL
 download_dir = "selenium_downloaded"  # Replace with the desired download directory
-username = "abdenour@truenorthgnomes.info"  # Replace with your actual username or email
-password = "daf*efw@BUA6mqk8fvp"  # Replace with your actual password
+download_url = "https://learnenough.com/your_courses"
+download_urls = urljoin(base_url, "/your_courses")  # The download page URL
+username = "learn@truenorthgnomes.info"  # Replace with your actual username or email
+password = "ham8yhm!RXJ3xqm2enc"  # Replace with your actual password
 
 # Set up WebDriver (this example uses Chrome)
 driver = webdriver.Chrome()  # Make sure you have the correct driver installed
@@ -72,7 +74,7 @@ def save_text_content(soup, save_path):
             file.write(soup_text)
         print(f"Saved text content: {save_path}")
     else:
-        print(f"No text content found to save at {save_path}")
+        print(f"No text content found to save")
 
     time.sleep(20)  # Wait for 20 seconds before processing the next item
 
@@ -124,6 +126,6 @@ def scrape_site(url, visited=set()):
 if __name__ == "__main__":
     try:
         login()
-        scrape_site(base_url)
+        scrape_site(download_url)
     finally:
         driver.quit()
