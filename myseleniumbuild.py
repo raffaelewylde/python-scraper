@@ -158,7 +158,10 @@ def main():
         #if not is_logged_in():
         #    login()
         driver.get(courseurl)
-        attention_button = driver.find_element(By.CLASS_NAME, "btn.attentiond")
+        try:
+            attention_button = driver.find_element(By.CLASS_NAME, "btn.attention")
+        except NoSuchElementException:
+            attention_button = None
         next_button = driver.find_element(By.CLASS_NAME, "btn.btnSmall")
         if next_button.is_displayed():
             next_button.click()
