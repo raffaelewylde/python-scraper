@@ -1,27 +1,22 @@
-import asyncio
-import aiohttp
 import os
 import re
 import time
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver
 from selenium.common.exceptions import (
     NoSuchElementException,
-    StaleElementReferenceException,
     TimeoutException,
 )
 from selenium.webdriver.chrome import options
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select, WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait
 
 BASE_URL = "https://learnenough.com"
-MID_URL = "/course/"
+MID_URL = "/courses/"
 MID_URL_LONG = "/course/learn_enough_"
 COURSE_URL_ENDINGS = ["command_line", "text_editor", "git", "html", "action_cable"]
 ADDITIONAL_COURSE_URLS = [
@@ -43,7 +38,7 @@ FULL_ADDITIONAL_COURSE_URLS = [
 ]
 ALL_COURSE_URLS = FULL_COURSE_URLS + FULL_ADDITIONAL_COURSE_URLS
 LOGIN_URL = f"{BASE_URL}/login"
-DOWNLOAD_DIR = "Learn_Enough_Content"
+DOWNLOAD_DIR = "my_selenium_downloads"
 LOGIN = "learn@truenorthgnomes.info"
 VIDEO_URLS = []
 PASSWORD = "ham8yhm!RXJ3xqm2enc"
@@ -92,20 +87,18 @@ def login():
 #    except:
 #        return False
 #
-async def download_file(url, download_path):
+def download_file(url, download_path):
     """
     Downloads a file from the given URL and saves it to the specified download_path.
     :param url: The URL of the file to download.
     :param download_path: The path where the file should be saved.
     :return: None"""
-    async with aiohttp.ClientSesion() as session:
-        async with session.get(url) as response:
-            if response.status == 200:
-                with open(download_path, "wb") as file:
-                    async for chunk in response.content.iter_chunked(1024):
-                        file.write(chunk)
-            else:
-                print(f"Failed to download {url}. Status code: {response.status}")
+    response = requests.get(url, stream=True)
+    if response.status_code == 200:
+        with open(download_path, "wb") as file:
+            for chunk in response.iter_content(1024):
+                file.write(chunk)
+
 
 def download_page_content(url):
     """
@@ -120,78 +113,99 @@ def download_page_content(url):
         file.write(page_source)
 
 
-async def download_images():
+def download_images(page_url):
     """
-    This function should download all images found on the current page and save them to the specified download directory.
+    This function should download all images found on the current page and save them to the same directory as the page content.
+    :param page_url: The URL of the current page.
+    :return: None
     """
     try:
+        # Extract the directory where the page content is saved
+        page_path = os.path.join(DOWNLOAD_DIR, urlparse(page_url).path.lstrip("/"))
+        
+        # Ensure the download directory exists
+        os.makedirs(os.path.dirname(page_path), exist_ok=True)
+        
+        # Find all the image elements on the page
         image_elements = driver.find_elements(By.TAG_NAME, "img")
-        download_tasks = []
         for image_element in image_elements:
             image_url = image_element.get_attribute("src")
             if image_url:
+                image_name = os.path.basename(urlparse(image_url).path)
+                image_path = os.path.join(os.path.dirname(page_path), image_name)
                 print(f"Image URL: {image_url}")
-                filename = image_url, os.path.join(DOWNLOAD_DIR, os.path.basename(urlparse(image_url).path))
-                download_tasks.append(download_file(image_url, filename))
-                print(f"image will be saved as {filename}")
-                
-            await asyncio.gather(*download_tasks)
-            print("All images downloaded successfully.")
+                download_file(image_url, image_path)
     except NoSuchElementException:
         print("No image elements found on the page.")
 
 
-def get_video_urls():
-    """
-    This function should return a list of video URLs found on the current page.
-    :return: A list of video URLs
-    """
-    #  try:
-    #     video_element = driver.find_elements(By.ID, "vjs_video_3")
-    #    video_source = video_element.get_attribute("source")
+#def get_video_urls():
+#    """
+#    This function should return a list of video URLs found on the current page.
+#    :return: A list of video URLs
+#    """
+#    try:
+#        source = driver.page_source
+#        soup = BeautifulSoup(source, "html.parser")
+#        video_source_tags = soup.find_all("source")
+#        for video_src_tag in video_source_tags:
+#            print(video_src_tag)
+#            tag_content = video_src_tag.get("src")
+#            print(tag_content)
+#            link_match = re.search(
+#                r"^http://.*cloudfront.net.*\.mp4.*[A-Z0-9]{20}$", tag_content
+#            )
+#            if link_match:
+#                print(link_match)
+#                print(link_match.group(0))
+#                print(link_match.group(1))
+#                video_url = link_match.group(0)
+#                print(f"Found Video URL: {video_url} added to video URLs list.")
+#                VIDEO_URLS.append(video_url)
+#            else:
+#                VIDEO_URLS.append(tag_content)
+#    except NoSuchElementException:
+#        print("No video elements found on the page.")
+#    return VIDEO_URLS
 
-    #        if video_source:
-    #            video_url = video_source.get_attribute("src")
-    #            if video_url:
-    #                print(f"Video URL: {video_url} added to video URLs list.")
-    #                VIDEO_URLS.append(video_url)
-    #        return VIDEO_URLS
-    #    except:
-    #        print("No video elements found on the page.")
+def download_videos(page_url):
+    """
+    Downloads all videos from the current page and saves them to the same directory as the page content and images.
+    :param page_url: The URL of the page (used to determine the directory for the videos).
+    """
     try:
+        # Extract the directory where the page content is saved
+        page_path = os.path.join(DOWNLOAD_DIR, urlparse(page_url).path.lstrip("/"))
+        
+        # Ensure the directory exists
+        os.makedirs(os.path.dirname(page_path), exist_ok=True)
+        
+        # Parse the page source and find all <source> tags for videos
         source = driver.page_source
         soup = BeautifulSoup(source, "html.parser")
         video_source_tags = soup.find_all("source")
+        
         for video_src_tag in video_source_tags:
-            print(video_src_tag)
-            tag_content = video_src_tag.get("src")
-            print(tag_content)
-            link_match = re.search(
-                r"^http://.*cloudfront.net.*\.mp4.*[A-Z0-9]{20}$", tag_content
-            )
-            if link_match:
-                print(link_match)
-                print(link_match.group(0))
-                print(link_match.group(1))
-                video_url = link_match.group(0)
-                print(f"Found Video URL: {video_url} added to video URLs list.")
-                VIDEO_URLS.append(video_url)
-            else:
-                VIDEO_URLS.append(tag_content)
+            video_url = video_src_tag.get("src")
+            if video_url:
+                # Generate the download path for the video
+                video_name = os.path.basename(urlparse(video_url).path)
+                video_path = os.path.join(os.path.dirname(page_path), video_name)
+                
+                print(f"Downloading video: {video_url} to {video_path}")
+                download_file(video_url, video_path)
+                
     except NoSuchElementException:
         print("No video elements found on the page.")
-    return VIDEO_URLS
+
 
 def page_actions():
     current_url = driver.current_url
     download_page_content(current_url)
-    print(current_url)
-    get_video_urls()
-    print("Attempting to get video url and append it to VIDEO_URLS list")
-    print(VIDEO_URLS)
-    download_images()
-    print("Downloading images...")
-    print(f"Downloaded page content for: {current_url}")
+    download_videos(current_url)
+    download_images(current_url)
+    print(f"Downloaded page content, images and video for: {current_url}")
+    print("=================================")
     print("=================================")
 
 #
@@ -235,7 +249,7 @@ def page_actions():
 #    main()
 
 
-async def main():
+def main():
     login()  # Log in to the site
 
     for courseurl in ALL_COURSE_URLS:
@@ -276,18 +290,14 @@ async def main():
             if attention_button and attention_button.is_displayed():
                 print("Attention button is displayed.")
                 break
-    download_tasks = []
+
     for video_url in VIDEO_URLS:
         # Download each video
-        download_path = os.path.join(DOWNLOAD_DIR, os.path.basename(urlparse(video_url).path))
-        download_tasks.append(download_file(video_url, download_path))
-        print(f"Downloading: {video_url}")
-    
-    await ayncio.gather(*download_tasks)
-    print("All videos downloaded successfully.")
+        download_file(video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url)))
+        print(f"Downloaded: {video_url}")
 
     driver.quit()  # Close the driver after operations are complete
 
 # Run the main function
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()
