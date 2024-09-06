@@ -1,28 +1,46 @@
+import asyncio
 import os
 import re
 import time
-import asyncio
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
-from selenium.webdriver.chrome import options
 from urllib.parse import urljoin, urlparse
-from bs4 import BeautifulSoup
+
 import requests
+
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.common.exceptions import (
+    NoSuchElementException,
+    StaleElementReferenceException,
+    TimeoutException,
+)
+from selenium.webdriver.chrome import options
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select, WebDriverWait
 
 BASE_URL = "https://learnenough.com"
 MID_URL = "/courses/"
 MID_URL_LONG = "/course/learn_enough_"
 COURSE_URL_ENDINGS = ["command_line", "text_editor", "git", "html", "action_cable"]
-ADDITIONAL_COURSE_URLS = ["css_and_layout", "javascript", "python", "ruby", "ruby_on_rail_tutorial_7th_edition", "ruby_on_rail_tutorial_6th_edition", "ruby_on_rail_tutorial_4th_edition"]
-FULL_COURSE_URLS = [f"{BASE_URL}{MID_URL_LONG}{COURSE_URL_ENDING}" for COURSE_URL_ENDING in COURSE_URL_ENDINGS]
-FULL_ADDITIONAL_COURSE_URLS = [f"{BASE_URL}{MID_URL}{ADDITIONAL_COURSE_URL}" for ADDITIONAL_COURSE_URL in ADDITIONAL_COURSE_URLS]
+ADDITIONAL_COURSE_URLS = [
+    "css_and_layout",
+    "javascript",
+    "python",
+    "ruby",
+    "ruby_on_rail_tutorial_7th_edition",
+    "ruby_on_rail_tutorial_6th_edition",
+    "ruby_on_rail_tutorial_4th_edition",
+]
+FULL_COURSE_URLS = [
+    f"{BASE_URL}{MID_URL_LONG}{COURSE_URL_ENDING}"
+    for COURSE_URL_ENDING in COURSE_URL_ENDINGS
+]
+FULL_ADDITIONAL_COURSE_URLS = [
+    f"{BASE_URL}{MID_URL}{ADDITIONAL_COURSE_URL}"
+    for ADDITIONAL_COURSE_URL in ADDITIONAL_COURSE_URLS
+]
 ALL_COURSE_URLS = FULL_COURSE_URLS + FULL_ADDITIONAL_COURSE_URLS
 LOGIN_URL = f"{BASE_URL}/login"
 DOWNLOAD_DIR = "my_selenium_downloads"
@@ -31,7 +49,10 @@ VIDEO_URLS = []
 PASSWORD = "ham8yhm!RXJ3xqm2enc"
 options = webdriver.ChromeOptions()
 driver = webdriver.Chrome(options=options)
-print(f"Welcome to The LearnEnough Course Downloader! We're using a list of courses: {ALL_COURSE_URLS}")
+print(
+    f"Welcome to The LearnEnough Course Downloader! We're using a list of courses: {ALL_COURSE_URLS}"
+)
+
 
 def login():
     """
@@ -42,7 +63,7 @@ def login():
     Returns:
     None
 
-    The Function waits for the login form to load and then enters the provided email and password, 
+    The Function waits for the login form to load and then enters the provided email and password,
     clicks the "Log In" button, and waits for the "Log Out" link to appear to confirm a succesful login.
     It prints a message indicating whether the login was successful or not.
     """
@@ -58,7 +79,8 @@ def login():
     except TimeoutException:
         print("Timed out waiting for the login form to load.")
 
-#def is_logged_in():
+
+# def is_logged_in():
 #    LOGIN_CHECK_ELEMENT = driver.find_element(By.CSS_SELECTOR, ".option-check.subscribed")
 #    """
 #    Checks if the user is logged in by looking for the presence of the "Log Out" link.
@@ -69,7 +91,7 @@ def login():
 #        return True
 #    except:
 #        return False
-#    
+#
 def download_file(url, download_path):
     """
     Downloads a file from the given URL and saves it to the specified download_path.
@@ -81,6 +103,7 @@ def download_file(url, download_path):
         with open(download_path, "wb") as file:
             for chunk in response.iter_content(1024):
                 file.write(chunk)
+
 
 def download_page_content(url):
     """
@@ -94,6 +117,7 @@ def download_page_content(url):
     with open(page_path + ".html", "w", encoding="utf-8") as file:
         file.write(page_source)
 
+
 def download_images():
     """
     This function should download all images found on the current page and save them to the specified download directory.
@@ -104,9 +128,12 @@ def download_images():
             image_url = image_element.get_attribute("src")
             if image_url:
                 print(f"Image URL: {image_url}")
-                download_file(image_url, os.path.join(DOWNLOAD_DIR, os.path.basename(image_url)))
+                download_file(
+                    image_url, os.path.join(DOWNLOAD_DIR, os.path.basename(image_url))
+                )
     except NoSuchElementException:
         print("No image elements found on the page.")
+
 
 def get_video_urls():
     """
@@ -117,23 +144,25 @@ def get_video_urls():
     #     video_element = driver.find_elements(By.ID, "vjs_video_3")
     #    video_source = video_element.get_attribute("source")
 
-#        if video_source:
-#            video_url = video_source.get_attribute("src")
-#            if video_url:
-#                print(f"Video URL: {video_url} added to video URLs list.")
-#                VIDEO_URLS.append(video_url)
-#        return VIDEO_URLS
-#    except:
-#        print("No video elements found on the page.")
+    #        if video_source:
+    #            video_url = video_source.get_attribute("src")
+    #            if video_url:
+    #                print(f"Video URL: {video_url} added to video URLs list.")
+    #                VIDEO_URLS.append(video_url)
+    #        return VIDEO_URLS
+    #    except:
+    #        print("No video elements found on the page.")
     try:
         source = driver.page_source
         soup = BeautifulSoup(source.content, "html.parser")
-        video_source_tag = soup.find_all("source") 
+        video_source_tag = soup.find_all("source")
         for tag in video_source_tag:
             soup.find("src", string=re.compile(r"mp4"))
         if video_src_tag:
             tag_content = video_src_tag.string
-            link_match = re.search(r"^http://.*cloudfront.net.*[a-Z0-9]{20}$", tag_content)
+            link_match = re.search(
+                r"^http://.*cloudfront.net.*[a-Z0-9]{20}$", tag_content
+            )
             if link_match:
                 print(link_match)
                 print(link_match.group(0))
@@ -143,6 +172,8 @@ def get_video_urls():
                 VIDEO_URLS.append(video_url)
     except NoSuchElementException:
         print("No video elements found on the page.")
+
+
 def page_actions():
     current_url = driver.current_url
     download_page_content(current_url)
@@ -154,10 +185,10 @@ def page_actions():
 
 def main():
     login()
-    #LOGIN_CHECK_ELEMENT = driver.find_element(By.CSS_SELECTOR, "a[href='/sign_out']")
+    # LOGIN_CHECK_ELEMENT = driver.find_element(By.CSS_SELECTOR, "a[href='/sign_out']")
     for courseurl in ALL_COURSE_URLS:
         print(f"Attempting to navigate to {courseurl}...")
-        #if not is_logged_in():
+        # if not is_logged_in():
         #    login()
         driver.get(courseurl)
         try:
@@ -173,14 +204,18 @@ def main():
         while True:
             try:
                 page_actions()
-                WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "btn.btnSmall")))
+                WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.CLASS_NAME, "btn.btnSmall"))
+                )
                 driver.find_element(By.CLASS_NAME, "btn.btnSmall").click()
             except NoSuchElementException:
                 print("This course/chapter has no more pages.")
     for video_url in VIDEO_URLS:
-        download_file(video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url)))
+        download_file(
+            video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url))
+        )
         print(f"Downloaded: {video_url}")
+
 
 if __name__ == "__main__":
     main()
-    
