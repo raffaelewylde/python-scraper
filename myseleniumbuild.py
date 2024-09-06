@@ -1,4 +1,5 @@
 import asyncio
+import aiohttp
 import os
 import re
 import time
@@ -20,7 +21,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select, WebDriverWait
 
 BASE_URL = "https://learnenough.com"
-MID_URL = "/courses/"
+MID_URL = "/course/"
 MID_URL_LONG = "/course/learn_enough_"
 COURSE_URL_ENDINGS = ["command_line", "text_editor", "git", "html", "action_cable"]
 ADDITIONAL_COURSE_URLS = [
@@ -42,7 +43,7 @@ FULL_ADDITIONAL_COURSE_URLS = [
 ]
 ALL_COURSE_URLS = FULL_COURSE_URLS + FULL_ADDITIONAL_COURSE_URLS
 LOGIN_URL = f"{BASE_URL}/login"
-DOWNLOAD_DIR = "my_selenium_downloads"
+DOWNLOAD_DIR = "Learn_Enough_Content"
 LOGIN = "learn@truenorthgnomes.info"
 VIDEO_URLS = []
 PASSWORD = "ham8yhm!RXJ3xqm2enc"
@@ -91,18 +92,20 @@ def login():
 #    except:
 #        return False
 #
-def download_file(url, download_path):
+async def download_file(url, download_path):
     """
     Downloads a file from the given URL and saves it to the specified download_path.
     :param url: The URL of the file to download.
     :param download_path: The path where the file should be saved.
     :return: None"""
-    response = requests.get(url, stream=True)
-    if response.status_code == 200:
-        with open(download_path, "wb") as file:
-            for chunk in response.iter_content(1024):
-                file.write(chunk)
-
+    async with aiohttp.ClientSesion() as session:
+        async with session.get(url) as response:
+            if response.status == 200:
+                with open(download_path, "wb") as file:
+                    async for chunk in response.content.iter_chunked(1024):
+                        file.write(chunk)
+            else:
+                print(f"Failed to download {url}. Status code: {response.status}")
 
 def download_page_content(url):
     """
@@ -117,19 +120,23 @@ def download_page_content(url):
         file.write(page_source)
 
 
-def download_images():
+async def download_images():
     """
     This function should download all images found on the current page and save them to the specified download directory.
     """
     try:
         image_elements = driver.find_elements(By.TAG_NAME, "img")
+        download_tasks = []
         for image_element in image_elements:
             image_url = image_element.get_attribute("src")
             if image_url:
                 print(f"Image URL: {image_url}")
-                download_file(
-                    image_url, os.path.join(DOWNLOAD_DIR, os.path.basename(image_url))
-                )
+                filename = image_url, os.path.join(DOWNLOAD_DIR, os.path.basename(urlparse(image_url).path))
+                download_tasks.append(download_file(image_url, filename))
+                print(f"image will be saved as {filename}")
+                
+            await asyncio.gather(*download_tasks)
+            print("All images downloaded successfully.")
     except NoSuchElementException:
         print("No image elements found on the page.")
 
@@ -228,7 +235,7 @@ def page_actions():
 #    main()
 
 
-def main():
+async def main():
     login()  # Log in to the site
 
     for courseurl in ALL_COURSE_URLS:
@@ -269,14 +276,18 @@ def main():
             if attention_button and attention_button.is_displayed():
                 print("Attention button is displayed.")
                 break
-
+    download_tasks = []
     for video_url in VIDEO_URLS:
         # Download each video
-        download_file(video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url)))
-        print(f"Downloaded: {video_url}")
+        download_path = os.path.join(DOWNLOAD_DIR, os.path.basename(urlparse(video_url).path))
+        download_tasks.append(download_file(video_url, download_path))
+        print(f"Downloading: {video_url}")
+    
+    await ayncio.gather(*download_tasks)
+    print("All videos downloaded successfully.")
 
     driver.quit()  # Close the driver after operations are complete
 
 # Run the main function
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
