@@ -178,6 +178,7 @@ def page_actions():
     print(current_url)
     get_video_urls()
     print("Attempting to get video url and append it to VIDEO_URLS list")
+    print(VIDEO_URLS)
     download_images()
     print("Downloading images...")
     print(f"Downloaded page content for: {current_url}")
@@ -192,25 +193,27 @@ def main():
         # if not is_logged_in():
         #    login()
         driver.get(courseurl)
-        try:
+        pgsource = driver.page_source
+        soup = BeautifulSoup(pgsource, "html.parser")
+        page_text = soup.get_text().lower()
+        word_to_search = "congratulations"
+        if word_to_search in page_text:
             attention_button = driver.find_element(By.CLASS_NAME, "btn.attention")
-        except NoSuchElementException:
-            attention_button = None
-        next_button = driver.find_element(By.CLASS_NAME, "btn.btnSmall")
-        if next_button.is_displayed():
-            next_button.click()
-        elif attention_button.is_displayed():
-            continue
+        else:
+            next_button = driver.find_element(By.CLASS_NAME, "btn.btnSmall")
+        if next_button:
+            if next_button.is_displayed():
+                while True:
+                    page_actions()
+                    WebDriverWait(driver, 10).until(
+                        EC.element_to_be_clickable((By.CLASS_NAME, "btn.btnSmall"))
+                    )
+                    next_button.click()
+        elif attention_button:
+            print("This course/chapter has no more pages.")
+            if attention_button.is_displayed():
+                continue
         time.sleep(5)
-        while True:
-            try:
-                page_actions()
-                WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((By.CLASS_NAME, "btn.btnSmall"))
-                )
-                driver.find_element(By.CLASS_NAME, "btn.btnSmall").click()
-            except NoSuchElementException:
-                print("This course/chapter has no more pages.")
     for video_url in VIDEO_URLS:
         download_file(
             video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url))
