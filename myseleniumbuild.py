@@ -4,9 +4,8 @@ import re
 import time
 from urllib.parse import urljoin, urlparse
 
-import requests
-
 from bs4 import BeautifulSoup
+import requests
 from selenium import webdriver
 from selenium.common.exceptions import (
     NoSuchElementException,
