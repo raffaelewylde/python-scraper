@@ -158,8 +158,9 @@ def get_video_urls():
         for video_src_tag in video_source_tags:
             print(video_src_tag)
             tag_content = video_src_tag.get("src")
+            print(tag_content)
             link_match = re.search(
-                r"^http://.*cloudfront.net.*\.mp4.*[A-Z0-9]{20}$", video_src_tag, tag_content
+                r"^http://.*cloudfront.net.*\.mp4.*[A-Z0-9]{20}$", tag_content
             )
             if link_match:
                 print(link_match)
@@ -168,6 +169,8 @@ def get_video_urls():
                 video_url = link_match.group(0)
                 print(f"Found Video URL: {video_url} added to video URLs list.")
                 VIDEO_URLS.append(video_url)
+            else:
+                VIDEO_URLS.append(tag_content)
     except NoSuchElementException:
         print("No video elements found on the page.")
     return VIDEO_URLS
@@ -184,42 +187,96 @@ def page_actions():
     print(f"Downloaded page content for: {current_url}")
     print("=================================")
 
+#
+#def main():
+#    login()
+#    # LOGIN_CHECK_ELEMENT = driver.find_element(By.CSS_SELECTOR, "a[href='/sign_out']")
+#    for courseurl in ALL_COURSE_URLS:
+#        print(f"Attempting to navigate to {courseurl}...")
+#        # if not is_logged_in():
+#        #    login()
+#        driver.get(courseurl)
+#        pgsource = driver.page_source
+#        soup = BeautifulSoup(pgsource, "html.parser")
+#        page_text = soup.get_text().lower()
+#        word_to_search = "congratulations"
+#        if word_to_search in page_text:
+#            attention_button = driver.find_element(By.CLASS_NAME, "btn.attention")
+#        while True:
+#            next_button = driver.find_element(By.CLASS_NAME, "btn.btnSmall")
+#            page_actions()
+#            if next_button:
+#                    WebDriverWait(driver, 10).until(
+#                        EC.element_to_be_clickable((By.CLASS_NAME, "btn.btnSmall"))
+#                    )
+#                    driver.find_element(By.CLASS_NAME, "btn.btnSmall").click()
+#                else:
+#                    break
+#            elif attention_button:
+#
+#                print("This course/chapter has no more pages.")
+#                break
+#            time.sleep(5)
+#    for video_url in VIDEO_URLS:
+#        download_file(
+#            video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url))
+#        )
+#        print(f"Downloaded: {video_url}")
+#
+#
+#if __name__ == "__main__":
+#    main()
+
 
 def main():
-    login()
-    # LOGIN_CHECK_ELEMENT = driver.find_element(By.CSS_SELECTOR, "a[href='/sign_out']")
+    login()  # Log in to the site
+
     for courseurl in ALL_COURSE_URLS:
         print(f"Attempting to navigate to {courseurl}...")
-        # if not is_logged_in():
-        #    login()
-        driver.get(courseurl)
+        driver.get(courseurl)  # Navigate to each course URL
         pgsource = driver.page_source
         soup = BeautifulSoup(pgsource, "html.parser")
         page_text = soup.get_text().lower()
+
+        # Search for the word "congratulations" in the page text
         word_to_search = "congratulations"
+        attention_button = None
+
         if word_to_search in page_text:
-            attention_button = driver.find_element(By.CLASS_NAME, "btn.attention")
-        else:
-            next_button = driver.find_element(By.CLASS_NAME, "btn.btnSmall")
-        if next_button:
-            if next_button.is_displayed():
-                while True:
-                    page_actions()
-                    WebDriverWait(driver, 10).until(
-                        EC.element_to_be_clickable((By.CLASS_NAME, "btn.btnSmall"))
-                    )
-                    next_button.click()
-        elif attention_button:
-            print("This course/chapter has no more pages.")
-            if attention_button.is_displayed():
-                continue
-        time.sleep(5)
+            try:
+                # Use CSS_SELECTOR to properly find the button with both classes
+                attention_button = driver.find_element(By.CSS_SELECTOR, ".btn.attention")
+            except NoSuchElementException:
+                print("Attention button not found.")
+
+        while True:
+            try:
+                # Find and click the next button
+                next_button = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn.btnSmall"))
+                )
+                next_button.click()  # Click the button if it's clickable
+                page_actions()  # Perform actions on the page
+                time.sleep(5)
+            except TimeoutException:
+                print("Next button is not clickable or found.")
+                break
+            except NoSuchElementException:
+                print("This course/chapter has no more pages.")
+                break
+
+            # Check the attention button if it was found earlier
+            if attention_button and attention_button.is_displayed():
+                print("Attention button is displayed.")
+                break
+
     for video_url in VIDEO_URLS:
-        download_file(
-            video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url))
-        )
+        # Download each video
+        download_file(video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url)))
         print(f"Downloaded: {video_url}")
 
+    driver.quit()  # Close the driver after operations are complete
 
+# Run the main function
 if __name__ == "__main__":
     main()
