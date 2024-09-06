@@ -153,31 +153,33 @@ def get_video_urls():
     #        print("No video elements found on the page.")
     try:
         source = driver.page_source
-        soup = BeautifulSoup(source.content, "html.parser")
-        video_source_tag = soup.find_all("source")
-        for tag in video_source_tag:
-            soup.find("src", string=re.compile(r"mp4"))
-        if video_src_tag:
-            tag_content = video_src_tag.string
+        soup = BeautifulSoup(source, "html.parser")
+        video_source_tags = soup.find_all("source")
+        for video_src_tag in video_source_tags:
+            print(video_src_tag)
+            tag_content = video_src_tag.get("src")
             link_match = re.search(
-                r"^http://.*cloudfront.net.*[a-Z0-9]{20}$", tag_content
+                r"^http://.*cloudfront.net.*\.mp4.*[A-Z0-9]{20}$", video_src_tag, tag_content
             )
             if link_match:
                 print(link_match)
                 print(link_match.group(0))
                 print(link_match.group(1))
-                video_url = link_match.group(1)
+                video_url = link_match.group(0)
                 print(f"Found Video URL: {video_url} added to video URLs list.")
                 VIDEO_URLS.append(video_url)
     except NoSuchElementException:
         print("No video elements found on the page.")
-
+    return VIDEO_URLS
 
 def page_actions():
     current_url = driver.current_url
     download_page_content(current_url)
+    print(current_url)
     get_video_urls()
+    print("Attempting to get video url and append it to VIDEO_URLS list")
     download_images()
+    print("Downloading images...")
     print(f"Downloaded page content for: {current_url}")
     print("=================================")
 
