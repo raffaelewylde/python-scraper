@@ -19,6 +19,10 @@ BASE_URL = "https://learnenough.com"
 MID_URL = "/courses/"
 MID_URL_LONG = "/course/learn_enough_"
 COURSE_URL_ENDINGS = [
+    "command_line",
+    "text_edior",
+    "git",
+    "html",
     "css",
     "javascript",
     "python",
