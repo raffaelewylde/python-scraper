@@ -1,0 +1,64 @@
+import os
+import re
+import time
+from urllib.parse import urlparse
+from concurrent.futures import ThreadPoolExecutor
+
+from bs4 import BeautifulSoup
+import requests
+from selenium import webdriver
+from selenium.common.exceptions import (
+    NoSuchElementException,
+    TimeoutException,
+)
+from selenium.webdriver.chrome import options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+BASE_URL = "https://learnenough.com"
+MID_URL = "/courses/"
+MID_URL_LONG = "/course/learn_enough_"
+COURSE_URL_ENDINGS = [
+    "command_line",
+    "text_edior",
+    "git",
+    "html",
+    "css",
+    "javascript",
+    "python",
+    "ruby",
+    "ruby_on_rail_tutorial_7th_edition",
+    "ruby_on_rail_tutorial_6th_edition",
+    "ruby_on_rail_tutorial_4th_edition",
+    "action_cable",
+]
+URL_END = "/frontmatter"
+ADDITIONAL_COURSE_URLS = [
+    "css",
+    "javascript",
+    "python",
+    "ruby",
+    "ruby_on_rail_tutorial_7th_edition",
+    "ruby_on_rail_tutorial_6th_edition",
+    "ruby_on_rail_tutorial_4th_edition",
+]
+FULL_COURSE_URLS = [
+    f"{BASE_URL}{MID_URL_LONG}{COURSE_URL_ENDING}"
+    for COURSE_URL_ENDING in COURSE_URL_ENDINGS
+]
+FULL_ADDITIONAL_COURSE_URLS = [
+    f"{BASE_URL}{MID_URL}{ADDITIONAL_COURSE_URL}"
+    for ADDITIONAL_COURSE_URL in ADDITIONAL_COURSE_URLS
+]
+ALL_COURSE_URLS = [
+    f"{BASE_URL}{MID_URL_LONG}{COURSE_URL_ENDING}{URL_END}"
+    for COURSE_URL_ENDING in COURSE_URL_ENDINGS
+]
+LOGIN_URL = f"{BASE_URL}/login"
+DOWNLOAD_DIR = "LearnEnoughSeleniumContent-Sept_6"
+LOGIN = "learn@truenorthgnomes.info"
+VIDEO_URLS = []
+PASSWORD = "ham8yhm!RXJ3xqm2enc"
+options = webdriver.ChromeOptions()
+options.timeouts = {"implicit": 10000, "
