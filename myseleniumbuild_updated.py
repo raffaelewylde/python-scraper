@@ -1,7 +1,7 @@
 import os
-import re
 import time
 from urllib.parse import urlparse
+from concurrent.futures import ThreadPoolExecutor
 
 from bs4 import BeautifulSoup
 import requests
@@ -20,48 +20,31 @@ MID_URL = "/courses/"
 MID_URL_LONG = "/course/learn_enough_"
 COURSE_URL_ENDINGS = [
     "command_line",
-    "text_edior",
+    "text_editor",
     "git",
     "html",
     "css",
     "javascript",
     "python",
     "ruby",
-    "ruby_on_rail_tutorial_7th_edition",
-    "ruby_on_rail_tutorial_6th_edition",
-    "ruby_on_rail_tutorial_4th_edition",
+    "ruby_on_rails_tutorial_7th_edition",
+    "ruby_on_rails_tutorial_6th_edition",
+    "ruby_on_rails_tutorial_4th_edition",
     "action_cable",
 ]
 URL_END = "/frontmatter"
-ADDITIONAL_COURSE_URLS = [
-    "css",
-    "javascript",
-    "python",
-    "ruby",
-    "ruby_on_rail_tutorial_7th_edition",
-    "ruby_on_rail_tutorial_6th_edition",
-    "ruby_on_rail_tutorial_4th_edition",
-]
-FULL_COURSE_URLS = [
-    f"{BASE_URL}{MID_URL_LONG}{COURSE_URL_ENDING}"
-    for COURSE_URL_ENDING in COURSE_URL_ENDINGS
-]
-FULL_ADDITIONAL_COURSE_URLS = [
-    f"{BASE_URL}{MID_URL}{ADDITIONAL_COURSE_URL}"
-    for ADDITIONAL_COURSE_URL in ADDITIONAL_COURSE_URLS
-]
 ALL_COURSE_URLS = [
     f"{BASE_URL}{MID_URL_LONG}{COURSE_URL_ENDING}{URL_END}"
     for COURSE_URL_ENDING in COURSE_URL_ENDINGS
 ]
 LOGIN_URL = f"{BASE_URL}/login"
-DOWNLOAD_DIR = "LearnEnoughSeleniumContent-Sept_6"
+DOWNLOAD_DIR = "LearnEnoughSeleniumContent-Sept_8"
 LOGIN = "learn@truenorthgnomes.info"
-VIDEO_URLS = []
 PASSWORD = "ham8yhm!RXJ3xqm2enc"
 options = webdriver.ChromeOptions()
 options.timeouts = {"implicit": 10000, "pageLoad": 15000, "script": 15000}
 driver = webdriver.Chrome(options=options)
+
 print(
     f"Welcome to The LearnEnough Course Downloader! We're using a list of courses: {ALL_COURSE_URLS}"
 )
@@ -82,7 +65,7 @@ def login():
     """
     try:
         driver.get(LOGIN_URL)
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.ID, "user_login"))
         )
         driver.find_element(By.ID, "user_login").send_keys(LOGIN)
@@ -126,7 +109,7 @@ def download_page_content(url):
     # Download page content
     page_source = driver.page_source
     page_path = os.path.join(DOWNLOAD_DIR, urlparse(url).path.lstrip("/"))
-    os.makedirs(os.path.dirname(page_path), exist_ok=True)
+    os.makedirs(page_path, exist_ok=True)
     with open(page_path + ".html", "w", encoding="utf-8") as file:
         file.write(page_source)
 
@@ -142,17 +125,18 @@ def download_images(page_url):
         page_path = os.path.join(DOWNLOAD_DIR, urlparse(page_url).path.lstrip("/"))
 
         # Ensure the download directory exists
-        os.makedirs(os.path.dirname(page_path), exist_ok=True)
+        os.makedirs(page_path, exist_ok=True)
 
         # Find all the image elements on the page
         image_elements = driver.find_elements(By.TAG_NAME, "img")
-        for image_element in image_elements:
-            image_url = image_element.get_attribute("src")
-            if image_url:
-                image_name = os.path.basename(urlparse(image_url).path)
-                image_path = os.path.join(os.path.dirname(page_path), image_name)
-                print(f"Image URL: {image_url}")
-                download_file(image_url, image_path)
+        with ThreadPoolExecutor() as executor:
+            for image_element in image_elements:
+                image_url = image_element.get_attribute("src")
+                if image_url:
+                    image_name = os.path.basename(urlparse(image_url).path)
+                    image_path = os.path.join(page_path, image_name)
+                    print(f"Image URL: {image_url}")
+                    executor.submit(download_file, image_url, image_path)
     except NoSuchElementException:
         print("No image elements found on the page.")
 
@@ -196,7 +180,7 @@ def download_videos(page_url):
         page_path = os.path.join(DOWNLOAD_DIR, urlparse(page_url).path.lstrip("/"))
 
         # Ensure the directory exists
-        os.makedirs(os.path.dirname(page_path), exist_ok=True)
+        os.makedirs(page_path, exist_ok=True)
 
         # Parse the page source and find all <source> tags for videos
         source = driver.page_source
@@ -208,7 +192,7 @@ def download_videos(page_url):
             if video_url:
                 # Generate the download path for the video
                 video_name = os.path.basename(urlparse(video_url).path)
-                video_path = os.path.join(os.path.dirname(page_path), video_name)
+                video_path = os.path.join(page_path, video_name)
 
                 print(f"Downloading video: {video_url} to {video_path}")
                 download_file(video_url, video_path)
@@ -311,13 +295,6 @@ def main():
             if attention_button and attention_button.is_displayed():
                 print("Attention button is displayed.")
                 break
-
-    for video_url in VIDEO_URLS:
-        # Download each video
-        download_file(
-            video_url, os.path.join(DOWNLOAD_DIR, os.path.basename(video_url))
-        )
-        print(f"Downloaded: {video_url}")
 
     driver.quit()  # Close the driver after operations are complete
 
