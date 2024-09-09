@@ -19,18 +19,18 @@ BASE_URL = "https://learnenough.com"
 MID_URL = "/courses/"
 MID_URL_LONG = "/course/learn_enough_"
 COURSE_URL_ENDINGS = [
-    "command_line",
-    "text_editor",
-    "git",
-    "html",
-    "css",
-    "javascript",
-    "python",
-    "ruby",
+#    "command_line",
+#    "text_editor",
+#    "git",
+#    "html",
+#    "css",
+#    "javascript",
+#    "python",
+#    "ruby",
     "ruby_on_rails_tutorial_7th_edition",
     "ruby_on_rails_tutorial_6th_edition",
     "ruby_on_rails_tutorial_4th_edition",
-    "action_cable",
+#    "action_cable",
 ]
 URL_END = "/frontmatter"
 ALL_COURSE_URLS = [
@@ -270,7 +270,7 @@ def main():
             try:
                 # Use CSS_SELECTOR to properly find the button with both classes
                 attention_button = driver.find_element(
-                    By.CSS_SELECTOR, ".btn.attention"
+                    By.XPATH, "//a[@class='btn attention']"
                 )
             except NoSuchElementException:
                 print("Attention button not found.")
@@ -279,7 +279,7 @@ def main():
             try:
                 # Find and click the next button
                 next_button = WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn.btnSmall"))
+                    EC.element_to_be_clickable((By.XPATH, "//a[@class='btn btnSmall']"))
                 )
                 next_button.click()  # Click the button if it's clickable
                 page_actions()  # Perform actions on the page
